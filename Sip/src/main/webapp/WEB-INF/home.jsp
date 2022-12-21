@@ -8,5 +8,8 @@
 </head>
 <body>
 	<h1>Sip. Home</h1>
+
+${SMOKETST}
+
 </body>
 </html>

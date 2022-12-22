@@ -1,0 +1,36 @@
+id,spirit_type_id,name,description,image_url,proof,origin_country,origin_state_province
+1,3,Tito's,NULL,NULL,80,"United States",Texas
+2,1,"Jack Daniel's",NULL,NULL,80,"United States",Tennessee
+3,2,Bulleit,NULL,NULL,90,"United States",Kentucky
+4,4,Hendrick's,NULL,NULL,80,Scotland,NULL
+5,5,"Captain Morgan",NULL,NULL,70,Jamaica,NULL
+6,6,"Don Juilo",NULL,NULL,80,Mexico,NULL
+7,7,Glenfiddich,NULL,NULL,80,Scotland,NULL
+8,3,"Grey Goose",NULL,NULL,80,France,NULL
+9,3,Smirnoff,NULL,NULL,80,"United States",Illinois
+10,3,Absolut,NULL,NULL,80,Sweden,NULL
+11,3,"Kettle One",NULL,NULL,80,Netherlands,NULL
+12,4,"Bombay Sapphire",NULL,NULL,94,England,NULL
+13,4,Gordon's,NULL,NULL,75,Scotland,NULL
+14,4,Tanqueray,NULL,NULL,94.6,Scotland,NULL
+15,4,Beefeater,NULL,NULL,80,England,London
+16,5,Bacardi,NULL,NULL,80,Cuba,NULL
+17,5,Malibu,NULL,NULL,42,Barbados,NULL
+18,5,"Don Q",NULL,NULL,80,"United States","Puerto Rico"
+19,5,Appleton,NULL,NULL,80,Jamaica,NULL
+20,1,"Makers Mark",NULL,NULL,90,"United States",Kentucky
+21,1,Jameson,NULL,NULL,80,Ireland,NULL
+22,1,"Evan Williams",NULL,NULL,86,"United States",Kentucky
+23,1,"Jim Bean",NULL,NULL,80,"United States",Kentucky
+24,2,"Buffalo Trace",NULL,NULL,90,"United States",Kentucky
+25,2,"Angels Envy",NULL,NULL,87,"United States",Kentucky
+26,2,"Knob Creek",NULL,NULL,90,"United States",Kentucky
+27,2,"Elijah Craig",NULL,NULL,94,"United States",Kentucky
+28,6,Casamigos,NULL,NULL,80,Mexico,NULL
+29,6,Epsolon,NULL,NULL,80,Mexico,NULL
+30,6,Milagro,NULL,NULL,80,Mexico,NULL
+31,6,Patron,NULL,NULL,80,Mexico,NULL
+32,7,Glenlivet,NULL,NULL,80,Scotland,NULL
+33,7,Macallon,NULL,NULL,86,Scotland,NULL
+34,7,Dewars,NULL,NULL,80,Scotland,NULL
+35,7,"Johnnie Walker",NULL,NULL,80,Scotland,NULL

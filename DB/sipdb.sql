@@ -551,6 +551,30 @@ INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`
 INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (9, 3, 'Smirnoff', NULL, NULL, 80, 'United States', 'Illinois');
 INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (10, 3, 'Absolut', NULL, NULL, 80, 'Sweden', NULL);
 INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (11, 3, 'Kettle One', NULL, NULL, 80, 'Netherlands', NULL);
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (12, 4, 'Bombay Sapphire', NULL, NULL, 94, 'England', NULL);
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (13, 4, 'Gordon\'s', NULL, NULL, 75, 'Scotland', NULL);
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (14, 4, 'Tanqueray', NULL, NULL, 94.6, 'Scotland', NULL);
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (15, 4, 'Beefeater', NULL, NULL, 80, 'England', 'London');
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (16, 5, 'Bacardi', NULL, NULL, 80, 'Cuba', NULL);
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (17, 5, 'Malibu', NULL, NULL, 42, 'Barbados', NULL);
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (18, 5, 'Don Q', NULL, NULL, 80, 'United States', 'Puerto Rico');
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (19, 5, 'Appleton', NULL, NULL, 80, 'Jamaica', NULL);
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (20, 1, 'Makers Mark', NULL, NULL, 90, 'United States', 'Kentucky');
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (21, 1, 'Jameson', NULL, NULL, 80, 'Ireland', NULL);
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (22, 1, 'Evan Williams', NULL, NULL, 86, 'United States', 'Kentucky');
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (23, 1, 'Jim Bean', NULL, NULL, 80, 'United States', 'Kentucky');
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (24, 2, 'Buffalo Trace', NULL, NULL, 90, 'United States', 'Kentucky');
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (25, 2, 'Angels Envy', NULL, NULL, 87, 'United States', 'Kentucky');
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (26, 2, 'Knob Creek', NULL, NULL, 90, 'United States', 'Kentucky');
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (27, 2, 'Elijah Craig', NULL, NULL, 94, 'United States', 'Kentucky');
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (28, 6, 'Casamigos', NULL, NULL, 80, 'Mexico', NULL);
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (29, 6, 'Epsolon', NULL, NULL, 80, 'Mexico', NULL);
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (30, 6, 'Milagro', NULL, NULL, 80, 'Mexico', NULL);
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (31, 6, 'Patron', NULL, NULL, 80, 'Mexico', NULL);
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (32, 7, 'Glenlivet', NULL, NULL, 80, 'Scotland', NULL);
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (33, 7, 'Macallon', NULL, NULL, 86, 'Scotland', NULL);
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (34, 7, 'Dewars', NULL, NULL, 80, 'Scotland', NULL);
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (35, 7, 'Johnnie Walker', NULL, NULL, 80, 'Scotland', NULL);
 
 COMMIT;
 

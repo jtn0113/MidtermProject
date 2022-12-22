@@ -6,6 +6,16 @@
     
     	<!-- begin entities -->
     	<class>com.skilldistillery.sip.entities.User</class>
+    	<class>com.skilldistillery.sip.entities.Beer</class>
+    	<class>com.skilldistillery.sip.entities.BeerTasting</class>
+    	<class>com.skilldistillery.sip.entities.BrewType</class>
+    	<class>com.skilldistillery.sip.entities.SpiritTasting</class>
+    	<class>com.skilldistillery.sip.entities.Spirit</class>
+    	<class>com.skilldistillery.sip.entities.SpiritType</class>
+    	<class>com.skilldistillery.sip.entities.Wine</class>
+    	<class>com.skilldistillery.sip.entities.WineColor</class>
+    	<class>com.skilldistillery.sip.entities.WineTasting</class>
+    	<class>com.skilldistillery.sip.entities.WineType</class>
     	<!-- end entities -->
 
     <properties>

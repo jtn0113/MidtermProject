@@ -8,8 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="spirit_tasting")
 public class SpiritTasting {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +20,7 @@ public class SpiritTasting {
 	private int userId;
 	private String notes;
 	private double price;
-	private int rating;
+	private Integer rating;
 	private String photo;
 	@Column(name = "date_sampled")
 	private LocalDate dateSampled;
@@ -80,11 +82,12 @@ public class SpiritTasting {
 		this.price = price;
 	}
 
-	public int getRating() {
+
+	public Integer getRating() {
 		return rating;
 	}
 
-	public void setRating(int rating) {
+	public void setRating(Integer rating) {
 		this.rating = rating;
 	}
 

@@ -6,7 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 @Entity
+@Table(name="brew_type")
 public class BrewType {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

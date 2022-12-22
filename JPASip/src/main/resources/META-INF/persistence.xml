@@ -16,6 +16,8 @@
     	<class>com.skilldistillery.sip.entities.WineColor</class>
     	<class>com.skilldistillery.sip.entities.WineTasting</class>
     	<class>com.skilldistillery.sip.entities.WineType</class>
+    	<class>com.skilldistillery.sip.entities.Address</class>
+    	<class>com.skilldistillery.sip.entities.LocationBrewery</class>
     	<!-- end entities -->
 
     <properties>

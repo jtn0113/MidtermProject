@@ -7,9 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class Location {
+@Table(name="location_brewery")
+public class LocationBrewery {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -19,7 +21,7 @@ public class Location {
 	private String imageUrl;
 	@Column(name="address_id")
 	private int addressId;
-	public Location() {
+	public LocationBrewery() {
 		super();
 	}
 	public int getId() {
@@ -69,7 +71,7 @@ public class Location {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Location other = (Location) obj;
+		LocationBrewery other = (LocationBrewery) obj;
 		return id == other.id;
 	}
 

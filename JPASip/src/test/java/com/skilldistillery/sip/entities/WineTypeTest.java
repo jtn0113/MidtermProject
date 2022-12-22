@@ -43,6 +43,8 @@ class WineTypeTest {
 	void test_wine_type_type_id_name() {
 		assertNotNull(wineType);
 		assertEquals("Pinot Noir", wineType.getName());
-		assertEquals(1, wineType.getWineColorId());
+		assertEquals(1, wineType.getWineColor().getId());
+		assertEquals("Red", wineType.getWineColor().getColor());
+		assertEquals("Sweet", wineType.getWineColor().getDescription());
 	}
 }

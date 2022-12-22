@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,8 +18,11 @@ public class BeerTasting {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(name = "user_id")
-	private int userId;
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
+	
 	private String notes;
 	private double price;
 	private Integer rating;
@@ -25,8 +30,10 @@ public class BeerTasting {
 
 	@Column(name = "date_sampled")
 	private LocalDate dateSampled;
-	@Column(name = "beer_id")
-	private int beerId;
+	
+	@ManyToOne
+	@JoinColumn(name="beer_id")
+	private Beer beer;
 
 	public BeerTasting() {
 		super();
@@ -38,14 +45,6 @@ public class BeerTasting {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
 	}
 
 	public String getNotes() {
@@ -88,18 +87,26 @@ public class BeerTasting {
 		this.dateSampled = dateSampled;
 	}
 
-	public int getBeerId() {
-		return beerId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setBeerId(int beerId) {
-		this.beerId = beerId;
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Beer getBeer() {
+		return beer;
+	}
+
+	public void setBeer(Beer beer) {
+		this.beer = beer;
 	}
 
 	@Override
 	public String toString() {
-		return "BeerTasting [id=" + id + ", userId=" + userId + ", notes=" + notes + ", price=" + price + ", rating="
-				+ rating + ", photo=" + photo + ", dateSampled=" + dateSampled + ", beerId=" + beerId + "]";
+		return "BeerTasting [id=" + id + ", user=" + user + ", notes=" + notes + ", price=" + price + ", rating="
+				+ rating + ", photo=" + photo + ", dateSampled=" + dateSampled + ", beer=" + beer + "]";
 	}
 
 	@Override

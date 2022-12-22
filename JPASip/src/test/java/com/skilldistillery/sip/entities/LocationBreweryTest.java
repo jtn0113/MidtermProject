@@ -43,6 +43,6 @@ class LocationBreweryTest {
 	void test_brewery_type_id_name() {
 		assertNotNull(brewery);
 		assertEquals("Bob's Brews", brewery.getName());
-		assertEquals(1, brewery.getAddressId());
+		assertEquals(1, brewery.getAddress().getId());
 	}
 }

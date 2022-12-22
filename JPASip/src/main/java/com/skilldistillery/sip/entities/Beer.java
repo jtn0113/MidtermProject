@@ -2,24 +2,30 @@ package com.skilldistillery.sip.entities;
 
 import java.util.Objects;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 @Entity
 public class Beer {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String name;
-	@Column(name="brew_type_id")
-	private int brewTypeId;
+	
+	@ManyToOne
+	@JoinColumn(name="brew_type_id")
+	private BrewType brewType;
+	
 	@Column(name="origin_city")
 	private String originCity;
+	
 	@Column(name="origin_state")
 	private String originState;
+	
 	private double abv;
 	private String description;	
 	
@@ -44,7 +50,7 @@ public class Beer {
 	}
 	@Override
 	public String toString() {
-		return "Beer [id=" + id + ", name=" + name + ", brewTypeId=" + brewTypeId + ", originCity=" + originCity
+		return "Beer [id=" + id + ", name=" + name + ", brewType=" + brewType + ", originCity=" + originCity
 				+ ", originState=" + originState + ", abv=" + abv + ", description=" + description + ", imageUrl="
 				+ imageUrl + "]";
 	}
@@ -60,12 +66,16 @@ public class Beer {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getBrewTypeId() {
-		return brewTypeId;
+	
+	
+	public BrewType getBrewType() {
+		return brewType;
 	}
-	public void setBrewTypeId(int brewTypeId) {
-		this.brewTypeId = brewTypeId;
+
+	public void setBrewType(BrewType brewType) {
+		this.brewType = brewType;
 	}
+
 	public String getOriginCity() {
 		return originCity;
 	}

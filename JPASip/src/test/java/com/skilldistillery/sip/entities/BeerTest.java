@@ -43,7 +43,7 @@ class BeerTest {
 	@Test
 	void test_beer_brew_type_id_mapping() {
 		assertNotNull(beer);
-		assertEquals(2, beer.getBrewTypeId());
+		assertEquals(2, beer.getBrewType().getId());
 		assertEquals("Bud Light Lime", beer.getName());
 	}
 

@@ -2,11 +2,12 @@ package com.skilldistillery.sip.entities;
 
 import java.util.Objects;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,8 +18,10 @@ public class WineType {
 	private int id;
 	private String name;
 	private String description;
-	@Column(name = "wine_color_id")
-	private int wineColorId;
+	
+	@ManyToOne
+	@JoinColumn(name="wine_color_id")
+	private WineColor wineColor;
 
 	public WineType() {
 		super();
@@ -48,17 +51,19 @@ public class WineType {
 		this.description = description;
 	}
 
-	public int getWineColorId() {
-		return wineColorId;
+	
+
+	public WineColor getWineColor() {
+		return wineColor;
 	}
 
-	public void setWineColorId(int wineColorId) {
-		this.wineColorId = wineColorId;
+	public void setWineColor(WineColor wineColor) {
+		this.wineColor = wineColor;
 	}
 
 	@Override
 	public String toString() {
-		return "WineType [id=" + id + ", name=" + name + ", description=" + description + ", wineColorId=" + wineColorId
+		return "WineType [id=" + id + ", name=" + name + ", description=" + description + ", wineColor=" + wineColor
 				+ "]";
 	}
 

@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,16 +18,21 @@ public class SpiritTasting {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(name = "user_id")
-	private int userId;
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
+	
 	private String notes;
 	private double price;
 	private Integer rating;
 	private String photo;
 	@Column(name = "date_sampled")
 	private LocalDate dateSampled;
-	@Column(name = "spirit_id")
-	private int spiritId;
+
+	@ManyToOne
+	@JoinColumn(name="spirit_id")
+	private Spirit spirit;
 
 	@Override
 	public int hashCode() {
@@ -46,8 +53,8 @@ public class SpiritTasting {
 
 	@Override
 	public String toString() {
-		return "SpiritTasting [id=" + id + ", userId=" + userId + ", notes=" + notes + ", price=" + price + ", rating="
-				+ rating + ", photo=" + photo + ", dateSampled=" + dateSampled + ", spiritId=" + spiritId + "]";
+		return "SpiritTasting [id=" + id + ", user=" + user + ", notes=" + notes + ", price=" + price + ", rating="
+				+ rating + ", photo=" + photo + ", dateSampled=" + dateSampled + ", spirit=" + spirit + "]";
 	}
 
 	public int getId() {
@@ -58,12 +65,14 @@ public class SpiritTasting {
 		this.id = id;
 	}
 
-	public int getUserId() {
-		return userId;
+	
+
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public String getNotes() {
@@ -107,12 +116,12 @@ public class SpiritTasting {
 		this.dateSampled = dateSampled;
 	}
 
-	public int getSpiritId() {
-		return spiritId;
+	public Spirit getSpirit() {
+		return spirit;
 	}
 
-	public void setSpiritId(int spiritId) {
-		this.spiritId = spiritId;
+	public void setSpirit(Spirit spirit) {
+		this.spirit = spirit;
 	}
 
 	public SpiritTasting() {

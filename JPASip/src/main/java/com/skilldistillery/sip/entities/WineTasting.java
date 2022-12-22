@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,8 +18,11 @@ public class WineTasting {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(name = "user_id")
-	private int userId;
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
+	
 	private String notes;
 	private double price;
 	private Integer rating;
@@ -26,8 +31,9 @@ public class WineTasting {
 	@Column(name = "date_sampled")
 	private LocalDate dateSampled;
 
-	@Column(name = "wine_id")
-	private int wineId;
+	@ManyToOne
+	@JoinColumn(name="wine_id")
+	private Wine wine;
 
 	public WineTasting() {
 		super();
@@ -39,14 +45,6 @@ public class WineTasting {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
 	}
 
 	public String getNotes() {
@@ -89,19 +87,29 @@ public class WineTasting {
 	public void setDateSampled(LocalDate dateSampled) {
 		this.dateSampled = dateSampled;
 	}
+	
+	
 
-	public int getWineId() {
-		return wineId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setWineId(int wineId) {
-		this.wineId = wineId;
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Wine getWine() {
+		return wine;
+	}
+
+	public void setWine(Wine wine) {
+		this.wine = wine;
 	}
 
 	@Override
 	public String toString() {
-		return "WineTasting [id=" + id + ", userId=" + userId + ", notes=" + notes + ", price=" + price + ", rating="
-				+ rating + ", photo=" + photo + ", dateSampled=" + dateSampled + ", wineId=" + wineId + "]";
+		return "WineTasting [id=" + id + ", user=" + user + ", notes=" + notes + ", price=" + price + ", rating="
+				+ rating + ", photo=" + photo + ", dateSampled=" + dateSampled + ", wine=" + wine + "]";
 	}
 
 	@Override

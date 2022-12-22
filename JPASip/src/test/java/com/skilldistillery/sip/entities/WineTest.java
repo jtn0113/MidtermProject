@@ -44,5 +44,6 @@ class WineTest {
 		assertNotNull(wine);
 		assertEquals("Coppola", wine.getName());
 		assertEquals("California", wine.getVineyardLocation());
+		assertEquals(3, wine.getWineType().getId());
 	}
 }

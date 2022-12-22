@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Wine {
@@ -15,8 +17,11 @@ public class Wine {
 	private int id;
 	private String name;
 	private String description;
-	@Column(name = "wine_type_id")
-	private int wineTypeId;
+	
+	@ManyToOne
+	@JoinColumn(name="wine_type_id")
+	private WineType wineType;
+	
 	@Column(name = "image_url")
 	private String imageUrl;
 	@Column(name = "vineyard_name")
@@ -55,12 +60,14 @@ public class Wine {
 		this.description = description;
 	}
 
-	public int getWineTypeId() {
-		return wineTypeId;
+	
+
+	public WineType getWineType() {
+		return wineType;
 	}
 
-	public void setWineTypeId(int wineTypeId) {
-		this.wineTypeId = wineTypeId;
+	public void setWineType(WineType wineType) {
+		this.wineType = wineType;
 	}
 
 	public String getImageUrl() {
@@ -105,7 +112,7 @@ public class Wine {
 
 	@Override
 	public String toString() {
-		return "Wine [id=" + id + ", name=" + name + ", description=" + description + ", wineTypeId=" + wineTypeId
+		return "Wine [id=" + id + ", name=" + name + ", description=" + description + ", wineType=" + wineType
 				+ ", imageUrl=" + imageUrl + ", vineyardName=" + vineyardName + ", vineyardLocation=" + vineyardLocation
 				+ ", vintageYear=" + vintageYear + ", abv=" + abv + "]";
 	}

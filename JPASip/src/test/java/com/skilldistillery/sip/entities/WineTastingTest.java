@@ -42,8 +42,9 @@ class WineTastingTest {
 	@Test
 	void test_wine_tasting_type_id_name() {
 		assertNotNull(wineTasting);
-		assertEquals(1, wineTasting.getUserId());
+		assertEquals(1, wineTasting.getUser().getId());
 		assertEquals(8, wineTasting.getPrice());
+		assertEquals("Coppola Vineyard", wineTasting.getWine().getVineyardName());
 		
 	}
 }

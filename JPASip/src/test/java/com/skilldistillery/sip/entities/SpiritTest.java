@@ -41,7 +41,7 @@ class SpiritTest {
 	@Test
 	void test_spirit_type_id_name() {
 		assertNotNull(spirit);
-		assertEquals(3, spirit.getSpiritTypeId());
+		assertEquals(3, spirit.getSpiritType().getId());
 		assertEquals("Tito's", spirit.getName());
 	}
 

@@ -16,6 +16,21 @@ CREATE SCHEMA IF NOT EXISTS `sipdb` DEFAULT CHARACTER SET utf8 ;
 USE `sipdb` ;
 
 -- -----------------------------------------------------
+-- Table `address`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `address` ;
+
+CREATE TABLE IF NOT EXISTS `address` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `street` VARCHAR(100) NULL,
+  `city` VARCHAR(50) NULL,
+  `state` VARCHAR(45) NULL,
+  `zip` VARCHAR(9) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `user`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `user` ;
@@ -26,8 +41,19 @@ CREATE TABLE IF NOT EXISTS `user` (
   `enabled` TINYINT NULL,
   `password` VARCHAR(45) NOT NULL,
   `role` VARCHAR(45) NULL,
+  `address_id` INT NULL,
+  `first_name` VARCHAR(45) NULL,
+  `last_name` VARCHAR(50) NULL,
+  `image` TEXT NULL,
+  `about_me` TEXT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `username_UNIQUE` (`username` ASC))
+  INDEX `fk_user_address1_idx` (`address_id` ASC),
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC),
+  CONSTRAINT `fk_user_address1`
+    FOREIGN KEY (`address_id`)
+    REFERENCES `address` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -56,12 +82,8 @@ CREATE TABLE IF NOT EXISTS `beer` (
   `origin_city` TEXT NULL,
   `origin_state` VARCHAR(45) NOT NULL,
   `abv` DOUBLE NOT NULL,
-  `price` DOUBLE NOT NULL,
-  `rating` DOUBLE NULL,
-  `photo` TEXT NULL,
-  `date_sampled` DATE NOT NULL,
-  `notes` TEXT NULL,
-  `location_sampled` TEXT NOT NULL,
+  `description` TEXT NULL,
+  `image_url` TEXT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_beer_brew_type1_idx` (`brew_type_id` ASC),
   CONSTRAINT `fk_beer_brew_type1`
@@ -73,45 +95,66 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `journal`
+-- Table `beer_tasting`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `journal` ;
+DROP TABLE IF EXISTS `beer_tasting` ;
 
-CREATE TABLE IF NOT EXISTS `journal` (
+CREATE TABLE IF NOT EXISTS `beer_tasting` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `user_id` INT NOT NULL,
+  `notes` TEXT NULL,
+  `price` DOUBLE NOT NULL,
+  `rating` INT NULL,
+  `photo` TEXT NULL,
+  `date_sampled` DATE NULL,
+  `beer_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_journal_user1_idx` (`user_id` ASC),
+  INDEX `fk_beer_tasting_beer1_idx` (`beer_id` ASC),
   CONSTRAINT `fk_journal_user1`
     FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_beer_tasting_beer1`
+    FOREIGN KEY (`beer_id`)
+    REFERENCES `beer` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `white_wine`
+-- Table `wine_color`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `white_wine` ;
+DROP TABLE IF EXISTS `wine_color` ;
 
-CREATE TABLE IF NOT EXISTS `white_wine` (
+CREATE TABLE IF NOT EXISTS `wine_color` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `name` TEXT NOT NULL,
+  `name` VARCHAR(20) NULL,
+  `description` TEXT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `red_wine`
+-- Table `wine_type`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `red_wine` ;
+DROP TABLE IF EXISTS `wine_type` ;
 
-CREATE TABLE IF NOT EXISTS `red_wine` (
+CREATE TABLE IF NOT EXISTS `wine_type` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
+  `description` TEXT NULL,
+  `wine_color_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `name_UNIQUE` (`name` ASC))
+  UNIQUE INDEX `name_UNIQUE` (`name` ASC),
+  INDEX `fk_wine_type_wine_color1_idx` (`wine_color_id` ASC),
+  CONSTRAINT `fk_wine_type_wine_color1`
+    FOREIGN KEY (`wine_color_id`)
+    REFERENCES `wine_color` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -123,31 +166,25 @@ DROP TABLE IF EXISTS `wine` ;
 CREATE TABLE IF NOT EXISTS `wine` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
-  `type` VARCHAR(45) NOT NULL,
-  `white_wine_id` INT NOT NULL,
-  `red_wine_id` INT NOT NULL,
+  `description` TEXT NOT NULL,
+  `wine_type_id` INT NOT NULL,
+  `image_url` TEXT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_wine_white_wine1_idx` (`white_wine_id` ASC),
-  INDEX `fk_wine_red_wine1_idx` (`red_wine_id` ASC),
-  CONSTRAINT `fk_wine_white_wine1`
-    FOREIGN KEY (`white_wine_id`)
-    REFERENCES `white_wine` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+  INDEX `fk_wine_red_wine1_idx` (`wine_type_id` ASC),
   CONSTRAINT `fk_wine_red_wine1`
-    FOREIGN KEY (`red_wine_id`)
-    REFERENCES `red_wine` (`id`)
+    FOREIGN KEY (`wine_type_id`)
+    REFERENCES `wine_type` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `spirits_type`
+-- Table `spirit_type`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `spirits_type` ;
+DROP TABLE IF EXISTS `spirit_type` ;
 
-CREATE TABLE IF NOT EXISTS `spirits_type` (
+CREATE TABLE IF NOT EXISTS `spirit_type` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
@@ -156,66 +193,73 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `spirits`
+-- Table `spirit`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `spirits` ;
+DROP TABLE IF EXISTS `spirit` ;
 
-CREATE TABLE IF NOT EXISTS `spirits` (
+CREATE TABLE IF NOT EXISTS `spirit` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `type` VARCHAR(45) NOT NULL,
-  `spirits_type_id` INT NOT NULL,
+  `spirit_type_id` INT NOT NULL,
+  `name` VARCHAR(45) NULL,
+  `description` TEXT NULL,
+  `image_url` TEXT NULL,
+  `proof` INT NULL,
+  `origin_country` VARCHAR(45) NULL,
+  `origin_state_province` VARCHAR(45) NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `type_UNIQUE` (`type` ASC),
-  INDEX `fk_spirits_spirits_type1_idx` (`spirits_type_id` ASC),
+  INDEX `fk_spirits_spirits_type1_idx` (`spirit_type_id` ASC),
   CONSTRAINT `fk_spirits_spirits_type1`
-    FOREIGN KEY (`spirits_type_id`)
-    REFERENCES `spirits_type` (`id`)
+    FOREIGN KEY (`spirit_type_id`)
+    REFERENCES `spirit_type` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `journal_drink`
+-- Table `location`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `journal_drink` ;
+DROP TABLE IF EXISTS `location` ;
 
-CREATE TABLE IF NOT EXISTS `journal_drink` (
-  `journal_id` INT NOT NULL,
-  `beer_id` INT NOT NULL,
-  PRIMARY KEY (`journal_id`, `beer_id`),
-  INDEX `fk_journal_has_beer_beer1_idx` (`beer_id` ASC),
-  INDEX `fk_journal_has_beer_journal1_idx` (`journal_id` ASC),
-  CONSTRAINT `fk_journal_has_beer_journal1`
-    FOREIGN KEY (`journal_id`)
-    REFERENCES `journal` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_journal_has_beer_beer1`
-    FOREIGN KEY (`beer_id`)
-    REFERENCES `beer` (`id`)
+CREATE TABLE IF NOT EXISTS `location` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` TEXT NOT NULL,
+  `description` TEXT NULL,
+  `image_url` TEXT NULL,
+  `locationcol` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_location_address1_idx` (`locationcol` ASC),
+  CONSTRAINT `fk_location_address1`
+    FOREIGN KEY (`locationcol`)
+    REFERENCES `address` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `journal_has_wine`
+-- Table `wine_tasting`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `journal_has_wine` ;
+DROP TABLE IF EXISTS `wine_tasting` ;
 
-CREATE TABLE IF NOT EXISTS `journal_has_wine` (
-  `journal_id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `wine_tasting` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL,
+  `notes` TEXT NULL,
+  `price` DOUBLE NOT NULL,
+  `rating` INT NULL,
+  `photo` TEXT NULL,
+  `date_sampled` DATE NULL,
   `wine_id` INT NOT NULL,
-  PRIMARY KEY (`journal_id`, `wine_id`),
-  INDEX `fk_journal_has_wine_wine1_idx` (`wine_id` ASC),
-  INDEX `fk_journal_has_wine_journal1_idx` (`journal_id` ASC),
-  CONSTRAINT `fk_journal_has_wine_journal1`
-    FOREIGN KEY (`journal_id`)
-    REFERENCES `journal` (`id`)
+  PRIMARY KEY (`id`),
+  INDEX `fk_journal_user1_idx` (`user_id` ASC),
+  INDEX `fk_wine_tasting_wine1_idx` (`wine_id` ASC),
+  CONSTRAINT `fk_journal_user10`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_journal_has_wine_wine1`
+  CONSTRAINT `fk_wine_tasting_wine1`
     FOREIGN KEY (`wine_id`)
     REFERENCES `wine` (`id`)
     ON DELETE NO ACTION
@@ -224,24 +268,126 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `journal_has_spirits`
+-- Table `spirit_tasting`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `journal_has_spirits` ;
+DROP TABLE IF EXISTS `spirit_tasting` ;
 
-CREATE TABLE IF NOT EXISTS `journal_has_spirits` (
-  `journal_id` INT NOT NULL,
-  `spirits_id` INT NOT NULL,
-  PRIMARY KEY (`journal_id`, `spirits_id`),
-  INDEX `fk_journal_has_spirits_spirits1_idx` (`spirits_id` ASC),
-  INDEX `fk_journal_has_spirits_journal1_idx` (`journal_id` ASC),
-  CONSTRAINT `fk_journal_has_spirits_journal1`
-    FOREIGN KEY (`journal_id`)
-    REFERENCES `journal` (`id`)
+CREATE TABLE IF NOT EXISTS `spirit_tasting` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL,
+  `notes` TEXT NULL,
+  `price` DOUBLE NOT NULL,
+  `rating` INT NULL,
+  `photo` TEXT NULL,
+  `date_sampled` DATE NULL,
+  `spirit_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_journal_user1_idx` (`user_id` ASC),
+  INDEX `fk_spirit_tasting_spirit1_idx` (`spirit_id` ASC),
+  CONSTRAINT `fk_journal_user100`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_journal_has_spirits_spirits1`
-    FOREIGN KEY (`spirits_id`)
-    REFERENCES `spirits` (`id`)
+  CONSTRAINT `fk_spirit_tasting_spirit1`
+    FOREIGN KEY (`spirit_id`)
+    REFERENCES `spirit` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `drinking_buddy`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `drinking_buddy` ;
+
+CREATE TABLE IF NOT EXISTS `drinking_buddy` (
+  `user_id` INT NOT NULL,
+  `friend_id` INT NOT NULL,
+  PRIMARY KEY (`user_id`, `friend_id`),
+  INDEX `fk_user_has_user_user2_idx` (`friend_id` ASC),
+  INDEX `fk_user_has_user_user1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_user_has_user_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_user_has_user_user2`
+    FOREIGN KEY (`friend_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `favorite_brew_type`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `favorite_brew_type` ;
+
+CREATE TABLE IF NOT EXISTS `favorite_brew_type` (
+  `user_id` INT NOT NULL,
+  `brew_type_id` INT NOT NULL,
+  PRIMARY KEY (`user_id`, `brew_type_id`),
+  INDEX `fk_user_has_brew_type_brew_type1_idx` (`brew_type_id` ASC),
+  INDEX `fk_user_has_brew_type_user1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_user_has_brew_type_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_user_has_brew_type_brew_type1`
+    FOREIGN KEY (`brew_type_id`)
+    REFERENCES `brew_type` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `favorite_spirit_type`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `favorite_spirit_type` ;
+
+CREATE TABLE IF NOT EXISTS `favorite_spirit_type` (
+  `user_id` INT NOT NULL,
+  `spirit_type_id` INT NOT NULL,
+  PRIMARY KEY (`user_id`, `spirit_type_id`),
+  INDEX `fk_user_has_spirit_type_spirit_type1_idx` (`spirit_type_id` ASC),
+  INDEX `fk_user_has_spirit_type_user1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_user_has_spirit_type_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_user_has_spirit_type_spirit_type1`
+    FOREIGN KEY (`spirit_type_id`)
+    REFERENCES `spirit_type` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `favorite_wine_type`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `favorite_wine_type` ;
+
+CREATE TABLE IF NOT EXISTS `favorite_wine_type` (
+  `user_id` INT NOT NULL,
+  `wine_type_id` INT NOT NULL,
+  PRIMARY KEY (`user_id`, `wine_type_id`),
+  INDEX `fk_user_has_wine_type_wine_type1_idx` (`wine_type_id` ASC),
+  INDEX `fk_user_has_wine_type_user1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_user_has_wine_type_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_user_has_wine_type_wine_type1`
+    FOREIGN KEY (`wine_type_id`)
+    REFERENCES `wine_type` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -258,11 +404,21 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
+-- Data for table `address`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `sipdb`;
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (1, '123 Main St', 'Cityville', 'Texas', NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `user`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `sipdb`;
-INSERT INTO `user` (`id`, `username`, `enabled`, `password`, `role`) VALUES (1, 'admin', 1, 'admin', 'ADMIN');
+INSERT INTO `user` (`id`, `username`, `enabled`, `password`, `role`, `address_id`, `first_name`, `last_name`, `image`, `about_me`) VALUES (1, 'admin', 1, 'admin', 'ADMIN', 1, NULL, NULL, NULL, NULL);
 
 COMMIT;
 
@@ -288,54 +444,72 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `sipdb`;
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `price`, `rating`, `photo`, `date_sampled`, `notes`, `location_sampled`) VALUES (1, 'Bud Light Lime', 2, NULL, 'Texas', 4.2, 4, NULL, NULL, '2022-12-21', NULL, 'Texas');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `price`, `rating`, `photo`, `date_sampled`, `notes`, `location_sampled`) VALUES (2, 'Bud Light', 2, NULL, 'Texas', 4.2, 4, NULL, NULL, '2022-12-21', NULL, 'Texas');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `price`, `rating`, `photo`, `date_sampled`, `notes`, `location_sampled`) VALUES (3, 'Coors Light', 2, NULL, 'Colorado', 4.2, 3.85, NULL, NULL, '2022-12-21', NULL, 'Colorado');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `price`, `rating`, `photo`, `date_sampled`, `notes`, `location_sampled`) VALUES (4, 'Dogfish Head 60 Minute IPA', 3, 'Milton', 'Delaware', 6.0, 5, NULL, NULL, '2001-09-15', NULL, 'Delaware');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `price`, `rating`, `photo`, `date_sampled`, `notes`, `location_sampled`) VALUES (5 , 'Karbach Hopadillo', 3, 'Houston', 'Texas', 6.60, 7, NULL, NULL, '2005-09-08', NULL, 'Texas');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `price`, `rating`, `photo`, `date_sampled`, `notes`, `location_sampled`) VALUES (6, 'New Belgium Voodoo Ranger Impeial IPA', 3, 'Fort Collins', 'Colorado', 9, 6, 10, NULL, '2022-12-21', NULL, 'Pennsylvania');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `price`, `rating`, `photo`, `date_sampled`, `notes`, `location_sampled`) VALUES (7, 'Stone Delicious IPA', 3, NULL, 'California', 7.5, 8, NULL, NULL, '2022-12-21', NULL, 'California');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `price`, `rating`, `photo`, `date_sampled`, `notes`, `location_sampled`) VALUES (8, 'Stone Hazy IPA ', 3, NULL, 'California', 6.7, 10, NULL, NULL, '2022-12-19', NULL, 'California');
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`) VALUES (1, 'Bud Light Lime', 2, NULL, 'Texas', 4.2, '', NULL);
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`) VALUES (2, 'Bud Light', 2, NULL, 'Texas', 4.2, '', NULL);
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`) VALUES (3, 'Coors Light', 2, NULL, 'Colorado', 4.2, '', NULL);
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`) VALUES (4, 'Dogfish Head 60 Minute IPA', 3, 'Milton', 'Delaware', 6.0, '', NULL);
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`) VALUES (5 , 'Karbach Hopadillo', 3, 'Houston', 'Texas', 6.60, '', NULL);
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`) VALUES (6, 'New Belgium Voodoo Ranger Impeial IPA', 3, 'Fort Collins', 'Colorado', 9, '', NULL);
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`) VALUES (7, 'Stone Delicious IPA', 3, NULL, 'California', 7.5, '', NULL);
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`) VALUES (8, 'Stone Hazy IPA ', 3, NULL, 'California', 6.7, '', NULL);
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`) VALUES (9, 'Alaskan Pilsner', 1, 'Juneau', 'Alaska', 4.8, NULL, NULL);
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`) VALUES (10, 'Dogfish Head Shelter Pale', 4, NULL, 'Delaware', 5, NULL, NULL);
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`) VALUES (11, 'Bells Juicy Gossip', 4, 'Kalamazoo', 'Michigan', 4.7, NULL, NULL);
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`) VALUES (12, 'Guinness Draught', 5, NULL, 'Ireland', 4.2, NULL, NULL);
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`) VALUES (13, 'Real Ale Coffee Porter', 6, 'Blanco', 'Texas', 6.6, NULL, NULL);
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`) VALUES (14, 'Live Oak Primus', 7, 'Del Valle', 'Texas', 8, NULL, NULL);
 
 COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `white_wine`
+-- Data for table `beer_tasting`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `sipdb`;
-INSERT INTO `white_wine` (`id`, `name`) VALUES (1, 'Chardonnay');
-INSERT INTO `white_wine` (`id`, `name`) VALUES (2, 'Riesling');
-INSERT INTO `white_wine` (`id`, `name`) VALUES (3, 'Pinot Grigio');
-INSERT INTO `white_wine` (`id`, `name`) VALUES (4, 'Sauvignon Blanc');
+INSERT INTO `beer_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `beer_id`) VALUES (1, 1, NULL, 9, NULL, NULL, '2022-12-22', 1);
 
 COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `red_wine`
+-- Data for table `spirit_type`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `sipdb`;
-INSERT INTO `red_wine` (`id`, `name`) VALUES (1, 'Pinot Noir');
-INSERT INTO `red_wine` (`id`, `name`) VALUES (2, 'Cabernet Sauvignon');
-INSERT INTO `red_wine` (`id`, `name`) VALUES (3, 'Merlot');
+INSERT INTO `spirit_type` (`id`, `name`) VALUES (1, 'Whiskey');
+INSERT INTO `spirit_type` (`id`, `name`) VALUES (2, 'Bourbon');
+INSERT INTO `spirit_type` (`id`, `name`) VALUES (3 , 'Vodka');
+INSERT INTO `spirit_type` (`id`, `name`) VALUES (4, 'Gin');
+INSERT INTO `spirit_type` (`id`, `name`) VALUES (5, 'Rum');
+INSERT INTO `spirit_type` (`id`, `name`) VALUES (6, 'Tequila');
+INSERT INTO `spirit_type` (`id`, `name`) VALUES (7, 'Scotch');
 
 COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `spirits_type`
+-- Data for table `spirit`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `sipdb`;
-INSERT INTO `spirits_type` (`id`, `name`) VALUES (1, 'Whiskey');
-INSERT INTO `spirits_type` (`id`, `name`) VALUES (2, 'Bourbon');
-INSERT INTO `spirits_type` (`id`, `name`) VALUES (3 , 'Vodka');
-INSERT INTO `spirits_type` (`id`, `name`) VALUES (4, 'Gin');
-INSERT INTO `spirits_type` (`id`, `name`) VALUES (5, 'Rum');
-INSERT INTO `spirits_type` (`id`, `name`) VALUES (6, 'Tequila');
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (1, 3, 'Tito\'s', NULL, NULL, 80, 'United States', 'Texas');
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (2, 1, 'Jack Daniel\'s', NULL, NULL, 80, 'United States', 'Tennessee');
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (3, 2, 'Bulleit', NULL, NULL, 90, 'United States', 'Kentucky');
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (4, 4, 'Hendrick\'s', NULL, NULL, 80, 'Scotland', NULL);
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (5, 5, 'Captain Morgan', NULL, NULL, 70, 'Jamaica', NULL);
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (6, 6, 'Don Juilo', NULL, NULL, 80, 'Mexico', NULL);
+INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (7, 7, 'Glenfiddich', NULL, NULL, 80, 'Scotland', NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `spirit_tasting`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `sipdb`;
+INSERT INTO `spirit_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `spirit_id`) VALUES (1, 1, NULL, 10, NULL, NULL, '2022-12-23', 1);
 
 COMMIT;
 

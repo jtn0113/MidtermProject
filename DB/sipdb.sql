@@ -515,6 +515,8 @@ INSERT INTO `wine` (`id`, `name`, `description`, `wine_type_id`, `image_url`, `v
 INSERT INTO `wine` (`id`, `name`, `description`, `wine_type_id`, `image_url`, `vineyard_name`, `vineyard_location`, `vintage_year`, `abv`) VALUES (4, 'Vonterra', NULL, 4, NULL, 'Copeland', 'California', 2020, 13.5);
 INSERT INTO `wine` (`id`, `name`, `description`, `wine_type_id`, `image_url`, `vineyard_name`, `vineyard_location`, `vintage_year`, `abv`) VALUES (5, 'Bella Sera', NULL, 5, NULL, NULL, 'Italy', 2021, 11.5);
 INSERT INTO `wine` (`id`, `name`, `description`, `wine_type_id`, `image_url`, `vineyard_name`, `vineyard_location`, `vintage_year`, `abv`) VALUES (6, 'Capa', NULL, 6, NULL, NULL, 'Spain', 2020, 11);
+INSERT INTO `wine` (`id`, `name`, `description`, `wine_type_id`, `image_url`, `vineyard_name`, `vineyard_location`, `vintage_year`, `abv`) VALUES (7, 'Beringer Founder\'s Estate', NULL, 3, NULL, NULL, 'California', 2020, 13.8);
+INSERT INTO `wine` (`id`, `name`, `description`, `wine_type_id`, `image_url`, `vineyard_name`, `vineyard_location`, `vintage_year`, `abv`) VALUES (8, 'Kendall Jackson Vintner\'s Reserve ', NULL, 4, NULL, 'Kendall-Jackson', 'California', 2021, 13.5);
 
 COMMIT;
 

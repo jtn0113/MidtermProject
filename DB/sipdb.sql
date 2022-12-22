@@ -131,8 +131,8 @@ DROP TABLE IF EXISTS `wine_color` ;
 
 CREATE TABLE IF NOT EXISTS `wine_color` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(20) NULL,
-  `description` TEXT NULL,
+  `description` VARCHAR(20) NULL,
+  `color` TEXT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -166,9 +166,13 @@ DROP TABLE IF EXISTS `wine` ;
 CREATE TABLE IF NOT EXISTS `wine` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
-  `description` TEXT NOT NULL,
+  `description` TEXT NULL,
   `wine_type_id` INT NOT NULL,
   `image_url` TEXT NULL,
+  `vineyard_name` VARCHAR(45) NULL,
+  `vineyard_location` VARCHAR(45) NULL,
+  `vintage_year` VARCHAR(4) NULL,
+  `abv` DOUBLE NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_wine_red_wine1_idx` (`wine_type_id` ASC),
   CONSTRAINT `fk_wine_red_wine1`
@@ -473,6 +477,49 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `wine_color`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `sipdb`;
+INSERT INTO `wine_color` (`id`, `description`, `color`) VALUES (1, 'Sweet', 'Red');
+INSERT INTO `wine_color` (`id`, `description`, `color`) VALUES (2, 'Sweet', 'White');
+INSERT INTO `wine_color` (`id`, `description`, `color`) VALUES (3, 'Dry', 'Red');
+INSERT INTO `wine_color` (`id`, `description`, `color`) VALUES (4, 'Dry', 'White');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `wine_type`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `sipdb`;
+INSERT INTO `wine_type` (`id`, `name`, `description`, `wine_color_id`) VALUES (1, 'Pinot Noir', NULL, 1);
+INSERT INTO `wine_type` (`id`, `name`, `description`, `wine_color_id`) VALUES (2, 'Merlot', NULL, 1);
+INSERT INTO `wine_type` (`id`, `name`, `description`, `wine_color_id`) VALUES (3, 'Cabernet Sauvignon\n', NULL, 3);
+INSERT INTO `wine_type` (`id`, `name`, `description`, `wine_color_id`) VALUES (4, 'Chardonnay', NULL, 4);
+INSERT INTO `wine_type` (`id`, `name`, `description`, `wine_color_id`) VALUES (5, 'Pinot Grigio', NULL, 4);
+INSERT INTO `wine_type` (`id`, `name`, `description`, `wine_color_id`) VALUES (6, 'Moscato', NULL, 2);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `wine`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `sipdb`;
+INSERT INTO `wine` (`id`, `name`, `description`, `wine_type_id`, `image_url`, `vineyard_name`, `vineyard_location`, `vintage_year`, `abv`) VALUES (1, 'Coppola', NULL, 3, NULL, 'Coppola Vineyard', 'California', '2017', 13.5);
+INSERT INTO `wine` (`id`, `name`, `description`, `wine_type_id`, `image_url`, `vineyard_name`, `vineyard_location`, `vintage_year`, `abv`) VALUES (2, 'Decoy', NULL, 2, NULL, 'Decoy', 'California', '2019', 13.5);
+INSERT INTO `wine` (`id`, `name`, `description`, `wine_type_id`, `image_url`, `vineyard_name`, `vineyard_location`, `vintage_year`, `abv`) VALUES (3, 'Bearfoot', NULL, 1, NULL, 'Bearfoot', 'California', '2018', 13.5);
+INSERT INTO `wine` (`id`, `name`, `description`, `wine_type_id`, `image_url`, `vineyard_name`, `vineyard_location`, `vintage_year`, `abv`) VALUES (4, 'Vonterra', NULL, 4, NULL, 'Copeland', 'California', '2020', 13.5);
+INSERT INTO `wine` (`id`, `name`, `description`, `wine_type_id`, `image_url`, `vineyard_name`, `vineyard_location`, `vintage_year`, `abv`) VALUES (5, 'Bella Sera', NULL, 5, NULL, NULL, 'Italy', '2021', 11.5);
+INSERT INTO `wine` (`id`, `name`, `description`, `wine_type_id`, `image_url`, `vineyard_name`, `vineyard_location`, `vintage_year`, `abv`) VALUES (6, 'Capa', NULL, 6, NULL, NULL, 'Spain', '2020', 11);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `spirit_type`
 -- -----------------------------------------------------
 START TRANSACTION;
@@ -500,6 +547,16 @@ INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`
 INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (5, 5, 'Captain Morgan', NULL, NULL, 70, 'Jamaica', NULL);
 INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (6, 6, 'Don Juilo', NULL, NULL, 80, 'Mexico', NULL);
 INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (7, 7, 'Glenfiddich', NULL, NULL, 80, 'Scotland', NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `wine_tasting`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `sipdb`;
+INSERT INTO `wine_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `wine_id`) VALUES (1, 1, NULL, 8, NULL, NULL, NULL, 1);
 
 COMMIT;
 

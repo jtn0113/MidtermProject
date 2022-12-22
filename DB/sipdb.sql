@@ -221,11 +221,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `location`
+-- Table `location_brewery`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `location` ;
+DROP TABLE IF EXISTS `location_brewery` ;
 
-CREATE TABLE IF NOT EXISTS `location` (
+CREATE TABLE IF NOT EXISTS `location_brewery` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` TEXT NOT NULL,
   `description` TEXT NULL,
@@ -551,6 +551,16 @@ INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`
 INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (9, 3, 'Smirnoff', NULL, NULL, 80, 'United States', 'Illinois');
 INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (10, 3, 'Absolut', NULL, NULL, 80, 'Sweden', NULL);
 INSERT INTO `spirit` (`id`, `spirit_type_id`, `name`, `description`, `image_url`, `proof`, `origin_country`, `origin_state_province`) VALUES (11, 3, 'Kettle One', NULL, NULL, 80, 'Netherlands', NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `location_brewery`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `sipdb`;
+INSERT INTO `location_brewery` (`id`, `name`, `description`, `image_url`, `address_id`) VALUES (1, 'Bob\'s Brews', NULL, NULL, 1);
 
 COMMIT;
 

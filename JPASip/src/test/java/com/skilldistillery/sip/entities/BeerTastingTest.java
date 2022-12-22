@@ -43,8 +43,8 @@ class BeerTastingTest{
 	@Test
 	void test_tasting_UserId_BeerId_mapping() {
 		assertNotNull(tasting);
-		assertEquals(1, tasting.getUserId());
-		assertEquals(1, tasting.getBeerId());
+		assertEquals(1, tasting.getUser().getId());
+		assertEquals(1, tasting.getBeer().getId());
 	}
 	}
 

@@ -42,8 +42,8 @@ class SpiritTastingTest {
 	@Test
 	void test_spiritTasting_type_id_name() {
 		assertNotNull(spiritTasting);
-		assertEquals(1, spiritTasting.getUserId());
-		assertEquals(1, spiritTasting.getSpiritId());
+		assertEquals(1, spiritTasting.getUser().getId());
+		assertEquals(1, spiritTasting.getSpirit().getId());
 	}
 
 }

@@ -12,13 +12,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class BeerTest {
+class WineTastingTest {
 
-	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Beer beer;
-	
+	private WineTasting wineTasting;
+
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 	    emf = Persistence.createEntityManagerFactory("JPASip");
@@ -32,19 +31,20 @@ class BeerTest {
 	@BeforeEach
 	void setUp() throws Exception {
 	    em = emf.createEntityManager();
-	    beer = em.find(Beer.class, 1);
+	    wineTasting = em.find(WineTasting.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 	    em.close();
-	    beer = null;
+	    wineTasting = null;
 	}
 	@Test
-	void test_beer_brew_type_id_mapping() {
-		assertNotNull(beer);
-		assertEquals(2, beer.getBrewType().getId());
-		assertEquals("Bud Light Lime", beer.getName());
+	void test_wine_tasting_type_id_name() {
+		assertNotNull(wineTasting);
+		assertEquals(1, wineTasting.getUser().getId());
+		assertEquals(8, wineTasting.getPrice());
+		assertEquals("Coppola Vineyard", wineTasting.getWine().getVineyardName());
+		
 	}
-
 }

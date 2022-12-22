@@ -7,23 +7,35 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Spirit {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(name = "spirit_type_id")
-	private int spiritTypeId;
+	
+	@ManyToOne
+	@JoinColumn(name="spirit_type_id")
+	private SpiritType spiritType;
+	
+	
 	private String name;
 	private String description;
+	
 	@Column(name = "image_url")
 	private String imageUrl;
+	
 	private int proof;
+	
 	@Column(name = "origin_country")
 	private String originCountry;
+	
 	@Column(name = "origin_state_province")
 	private String originStateProvince;
+	
+	
 
 	public int getId() {
 		return id;
@@ -33,12 +45,14 @@ public class Spirit {
 		this.id = id;
 	}
 
-	public int getSpiritTypeId() {
-		return spiritTypeId;
+	
+
+	public SpiritType getSpiritType() {
+		return spiritType;
 	}
 
-	public void setSpiritTypeId(int spiritTypeId) {
-		this.spiritTypeId = spiritTypeId;
+	public void setSpiritType(SpiritType spiritType) {
+		this.spiritType = spiritType;
 	}
 
 	public String getName() {
@@ -95,7 +109,7 @@ public class Spirit {
 
 	@Override
 	public String toString() {
-		return "Spirit [id=" + id + ", spiritTypeId=" + spiritTypeId + ", name=" + name + ", description=" + description
+		return "Spirit [id=" + id + ", spiritType=" + spiritType + ", name=" + name + ", description=" + description
 				+ ", imageUrl=" + imageUrl + ", proof=" + proof + ", originCountry=" + originCountry
 				+ ", originStateProvince=" + originStateProvince + "]";
 	}

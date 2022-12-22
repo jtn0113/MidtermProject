@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,11 +18,14 @@ public class LocationBrewery {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
-	private String descrition;
+	private String description;
 	@Column(name="image_url")
 	private String imageUrl;
-	@Column(name="address_id")
-	private int addressId;
+	
+	@ManyToOne
+	@JoinColumn(name="address_id")
+	private Address address;
+	
 	public LocationBrewery() {
 		super();
 	}
@@ -36,11 +41,12 @@ public class LocationBrewery {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getDescrition() {
-		return descrition;
+
+	public String getDescription() {
+		return description;
 	}
-	public void setDescrition(String descrition) {
-		this.descrition = descrition;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	public String getImageUrl() {
 		return imageUrl;
@@ -48,16 +54,16 @@ public class LocationBrewery {
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
-	public int getAddressId() {
-		return addressId;
+	public Address getAddress() {
+		return address;
 	}
-	public void setAddressId(int addressId) {
-		this.addressId = addressId;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 	@Override
 	public String toString() {
-		return "Location [id=" + id + ", name=" + name + ", descrition=" + descrition + ", imageUrl=" + imageUrl
-				+ ", addressId=" + addressId + "]";
+		return "LocationBrewery [id=" + id + ", name=" + name + ", description=" + description + ", imageUrl="
+				+ imageUrl + ", address=" + address + "]";
 	}
 	@Override
 	public int hashCode() {

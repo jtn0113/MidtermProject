@@ -7,24 +7,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 @Entity
 public class User {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String username;
 	private String password;
 	private Boolean enabled;
 	private String role;
-	@Column(name="address_id")
+	@Column(name = "address_id")
 	private Integer addressId;
-	@Column(name="first_name")
+	@Column(name = "first_name")
 	private String firstName;
-	@Column(name="last_name")
+	@Column(name = "last_name")
 	private String lastName;
 	private String image;
-	@Column(name="about_me")
+	@Column(name = "about_me")
 	private String aboutMe;
+	private Integer age;
 
 	public User() {
 		super();
@@ -110,11 +112,19 @@ public class User {
 		this.aboutMe = aboutMe;
 	}
 
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
 				+ ", role=" + role + ", addressId=" + addressId + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", image=" + image + ", aboutMe=" + aboutMe + "]";
+				+ ", image=" + image + ", aboutMe=" + aboutMe + ", age=" + age + "]";
 	}
 
 	@Override

@@ -20,10 +20,10 @@ public class WineTasting {
 	private int userId;
 	private String notes;
 	private double price;
-	private int rating;
+	private Integer rating;
 	private String photo;
 
-	@Column(name = "date_sampled'")
+	@Column(name = "date_sampled")
 	private LocalDate dateSampled;
 
 	@Column(name = "wine_id")
@@ -65,11 +65,12 @@ public class WineTasting {
 		this.price = price;
 	}
 
-	public int getRating() {
+
+	public Integer getRating() {
 		return rating;
 	}
 
-	public void setRating(int rating) {
+	public void setRating(Integer rating) {
 		this.rating = rating;
 	}
 

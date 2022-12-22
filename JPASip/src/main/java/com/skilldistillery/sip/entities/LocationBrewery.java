@@ -16,7 +16,7 @@ public class LocationBrewery {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
-	private String descrition;
+	private String description;
 	@Column(name="image_url")
 	private String imageUrl;
 	@Column(name="address_id")
@@ -36,11 +36,12 @@ public class LocationBrewery {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getDescrition() {
-		return descrition;
+
+	public String getDescription() {
+		return description;
 	}
-	public void setDescrition(String descrition) {
-		this.descrition = descrition;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	public String getImageUrl() {
 		return imageUrl;
@@ -56,8 +57,8 @@ public class LocationBrewery {
 	}
 	@Override
 	public String toString() {
-		return "Location [id=" + id + ", name=" + name + ", descrition=" + descrition + ", imageUrl=" + imageUrl
-				+ ", addressId=" + addressId + "]";
+		return "LocationBrewery [id=" + id + ", name=" + name + ", description=" + description + ", imageUrl="
+				+ imageUrl + ", addressId=" + addressId + "]";
 	}
 	@Override
 	public int hashCode() {

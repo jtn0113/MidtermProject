@@ -481,6 +481,13 @@ COMMIT;
 START TRANSACTION;
 USE `sipdb`;
 INSERT INTO `beer_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `beer_id`) VALUES (1, 1, NULL, 9, NULL, NULL, '2022-12-22', 1);
+INSERT INTO `beer_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `beer_id`) VALUES (2, 2, 'Fancy, hoppy', 4, 8, NULL, '2023-01-03', 5);
+INSERT INTO `beer_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `beer_id`) VALUES (3, 2, 'Very bad, not my favorite', 5, 2, NULL, '2022-08-12', 1);
+INSERT INTO `beer_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `beer_id`) VALUES (4, 3, 'Too sweet', 7, 3, NULL, '2022-10-01', 11);
+INSERT INTO `beer_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `beer_id`) VALUES (5, 3, 'Amazing, my favorite', 5, 9, NULL, '2022-06-23', 14);
+INSERT INTO `beer_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `beer_id`) VALUES (6, 4, NULL, 6, NULL, NULL, '2022-11-30', 6);
+INSERT INTO `beer_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `beer_id`) VALUES (7, 5, NULL, 12, NULL, NULL, '2022-05-30', 8);
+INSERT INTO `beer_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `beer_id`) VALUES (8, 6, NULL, 13, NULL, NULL, '2022-12-08', 9);
 
 COMMIT;
 
@@ -608,6 +615,12 @@ COMMIT;
 START TRANSACTION;
 USE `sipdb`;
 INSERT INTO `wine_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `wine_id`) VALUES (1, 1, NULL, 8, NULL, NULL, NULL, 1);
+INSERT INTO `wine_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `wine_id`) VALUES (2, 5, NULL, 4, NULL, NULL, '2022-12-15', 3);
+INSERT INTO `wine_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `wine_id`) VALUES (3, 4, NULL, 8, NULL, NULL, '2022-02-18', 8);
+INSERT INTO `wine_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `wine_id`) VALUES (4, 5, NULL, 12, NULL, NULL, '2022-07-06', 7);
+INSERT INTO `wine_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `wine_id`) VALUES (5, 6, NULL, 8, NULL, NULL, '2022-11-14', 2);
+INSERT INTO `wine_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `wine_id`) VALUES (6, 2, NULL, 10, NULL, NULL, '2022-11-09', 3);
+INSERT INTO `wine_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `wine_id`) VALUES (7, 3, NULL, 11, NULL, NULL, '2022-05-16', 4);
 
 COMMIT;
 
@@ -618,6 +631,15 @@ COMMIT;
 START TRANSACTION;
 USE `sipdb`;
 INSERT INTO `spirit_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `spirit_id`) VALUES (1, 1, NULL, 10, NULL, NULL, '2022-12-23', 1);
+INSERT INTO `spirit_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `spirit_id`) VALUES (2, 4, 'Excellent', 12, 9, NULL, '2022-12-29', 20);
+INSERT INTO `spirit_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `spirit_id`) VALUES (3, 4, 'Too sweet, kind of watery', 5, 3, NULL, '2022-12-26', 17);
+INSERT INTO `spirit_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `spirit_id`) VALUES (4, 5, NULL, 8, 7, NULL, '2022-10-15', 23);
+INSERT INTO `spirit_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `spirit_id`) VALUES (5, 2, NULL, 7, NULL, NULL, '2018-09-18', 8);
+INSERT INTO `spirit_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `spirit_id`) VALUES (6, 3, NULL, 6, NULL, NULL, '2022-05-19', 15);
+INSERT INTO `spirit_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `spirit_id`) VALUES (7, 2, NULL, 9, NULL, NULL, '2023-01-02', 16);
+INSERT INTO `spirit_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `spirit_id`) VALUES (8, 6, NULL, 6.89, NULL, NULL, '2022-03-06', 5);
+INSERT INTO `spirit_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `spirit_id`) VALUES (9, 3, NULL, 13, NULL, NULL, '2022-09-13', 20);
+INSERT INTO `spirit_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `spirit_id`) VALUES (10, 5, NULL, 10, NULL, NULL, '2022-07-15', 29);
 
 COMMIT;
 

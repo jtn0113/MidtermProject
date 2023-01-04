@@ -52,9 +52,11 @@ public class UserController {
 //	If the userName and password match the DAO data, load the User object into session, and return the account view.
 
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
-	public String login(User user, HttpSession session) {
+	public String login(Model model, User user, HttpSession session) {
 		User validatedUser = userDao.findUsernameAndPassword(user.getUsername(), user.getPassword());
 		if (validatedUser == null) {
+			String errorMessage = "Error: Username or password incorrect.";
+			model.addAttribute("errorMessage", errorMessage);
 			return "login";
 		} else {
 			session.setAttribute("loggedInUser", validatedUser);

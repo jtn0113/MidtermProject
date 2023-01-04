@@ -6,6 +6,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.sip.entities.Spirit;
 import com.skilldistillery.sip.entities.User;
 
 @Service
@@ -44,6 +45,13 @@ public class UserDaoImpl implements UserDAO {
 	public User create(User user) {
 		em.persist(user);
 		return user;
+	}
+	
+	@Override
+	public Spirit createSpiritTasting(Spirit spirit) {
+		Spirit journal = new Spirit();
+		em.persist(journal);
+		return journal;		
 	}
 
 }

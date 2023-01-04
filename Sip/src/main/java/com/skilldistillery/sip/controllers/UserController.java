@@ -23,9 +23,7 @@ public class UserController {
 			return "login";
 		} else {
 			return "home";
-
 		}
-
 	}
 
 	@RequestMapping("register.do")
@@ -76,4 +74,9 @@ public class UserController {
 		return "login";
 	}
 
+//	@RequestMapping("journalEntry")
+//	public String journalEntry() {
+//	}
+	
+	
 }

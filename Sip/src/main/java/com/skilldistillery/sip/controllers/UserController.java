@@ -1,5 +1,7 @@
 package com.skilldistillery.sip.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,5 +36,39 @@ public class UserController {
 		model.addAttribute("user", user);
 		return "home";
 	}
+//	GET login.do displays the login view.
+	@RequestMapping(path = "login.do", method = RequestMethod.GET)
+	public String goToLogin(HttpSession session) {
+		if (session.getAttribute("loggedInUser") == null) {
+			return "login";
+		}
+		else {
+			return "home";
+		}
+	}
+
+//	POST login.do attempts to log in the user by retrieving it from the DAO (use a User command object parameter).
+// session.setAttribute("loggedInUser", user);
+//	If the userName and password match the DAO data, load the User object into session, and return the account view.
+
+	@RequestMapping(path = "login.do", method = RequestMethod.POST)
+	public String login(User user, HttpSession session) {
+		User validatedUser = userDao.findUsernameAndPassword(user.getUsername(), user.getPassword());
+		if (validatedUser == null) {
+			return "login";
+		} else {
+			session.setAttribute("loggedInUser", validatedUser);
+			return "home";
+		}
+	}
+//	If the login fails, display the login view.
+
+//	logout.do removes the user from session and returns the index.
+	@RequestMapping("logout.do")
+	public String logout(HttpSession session) {
+		session.removeAttribute("loggedInUser");
+		return "login";
+	}
 
 }
+

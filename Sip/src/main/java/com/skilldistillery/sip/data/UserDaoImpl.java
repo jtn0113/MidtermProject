@@ -11,7 +11,7 @@ import com.skilldistillery.sip.entities.User;
 @Service
 @Transactional
 public class UserDaoImpl implements UserDAO {
-	
+
 	@PersistenceContext
 	private EntityManager em;
 
@@ -23,7 +23,16 @@ public class UserDaoImpl implements UserDAO {
 
 	@Override
 	public User findUsernameAndPassword(String username, String password) {
-		// TODO Auto-generated method stub
+		String jpql = "select u from User u where u.username  = :uid";
+		User user = em.createQuery(jpql, User.class).setParameter("uid", username).getSingleResult();
+		if (user != null) {
+
+			if (user.getPassword().equals(password)) {
+
+				return user;
+			}
+
+		}
 		return null;
 	}
 
@@ -32,4 +41,5 @@ public class UserDaoImpl implements UserDAO {
 		em.persist(user);
 		return user;
 	}
+
 }

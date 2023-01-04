@@ -7,9 +7,9 @@
 <title>Sip.</title>
 </head>
 <body>
-	<h1>Sip. Home</h1>
+<h1>Sip. Home</h1>
+<a href="register.do">Register for an Account</a>
 
-${SMOKETST}
-
+	
 </body>
 </html>

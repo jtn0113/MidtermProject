@@ -18,17 +18,21 @@ public class UserController {
 	private UserDAO userDao;
 
 	@RequestMapping(path = { "/", "home.do" })
-	public String home(Model model) {
-		
-		return "home";
+	public String home(Model model, HttpSession session) {
+		if (session.getAttribute("loggedInUser") == null) {
+			return "login";
+		} else {
+			return "home";
+
+		}
+
 	}
 
 	@RequestMapping("register.do")
 	public String register() {
-		
 		return "register";
 	}
-	
+
 //	@RequestMapping(path = {"createUser.do"}, method = RequestMethod.POST)
 	@RequestMapping("createUser.do")
 	public String createUser(User user, Model model) {
@@ -36,13 +40,13 @@ public class UserController {
 		model.addAttribute("user", user);
 		return "home";
 	}
+
 //	GET login.do displays the login view.
 	@RequestMapping(path = "login.do", method = RequestMethod.GET)
 	public String goToLogin(HttpSession session) {
 		if (session.getAttribute("loggedInUser") == null) {
 			return "login";
-		}
-		else {
+		} else {
 			return "home";
 		}
 	}
@@ -73,4 +77,3 @@ public class UserController {
 	}
 
 }
-

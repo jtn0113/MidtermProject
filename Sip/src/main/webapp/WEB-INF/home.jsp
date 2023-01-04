@@ -10,9 +10,6 @@
 <link rel="stylesheet" href="main.css">
 </head>
 <body>
-	<c:if test="${empty sessionScope.loggedInUser }">
-				<li><a href="login.do">Log In</a></li>
-			</c:if>
 <nav>
 	<ul>
 

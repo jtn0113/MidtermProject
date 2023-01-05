@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.sip.data.UserDAO;
+import com.skilldistillery.sip.entities.Address;
 import com.skilldistillery.sip.entities.User;
 
 @Controller
@@ -33,9 +34,10 @@ public class UserController {
 
 //	@RequestMapping(path = {"createUser.do"}, method = RequestMethod.POST)
 	@RequestMapping("createUser.do")
-	public String createUser(User user, Model model) {
+	public String createUser(User user, Address address, Model model) {
 		userDao.create(user);
 		model.addAttribute("user", user);
+		model.addAttribute("addr", address);
 		return "home";
 	}
 

@@ -38,15 +38,16 @@
 						<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false"> Dropdown </a>
+							data-bs-toggle="dropdown" aria-expanded="false"> New Tasting
+						</a>
 							<ul class="dropdown-menu dropdown-menu-dark">
-								<li><a class="dropdown-item" href="#">Action</a></li>
-								<li><a class="dropdown-item" href="#">Another action</a></li>
-								<li>
-									<hr class="dropdown-divider">
-								</li>
-								<li><a class="dropdown-item" href="#">Something else
-										here</a></li>
+								<li><a class="dropdown-item" href="selectBeer.do">Beer</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="#">Spirit</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="#">Wine</a></li>
+
+
 							</ul></li>
 					</ul>
 					<form class="d-flex mt-3" role="search">

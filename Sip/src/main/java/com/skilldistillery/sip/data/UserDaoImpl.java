@@ -6,6 +6,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.sip.entities.Address;
 import com.skilldistillery.sip.entities.Spirit;
 import com.skilldistillery.sip.entities.User;
 
@@ -53,5 +54,13 @@ public class UserDaoImpl implements UserDAO {
 		em.persist(journal);
 		return journal;		
 	}
+	@Override
+	public Address createAddress(Address address) {
+		Address addr = new Address();
+		em.persist(addr);
+		return addr;
+	}
+	
+	
 
 }

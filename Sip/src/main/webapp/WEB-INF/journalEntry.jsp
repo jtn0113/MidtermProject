@@ -20,19 +20,7 @@
 			<option value="6">Tequila</option>
 			<option value="7">Scotch</option>
 		</select> -->
-		<label for="rating>">Rating:</label>
-		<input type-="number" name ="rating" max="10">
-		<label for="price">Price:</label>
-		<input type="number" step="0.01" name="price" required>
-		
-		<label for="notes">Notes:</label>
-		<input type="text" name="notes">
-		
-		<label for="photo">Photo URL:</label>
-		<input type="text"> 
-		
-		<label for="dateSampled">Date Sampled:</label>
-		<input type="date">
+	
 		
 		<label for="beverageType">What are you are sippin' on? </label>
 		<input type="radio" name="beverageType" value="beer"> 

@@ -16,9 +16,12 @@ public class BeerController {
 	
 	@RequestMapping("beer.do")
 	public String createBeer(Beer beer, Model model) {
+		System.out.println(beer.toString());
 		beerDao.createBeer(beer);
+		System.out.println(beerDao.createBeer(beer));
 		model.addAttribute("beer", beer);
-		return "beer";
+		
+		return "home";
 	}
 	
 	@RequestMapping("selectBeer.do")

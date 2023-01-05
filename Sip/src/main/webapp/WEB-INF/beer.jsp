@@ -8,17 +8,19 @@
 </head>
 <body>
 
-	<form action="beerCreation" method="POST">
-		<label for="brewTypeId">Beer Type:</label> <select name="brewTypeId"
+	<form action="beer.do" method="POST">
+		<label for="brewType">Beer Type:</label> 
+		<select name="brewType.id"
 			required>
-			<option value="1">Pilsner</option>
-			<option value="2">Lager</option>
-			<option value="3">IPA</option>
-			<option value="4">Pale Ale</option>
-			<option value="5">Stout</option>
-			<option value="6">Porter</option>
-			<option value="7">Bock</option>
-		</select> <label for="name>">Name:</label> <input type="text" name="name"
+			<option value=1>Pilsner</option>
+			<option value=2>Lager</option>
+			<option value=3>IPA</option>
+			<option value=4>Pale Ale</option>
+			<option value=5>Stout</option>
+			<option value=6>Porter</option>
+			<option value=7>Bock</option>
+		</select> 
+		<label for="name>">Name:</label> <input type="text" name="name"
 			required> <label for="abv">ABV:</label> <input type="number"
 			step="0.01" name="abv" required> <label for="originCity">Origin
 			City:</label> <input type="text" name="originCity"> <label

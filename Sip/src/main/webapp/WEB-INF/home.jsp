@@ -16,6 +16,13 @@
 </head>
 <body>
 	<nav>
+
+<br>
+<br>
+<br>
+
+
+
 <ul>
 			<li><a href="home.do">Home</a></li>
 </ul>

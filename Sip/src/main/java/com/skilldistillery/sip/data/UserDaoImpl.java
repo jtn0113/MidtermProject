@@ -49,12 +49,6 @@ public class UserDaoImpl implements UserDAO {
 	}
 	
 	@Override
-	public Spirit createSpiritTasting(Spirit spirit) {
-		Spirit journal = new Spirit();
-		em.persist(journal);
-		return journal;		
-	}
-	@Override
 	public Address createAddress(Address address) {
 		Address addr = new Address();
 		em.persist(addr);

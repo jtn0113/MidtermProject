@@ -126,19 +126,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `wine_color`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `wine_color` ;
-
-CREATE TABLE IF NOT EXISTS `wine_color` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `description` VARCHAR(20) NULL,
-  `color` TEXT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `wine_type`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `wine_type` ;
@@ -147,15 +134,10 @@ CREATE TABLE IF NOT EXISTS `wine_type` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `description` TEXT NULL,
-  `wine_color_id` INT NOT NULL,
+  `wine_scale` VARCHAR(10) NULL,
+  `wine_color` VARCHAR(10) NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `name_UNIQUE` (`name` ASC),
-  INDEX `fk_wine_type_wine_color1_idx` (`wine_color_id` ASC),
-  CONSTRAINT `fk_wine_type_wine_color1`
-    FOREIGN KEY (`wine_color_id`)
-    REFERENCES `wine_color` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  UNIQUE INDEX `name_UNIQUE` (`name` ASC))
 ENGINE = InnoDB;
 
 
@@ -166,7 +148,7 @@ DROP TABLE IF EXISTS `wine` ;
 
 CREATE TABLE IF NOT EXISTS `wine` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(75) NOT NULL,
   `description` TEXT NULL,
   `wine_type_id` INT NOT NULL,
   `image_url` TEXT NULL,
@@ -299,6 +281,19 @@ CREATE TABLE IF NOT EXISTS `spirit_tasting` (
     REFERENCES `spirit` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `wine_color`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `wine_color` ;
+
+CREATE TABLE IF NOT EXISTS `wine_color` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `description` VARCHAR(20) NULL,
+  `color` TEXT NULL,
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
@@ -493,29 +488,17 @@ COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `wine_color`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `sipdb`;
-INSERT INTO `wine_color` (`id`, `description`, `color`) VALUES (1, 'Sweet', 'Red');
-INSERT INTO `wine_color` (`id`, `description`, `color`) VALUES (2, 'Sweet', 'White');
-INSERT INTO `wine_color` (`id`, `description`, `color`) VALUES (3, 'Dry', 'Red');
-INSERT INTO `wine_color` (`id`, `description`, `color`) VALUES (4, 'Dry', 'White');
-
-COMMIT;
-
-
--- -----------------------------------------------------
 -- Data for table `wine_type`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `sipdb`;
-INSERT INTO `wine_type` (`id`, `name`, `description`, `wine_color_id`) VALUES (1, 'Pinot Noir', NULL, 1);
-INSERT INTO `wine_type` (`id`, `name`, `description`, `wine_color_id`) VALUES (2, 'Merlot', NULL, 1);
-INSERT INTO `wine_type` (`id`, `name`, `description`, `wine_color_id`) VALUES (3, 'Cabernet Sauvignon\n', NULL, 3);
-INSERT INTO `wine_type` (`id`, `name`, `description`, `wine_color_id`) VALUES (4, 'Chardonnay', NULL, 4);
-INSERT INTO `wine_type` (`id`, `name`, `description`, `wine_color_id`) VALUES (5, 'Pinot Grigio', NULL, 4);
-INSERT INTO `wine_type` (`id`, `name`, `description`, `wine_color_id`) VALUES (6, 'Moscato', NULL, 2);
+INSERT INTO `wine_type` (`id`, `name`, `description`, `wine_scale`, `wine_color`) VALUES (1, 'Pinot Noir', NULL, 'Dry', 'Red');
+INSERT INTO `wine_type` (`id`, `name`, `description`, `wine_scale`, `wine_color`) VALUES (2, 'Merlot', NULL, 'Dry', 'Red');
+INSERT INTO `wine_type` (`id`, `name`, `description`, `wine_scale`, `wine_color`) VALUES (3, 'Cabernet Sauvignon\n', NULL, 'Dry', 'Red');
+INSERT INTO `wine_type` (`id`, `name`, `description`, `wine_scale`, `wine_color`) VALUES (4, 'Chardonnay', NULL, 'Dry', 'White');
+INSERT INTO `wine_type` (`id`, `name`, `description`, `wine_scale`, `wine_color`) VALUES (5, 'Pinot Grigio', NULL, 'Semi-Sweet', 'White');
+INSERT INTO `wine_type` (`id`, `name`, `description`, `wine_scale`, `wine_color`) VALUES (6, 'Moscato', NULL, 'Sweet', 'White');
+INSERT INTO `wine_type` (`id`, `name`, `description`, `wine_scale`, `wine_color`) VALUES (7, 'Rosé', NULL, 'Dry', 'Pink');
 
 COMMIT;
 
@@ -533,6 +516,7 @@ INSERT INTO `wine` (`id`, `name`, `description`, `wine_type_id`, `image_url`, `v
 INSERT INTO `wine` (`id`, `name`, `description`, `wine_type_id`, `image_url`, `vineyard_name`, `vineyard_location`, `vintage_year`, `abv`) VALUES (6, 'Capa', NULL, 6, NULL, NULL, 'Spain', 2020, 11);
 INSERT INTO `wine` (`id`, `name`, `description`, `wine_type_id`, `image_url`, `vineyard_name`, `vineyard_location`, `vintage_year`, `abv`) VALUES (7, 'Beringer Founder\'s Estate', NULL, 3, NULL, NULL, 'California', 2020, 13.8);
 INSERT INTO `wine` (`id`, `name`, `description`, `wine_type_id`, `image_url`, `vineyard_name`, `vineyard_location`, `vintage_year`, `abv`) VALUES (8, 'Kendall Jackson Vintner\'s Reserve ', NULL, 4, NULL, 'Kendall-Jackson', 'California', 2021, 13.5);
+INSERT INTO `wine` (`id`, `name`, `description`, `wine_type_id`, `image_url`, `vineyard_name`, `vineyard_location`, `vintage_year`, `abv`) VALUES (9, 'Gerard Bertrand Cote des Roses', NULL, 7, NULL, 'Languedoc', 'Grance', 2019, 13);
 
 COMMIT;
 
@@ -640,6 +624,19 @@ INSERT INTO `spirit_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `phot
 INSERT INTO `spirit_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `spirit_id`) VALUES (8, 6, NULL, 6.89, NULL, NULL, '2022-03-06', 5);
 INSERT INTO `spirit_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `spirit_id`) VALUES (9, 3, NULL, 13, NULL, NULL, '2022-09-13', 20);
 INSERT INTO `spirit_tasting` (`id`, `user_id`, `notes`, `price`, `rating`, `photo`, `date_sampled`, `spirit_id`) VALUES (10, 5, NULL, 10, NULL, NULL, '2022-07-15', 29);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `wine_color`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `sipdb`;
+INSERT INTO `wine_color` (`id`, `description`, `color`) VALUES (1, 'Sweet', 'Red');
+INSERT INTO `wine_color` (`id`, `description`, `color`) VALUES (2, 'Sweet', 'White');
+INSERT INTO `wine_color` (`id`, `description`, `color`) VALUES (3, 'Dry', 'Red');
+INSERT INTO `wine_color` (`id`, `description`, `color`) VALUES (4, 'Dry', 'White');
 
 COMMIT;
 

@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+//import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,10 +19,17 @@ public class WineType {
 	private String name;
 	private String description;
 	
-	@ManyToOne
-	@JoinColumn(name="wine_color_id")
-	private WineColor wineColor;
+//	@ManyToOne
+//	@JoinColumn(name="wine_color_id")
+//	private WineColor wineColor;
 
+	@JoinColumn(name="wine_scale")
+	private String wineScale;
+	
+	@JoinColumn(name="wine_color")
+	private String wineColor;
+	
+	
 	public WineType() {
 		super();
 	}
@@ -53,18 +60,34 @@ public class WineType {
 
 	
 
-	public WineColor getWineColor() {
-		return wineColor;
-	}
-
-	public void setWineColor(WineColor wineColor) {
-		this.wineColor = wineColor;
-	}
+//	public WineColor getWineColor() {
+//		return wineColor;
+//	}
+//
+//	public void setWineColor(WineColor wineColor) {
+//		this.wineColor = wineColor;
+//	}
 
 	@Override
 	public String toString() {
-		return "WineType [id=" + id + ", name=" + name + ", description=" + description + ", wineColor=" + wineColor
-				+ "]";
+		return "WineType [id=" + id + ", name=" + name + ", description=" + description + ", wineScale=" + wineScale
+				+ ", wineColor=" + wineColor + "]";
+	}
+
+	public String getWineScale() {
+		return wineScale;
+	}
+
+	public void setWineScale(String wineScale) {
+		this.wineScale = wineScale;
+	}
+
+	public String getWineColor() {
+		return wineColor;
+	}
+
+	public void setWineColor(String wineColor) {
+		this.wineColor = wineColor;
 	}
 
 	@Override

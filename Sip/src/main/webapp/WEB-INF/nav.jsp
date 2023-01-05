@@ -45,7 +45,7 @@
 								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="selectSpirit.do">Spirit</a></li>
 								<li><hr class="dropdown-divider"></li>
-								<li><a class="dropdown-item" href="#">Wine</a></li>
+								<li><a class="dropdown-item" href="selectWine.do">Wine</a></li>
 
 
 							</ul></li>

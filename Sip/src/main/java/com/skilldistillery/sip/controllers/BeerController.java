@@ -1,5 +1,7 @@
 package com.skilldistillery.sip.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.sip.data.BeerDao;
 import com.skilldistillery.sip.entities.Beer;
+import com.skilldistillery.sip.entities.BeerTasting;
+import com.skilldistillery.sip.entities.User;
 
 @Controller
 public class BeerController {
@@ -22,7 +26,7 @@ public class BeerController {
 		System.out.println(beerDao.createBeer(beer));
 		model.addAttribute("beer", beer);
 		
-		return "home";
+		return "beerJournal";
 	}
 	
 	@RequestMapping("findAllBeers.do")
@@ -39,7 +43,22 @@ public class BeerController {
 		model.addAttribute("beer", beer);
 		System.out.println(beer);
 		
-		return "home";
+		return "beerJournal";
 	}
+	
+	@RequestMapping("beerJournal.do")
+	public String journalEntry(@RequestParam Integer beerId, BeerTasting beerTasting, Model model, HttpSession session) {
+        User user = (User) session.getAttribute("loggedInUser");
+        if(user != null) {
+        	
+        	beerDao.beerJournalEntry(beerTasting, beerId, user);
+        	model.addAttribute("beerTasting", beerTasting);
+        	System.out.println(beerTasting);
+        	return "home";
+        }else {
+        	return "login";
+        }
+	}
+	
 	
 }

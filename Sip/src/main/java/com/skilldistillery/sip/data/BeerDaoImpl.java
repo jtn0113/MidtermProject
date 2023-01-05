@@ -9,6 +9,8 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.sip.entities.Beer;
+import com.skilldistillery.sip.entities.BeerTasting;
+import com.skilldistillery.sip.entities.User;
 
 @Service
 @Transactional
@@ -34,10 +36,17 @@ public class BeerDaoImpl implements BeerDao {
 		return em.find(Beer.class, id);
 	}
 	
-//	@Override
-//	public List<NationalPark> findAll() {
-//		String jpql = "SELECT p FROM NationalPark p ORDER BY p.name";
-//		return em.createQuery(jpql, NationalPark.class).getResultList();
-//	}
+
 	
+	@Override
+	 public BeerTasting beerJournalEntry(BeerTasting beerTasting, Integer beerId, User user) {
+	   Beer beer = em.find(Beer.class, beerId);
+	   if(beer != null) {
+		   beerTasting.setBeer(beer);
+		   beerTasting.setUser(user);
+		   em.persist(beerTasting);
+		   return beerTasting;
+	   }
+	return null;
+}
 }

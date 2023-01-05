@@ -43,7 +43,7 @@
 							<ul class="dropdown-menu dropdown-menu-dark">
 								<li><a class="dropdown-item" href="selectBeer.do">Beer</a></li>
 								<li><hr class="dropdown-divider"></li>
-								<li><a class="dropdown-item" href="#">Spirit</a></li>
+								<li><a class="dropdown-item" href="selectSpirit.do">Spirit</a></li>
 								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="#">Wine</a></li>
 

@@ -1,15 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Select a spirit:</title>
+<title>Select a wine</title>
 <%@ include file="nav.jsp"%>
 </head>
 <body>
-
-
 	<section class="vh-100 gradient-custom">
 		<div class="container py-5 h-100">
 			<div class="row justify-content-center align-items-center h-100">
@@ -17,22 +15,22 @@
 					<div class="card shadow-2-strong card-registration"
 						style="border-radius: 15px;">
 						<div class="card-body p-4 p-md-5">
-							<h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Add a new spirit</h3>
-							<form action="spirit.do" method="POST">
+							<h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Add a new wine</h3>
+							<form action="wine.do" method="POST">
 
 								<div class="row">
 									<div class="col-md-6 mb-4">
 
 										<div class="form-outline">
-											<label for="spiritType.id">Spirit Type:</label> <select
-												name="spiritType.id" required>
-												<option value="1">Whiskey</option>
-												<option value="2">Bourbon</option>
-												<option value="3">Vodka</option>
-												<option value="4">Gin</option>
-												<option value="5">Rum</option>
-												<option value="6">Tequila</option>
-												<option value="7">Scotch</option>
+											<label for="wineType">Wine Type:</label> <select
+												name="wineType.id" required>
+												<option value=1>Pinot Noir</option>
+												<option value=2>Merlot</option>
+												<option value=3>Cabernet Sauvignon</option>
+												<option value=4>Chardonnay</option>
+												<option value=5>Pinot Grigio</option>
+												<option value=6>Moscato</option>
+												<option value=7>Rosé</option>
 											</select>
 										</div>
 
@@ -51,8 +49,8 @@
 									<div class="col-md-6 mb-4 d-flex align-items-center">
 
 										<div class="form-outline datepicker w-100">
-											<label for="proof">Proof:</label> <input type="number"
-												name="proof" required>
+											<label for="abv">ABV:</label> <input type="number"
+												step="0.01" name="abv" required>
 
 
 										</div>
@@ -61,8 +59,8 @@
 									<div class="col-md-6 mb-4 d-flex align-items-center">
 
 										<div class="form-outline datepicker w-100">
-											<label for="originCountry">Origin Country:</label> <input
-												type="text" name="originCountry">
+											<label for="originCity">Vineyard Name:</label> <input
+												type="text" name="originCity">
 										</div>
 
 									</div>
@@ -72,8 +70,8 @@
 									<div class="col-md-6 mb-4 pb-2">
 
 										<div class="form-outline">
-											<label for="originStateProvince">Origin State or Province:</label> <input
-												type="text" name="originStateProvince" required>
+											<label for="originState">Vineyard Location:</label> <input
+												type="text" name="originState" required>
 
 										</div>
 
@@ -99,6 +97,16 @@
 										</div>
 
 									</div>
+									
+									<div class="col-md-6 mb-4 pb-2">
+
+										<div class="form-outline">
+											<label for="vintageYear">Vintage Year</label> <input type="text"
+												name="vintageYear">
+										</div>
+
+									</div>
+								</div>
 
 									<div class="mt-4 pt-2">
 										<input class="btn btn-primary btn-lg" type="submit"
@@ -111,8 +119,5 @@
 			</div>
 		</div>
 	</section>
-
-
-
 </body>
 </html>

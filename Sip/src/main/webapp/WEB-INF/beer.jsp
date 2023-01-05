@@ -5,12 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Select a beer:</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-	crossorigin="anonymous">
-<link rel="stylesheet" href="main.css">
+<%@ include file="nav.jsp"%>
 </head>
 <body>
 
@@ -21,7 +16,58 @@
 					<div class="card shadow-2-strong card-registration"
 						style="border-radius: 15px;">
 						<div class="card-body p-4 p-md-5">
-							<h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
+
+							<h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Select a beer</h3>
+							<%-- <div class="dropdown">
+								<button class="btn btn-secondary dropdown-toggle" type="button"
+									data-bs-toggle="dropdown" aria-expanded="false">
+									Choose a beer</button>
+								<ul class="dropdown-menu">
+									<c:forEach var="beer" items="${beers}">
+										<li><a class="dropdown-item" href="#">${beer.name}</a></li>
+									</c:forEach>
+								
+								</ul>
+							</div> --%>
+
+							<form action="selectBeer.do" method="POST">
+
+								<div class="row">
+									<div class="col-md-6 mb-4">
+
+										<div class="form-outline">
+											<label for="brewType">Select Beer:</label> <select
+												name="id" required>
+
+												<c:forEach var="beer" items="${beers}">
+													<option value="${beer.id}">${beer.name}</option>
+												</c:forEach>
+											</select>
+										</div>
+
+									</div>
+
+									<div class="row">
+										<div class="col-md-6 mb-4 pb-2">
+
+											<div class="mt-4 pt-2">
+												<input class="btn btn-primary btn-lg" type="submit"
+													value="Submit" />
+											</div>
+										</div>
+							</form>
+
+
+
+
+
+
+
+
+
+
+
+							<h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Add a new beer</h3>
 							<form action="beer.do" method="POST">
 
 								<div class="row">

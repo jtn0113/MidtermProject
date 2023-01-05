@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +17,7 @@
 
 	<nav class="navbar navbar-dark bg-dark fixed-top">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#">Sip.</a>
+			<a class="navbar-brand" href="home.do">Sip.</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
 				aria-controls="offcanvasDarkNavbar">
@@ -41,7 +41,7 @@
 							data-bs-toggle="dropdown" aria-expanded="false"> New Tasting
 						</a>
 							<ul class="dropdown-menu dropdown-menu-dark">
-								<li><a class="dropdown-item" href="selectBeer.do">Beer</a></li>
+								<li><a class="dropdown-item" href="findAllBeers.do">Beer</a></li>
 								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="selectSpirit.do">Spirit</a></li>
 								<li><hr class="dropdown-divider"></li>
@@ -60,6 +60,9 @@
 		</div>
 	</nav>
 
-
+<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+		crossorigin="anonymous"></script>
 </body>
 </html>

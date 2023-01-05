@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Spirit Journal</title>
 <%@ include file="nav.jsp"%>
 </head>
 <body>
@@ -16,33 +16,24 @@
 					<div class="card shadow-2-strong card-registration"
 						style="border-radius: 15px;">
 						<div class="card-body p-4 p-md-5">
-							<h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Add a new spirit</h3>
-							<form action="spirit.do" method="POST">
-
+							<h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Spirit Journal Entry</h3>
+							<form action="spiritJournal.do" method="POST">
+                               <input type="hidden" name="spiritId" value="${spirit.id}">
 								<div class="row">
 									<div class="col-md-6 mb-4">
 
 										<div class="form-outline">
-											<label for="spiritType.id">Spirit Type:</label> <select
-												name="spiritType.id" required>
-												<option value="1">Whiskey</option>
-												<option value="2">Bourbon</option>
-												<option value="3">Vodka</option>
-												<option value="4">Gin</option>
-												<option value="5">Rum</option>
-												<option value="6">Tequila</option>
-												<option value="7">Scotch</option>
-											</select>
+								<label for ="notes"> Notes </label> <input type ="text" name="notes">
 										</div>
-
+                                       
 									</div>
 									<div class="col-md-6 mb-4">
 
 										<div class="form-outline">
-											<label for="name>">Name:</label> <input type="text"
-												name="name" required>
+											<label for="price"> Price: </label> <input type="number"
+												step="0.01" required name="price">
 										</div>
-
+                                         
 									</div>
 								</div>
 
@@ -50,8 +41,8 @@
 									<div class="col-md-6 mb-4 d-flex align-items-center">
 
 										<div class="form-outline datepicker w-100">
-											<label for="proof">Proof:</label> <input type="number"
-												name="proof" required>
+											<label for="rating">Rating:</label> <input type="number"
+												name="rating" required min="1" max="10">
 
 
 										</div>
@@ -60,8 +51,8 @@
 									<div class="col-md-6 mb-4 d-flex align-items-center">
 
 										<div class="form-outline datepicker w-100">
-											<label for="originCountry">Origin Country:</label> <input
-												type="text" name="originCountry">
+											<label for="photo">Photo:</label> <input
+												type="text" name="photo">
 										</div>
 
 									</div>
@@ -71,34 +62,14 @@
 									<div class="col-md-6 mb-4 pb-2">
 
 										<div class="form-outline">
-											<label for="originStateProvince">Origin State or Province:</label> <input
-												type="text" name="originStateProvince" required>
+											<label for="dateSampled">Date Sampled:</label> <input
+												type="date" name="dateSampled" required>
 
 										</div>
 
+									
 									</div>
-									<div class="col-md-6 mb-4 pb-2">
-
-										<div class="form-outline">
-											<label for="description">Description:</label> <input
-												type="text" name="description"
-												placeholder="Add your taste description here">
-											<!--add more creative lingo  -->
-										</div>
-
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="col-md-6 mb-4 pb-2">
-
-										<div class="form-outline">
-											<label for="imageUrl">Image URL:</label> <input type="text"
-												name="imageUrl">
-										</div>
-
-									</div>
-
+                                    </div>
 									<div class="mt-4 pt-2">
 										<input class="btn btn-primary btn-lg" type="submit"
 											value="Submit" />
@@ -110,7 +81,6 @@
 			</div>
 		</div>
 	</section>
-
 
 
 </body>

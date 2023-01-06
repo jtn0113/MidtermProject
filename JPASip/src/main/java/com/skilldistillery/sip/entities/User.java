@@ -1,5 +1,6 @@
 package com.skilldistillery.sip.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -7,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -27,6 +29,13 @@ public class User {
 	@Column(name = "about_me")
 	private String aboutMe;
 	private Integer age;
+	@OneToMany(mappedBy="user")
+	private List<BeerTasting> beerTasting;
+	@OneToMany(mappedBy="user")
+	private List<WineTasting> wineTasting;
+//	@OneToMany(mappedBy="spiritTasting")
+//	private List<SpiritTasting> spiritTasting;
+	
 
 	public User() {
 		super();
@@ -119,6 +128,32 @@ public class User {
 	public void setAge(Integer age) {
 		this.age = age;
 	}
+	
+	
+	public List<BeerTasting> getBeerTasting() {
+		return beerTasting;
+	}
+
+	public void setBeerTasting(List<BeerTasting> beerTasting) {
+		this.beerTasting = beerTasting;
+	}
+	
+
+	public List<WineTasting> getWineTasting() {
+		return wineTasting;
+	}
+
+	public void setWineTasting(List<WineTasting> wineTasting) {
+		this.wineTasting = wineTasting;
+	}
+//
+//	public List<SpiritTasting> getSpiritTasting() {
+//		return spiritTasting;
+//	}
+//
+//	public void setSpiritTasting(List<SpiritTasting> spiritTasting) {
+//		this.spiritTasting = spiritTasting;
+//	}
 
 	@Override
 	public String toString() {

@@ -2,6 +2,7 @@ package com.skilldistillery.sip.entities;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,10 +24,10 @@ public class WineType {
 //	@JoinColumn(name="wine_color_id")
 //	private WineColor wineColor;
 
-	@JoinColumn(name="wine_scale")
+	@Column(name="wine_scale")
 	private String wineScale;
 	
-	@JoinColumn(name="wine_color")
+	@Column(name="wine_color")
 	private String wineColor;
 	
 	

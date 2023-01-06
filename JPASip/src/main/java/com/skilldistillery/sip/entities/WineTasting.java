@@ -88,8 +88,6 @@ public class WineTasting {
 		this.dateSampled = dateSampled;
 	}
 	
-	
-
 	public User getUser() {
 		return user;
 	}

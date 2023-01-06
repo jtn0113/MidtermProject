@@ -15,32 +15,107 @@
 <link rel="stylesheet" href="main.css">
 </head>
 <body>
-	<nav>
 
-<br>
-<br>
-<br>
+	<br>
+	<!--fix and remove breaks  -->
+	<br>
+	<br>
+
+	<form>
+		<div id="beer">
+			<h1>Beer</h1>
+		</div>
+		<c:forEach var="tasting" items=" ${loggedInUser.beerTasting}">
+			<div class="accordion" id="accordionPanelsStayOpenExample">
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="panelsStayOpen-headingOne">
+						<button class="accordion-button" type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+							aria-controls="panelsStayOpen-collapseOne">${tasting}
+
+						</button>
+					</h2>
+					<div id="panelsStayOpen-collapseOne"
+						class="accordion-collapse collapse show"
+						aria-labelledby="panelsStayOpen-headingOne">
+						<div class="accordion-body">
+							<strong>This is the first item's accordion body.</strong> It is
+							shown by default, until the collapse plugin adds the appropriate
+							classes that we use to style each element. These classes control
+							the overall appearance, as well as the showing and hiding via CSS
+							transitions. You can modify any of this with custom CSS or
+							overriding our default variables. It's also worth noting that
+							just about any HTML can go within the
+							<code>.accordion-body</code>
+							, though the transition does limit overflow.
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</c:forEach>
+
+		<h1>Wine</h1>
+		<div class="accordion" id="accordionPanelsStayOpenExample">
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="panelsStayOpen-headingOne">
+					<button class="accordion-button" type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+						aria-controls="panelsStayOpen-collapseOne">Accordion Item
+						#1</button>
+				</h2>
+				<div id="panelsStayOpen-collapseOne"
+					class="accordion-collapse collapse show"
+					aria-labelledby="panelsStayOpen-headingOne">
+					<div class="accordion-body">
+						<strong>This is the first item's accordion body.</strong> It is
+						shown by default, until the collapse plugin adds the appropriate
+						classes that we use to style each element. These classes control
+						the overall appearance, as well as the showing and hiding via CSS
+						transitions. You can modify any of this with custom CSS or
+						overriding our default variables. It's also worth noting that just
+						about any HTML can go within the
+						<code>.accordion-body</code>
+						, though the transition does limit overflow.
+					</div>
+				</div>
+			</div>
 
 
+		</div>
+		<h1>Spirit</h1>
+		<div class="accordion" id="accordionPanelsStayOpenExample">
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="panelsStayOpen-headingOne">
+					<button class="accordion-button" type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+						aria-controls="panelsStayOpen-collapseOne">Accordion Item
+						#1</button>
+				</h2>
+				<div id="panelsStayOpen-collapseOne"
+					class="accordion-collapse collapse show"
+					aria-labelledby="panelsStayOpen-headingOne">
+					<div class="accordion-body">
+						<strong>This is the first item's accordion body.</strong> It is
+						shown by default, until the collapse plugin adds the appropriate
+						classes that we use to style each element. These classes control
+						the overall appearance, as well as the showing and hiding via CSS
+						transitions. You can modify any of this with custom CSS or
+						overriding our default variables. It's also worth noting that just
+						about any HTML can go within the
+						<code>.accordion-body</code>
+						, though the transition does limit overflow.
+					</div>
+				</div>
+			</div>
 
-<%-- <ul>
-			<li><a href="home.do">Home</a></li>
-</ul>
-			<c:choose>
-				<c:when test="${empty sessionScope.loggedInUser }">
-		<ul>
-					<li><a href="login.do">Log In</a></li>
-		</ul>
-				</c:when>
-				<c:otherwise>
-<ul>				
-					<li><a href="account.do">Account</a></li>
-					<li><a href="logout.do">Log Out</a></li>
-					</ul>
-							
-				</c:otherwise>
-			</c:choose> --%>
 
-	</nav>
+		</div>
+
+	</form>
+
 </body>
 </html>

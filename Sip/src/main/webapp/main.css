@@ -22,16 +22,16 @@ top: 13px;
 
 .gradient-custom-2 {
 /* fallback for old browsers */
-background: #fccb90;
+background:#7F6C75;
 
 /* Chrome 10-25, Safari 5.1-6 */
-background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+background: -webkit-linear-gradient(to right, #1C202B, #629488, #7F6C75 );
 
 /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+background: linear-gradient(to right, #1C202B, #629488, #7F6C75);
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
 .gradient-form {
 height: 100vh !important;
 }
@@ -40,8 +40,15 @@ height: 100vh !important;
 .gradient-custom-2 {
 border-top-right-radius: .3rem;
 border-bottom-right-radius: .3rem;
-}
+} */
 #beer{
 	padding-top: 75px;
 }
+#login{
+	font-family: 'Gill Sans Nova', sans-seif;
+	color: #000;
+	font-size: 50px;
+}
+#bio{
+	font-size: 20px;
 }

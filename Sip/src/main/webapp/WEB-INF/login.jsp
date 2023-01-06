@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html class="login">
 <head>
 <meta charset="UTF-8">
 
@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="main.css">
 </head>
 <body>
-	<section class="h-100 gradient-form" style="background-color: #eee;">
+	<section class="h-100 gradient-form" style="background-color: #786877;">
 		<div class="container py-5 h-100">
 			<div
 				class="row d-flex justify-content-center align-items-center h-100">
@@ -27,8 +27,7 @@
 								<div class="card-body p-md-5 mx-md-4">
 
 									<div class="text-center">
-										<img
-											src="https://i.imgur.com/chsxQSO.jpg"
+										<img src="https://i.imgur.com/chsxQSO.jpg"
 											style="width: 185px;" alt="logo">
 										<h4 class="mt-1 mb-5 pb-1">Welcome to Sip.</h4>
 									</div>
@@ -74,9 +73,17 @@
 								</div>
 							</div>
 							<div class="col-lg-6 d-flex align-items-center gradient-custom-2">
-								<div class="text-white px-3 py-4 p-md-5 mx-md-4">
+								<div class="
+								text-black px-3 py-4 p-md-5 mx-md-4 bio" id="bio">
 									<h4 class="mb-4">What you sippin' on?</h4>
-									<p class="small mb-0">Discover, explore, and journal all of your favorite ‘Sips’ while out and about! Life’s too short to forget about that one amazing beer you had, that one time, at that one place, with what friends again?. You’re better than that! With Sip., you can record and save all of the details surrounding those great beers, wines, or spirits you’ve tried along the way so while your memory may be a little fuzzy, Sip. remembers what you were sippin’ on.</p>
+									<p class="small mb-0">Discover, explore, and journal all of
+										your favorite ‘Sips’ while out and about! Life’s too short to
+										forget about that one amazing beer you had, that one time, at
+										that one place, with what friends again? You’re better than
+										that! With Sip., you can record and save all of the details
+										surrounding those great beers, wines, or spirits you’ve tried
+										along the way so while your memory may be a little fuzzy, Sip.
+										remembers what you were sippin’ on.</p>
 								</div>
 							</div>
 						</div>

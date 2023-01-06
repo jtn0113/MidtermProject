@@ -26,7 +26,7 @@
 									<div class="col-md-6 mb-4">
 
 										<div class="form-outline">
-											<label for="spiritType">Select Spirit:</label> <select
+											<label for="spiritType">Select Spirit:</label> <br><select
 												name="id" required>
 
 												<c:forEach var="spirit" items="${spirits}">

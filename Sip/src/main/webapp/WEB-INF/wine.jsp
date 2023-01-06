@@ -35,15 +35,17 @@
 										</div>
 
 									</div>
+								</div>
 
-									<div class="row">
-										<div class="col-md-6 mb-4 pb-2">
+								<div class="row">
+									<div class="col-md-6 mb-4 pb-2">
 
-											<div class="mt-4 pt-2">
-												<input class="btn btn-primary btn-lg" type="submit"
-													value="Submit" />
-											</div>
+										<div class="mt-4 pt-2">
+											<input class="btn btn-primary btn-lg" type="submit"
+												value="Submit" />
 										</div>
+									</div>
+								</div>
 							</form>
 
 
@@ -51,12 +53,11 @@
 
 							<form action="wine.do" method="POST">
 
-
-								<div class="col-md-6 mb-4 pb-2">
-
-									<div class="form-outline datepicker w-100">
 										<div class="row">
-											<label for="wineType">Wine Type:</label> <select
+									<div class="col-md-6 mb-4">
+
+									<div class="form-outline">
+											<label for="wineType">Wine Type:</label><br> <select
 												name="wineType.id" required>
 												<option value=1>Pinot Noir</option>
 												<option value=2>Merlot</option>
@@ -67,82 +68,86 @@
 												<option value=7>Rosé</option>
 											</select>
 										</div>
-
+</div>
 									</div>
-									<div class="row">
-										<div class="col-md-6 mb-4 pb-2">
-											<div class="form-outline datepicker w-100">
-												<label for="name>">Name:</label> <input type="text"
+								<div class="row">
+									<div class="col-md-6 mb-4 pb-2">
+
+										<div class="form-outline">
+												<label for="name>">Name:</label><br> <input type="text"
 													name="name" required>
 											</div>
 
 										</div>
 									</div>
+								<div class="row">
+									<div class="col-md-6 mb-4 pb-2">
 
-									<div class="row">
-										<div class="col-md-6 mb-4 pb-2">
-											<div class="form-outline">
-												<label for="abv">ABV:</label> <input type="number"
+										<div class="form-outline">
+												<label for="abv">ABV:</label><br> <input type="number"
 													step="0.01" name="abv" required>
 
 
 											</div>
+</div>
+										</div>
+								<div class="row">
+									<div class="col-md-6 mb-4 pb-2">
 
+										<div class="form-outline">
+													<label for="vineyardName">Vineyard Name:</label><br>
+													<input type="text" name="vineyardName">
+												</div>
+
+											</div>
+										</div>
+
+								<div class="row">
+									<div class="col-md-6 mb-4 pb-2">
+
+										<div class="form-outline">
+													<label for="vineyardLocation">Vineyard Location:</label><br>
+													<input type="text" name="vineyardLocation" required>
+												</div>
+
+											</div>
 										</div>
 										<div class="row">
-										<div class="col-md-6 mb-4 pb-2">
+											<div class="col-md-6 mb-4 pb-2">
 
-											<div class="form-outline datepicker w-100">
-												<label for="vineyardName">Vineyard Name:</label> <input
-													type="text" name="vineyardName">
+												<div class="form-outline">
+													<label for="description">Description:</label><br>
+													<textarea cols="50" rows="6" name="description"
+														placeholder="Add your taste description here"></textarea>
+													<!--add more creative lingo  -->
+												</div>
+
 											</div>
-
 										</div>
-									</div>
+										<div class="row">
+											<div class="col-md-6 mb-4 pb-2">
 
-									<div class="row">
-										<div class="col-md-7 mb-4 pb-2">
-											<div class="form-outline">
-												<label for="vineyardLocation">Vineyard Location:</label> <input
-													type="text" name="vineyardLocation" required>
+												<div class="form-outline">
+													<label for="imageUrl">Image URL:</label><br> <input
+														type="text" name="imageUrl">
+												</div>
+
 											</div>
-
 										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-6 mb-4 pb-2">
-											<div class="form-outline datepicker w-100">
-												<label for="description">Description:</label>
-												<textarea cols="50" rows="6" name="description"
-													placeholder="Add your taste description here"></textarea>
-												<!--add more creative lingo  -->
+										<div class="row">
+											<div class="col-md-6 mb-4 pb-2">
+
+												<div class="form-outline">
+													<label for="vintageYear">Vintage Year</label><br> <input
+														type="text" name="vintageYear">
+												</div>
 											</div>
-
 										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-6 mb-4 pb-2">
-											<div class="form-outline datepicker w-100">
-												<label for="imageUrl">Image URL:</label> <input type="text"
-													name="imageUrl">
-											</div>
 
+										<div class="mt-4 pt-2">
+											<input class="btn btn-primary btn-lg" type="submit"
+												value="Submit" />
 										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-6 mb-4 pb-2">
-											<div class="form-outline datepicker w-100">
-												<label for="vintageYear">Vintage Year</label> <input
-													type="text" name="vintageYear">
-											</div>
-
-										</div>
-									</div>
-
-									<div class="mt-4 pt-2">
-										<input class="btn btn-primary btn-lg" type="submit"
-											value="Submit" />
-									</div>
 							</form>
 						</div>
 					</div>

@@ -58,24 +58,14 @@
 								</div>
 							</form>
 
-
-
-
-
-
-
-
-
-
-
 							<h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Add a new beer</h3>
 							<form action="beer.do" method="POST">
 
-								<div class="col-md-6 mb-4 pb-2">
-
-									<div class="form-outline datepicker w-100">
 										<div class="row">
-											<label for="brewType">Beer Type:</label> <select
+										<div class="col-md-6 mb-4 pb-2">
+
+									<div class="form-outline">
+											<label for="brewType">Beer Type:</label> <br><select
 												name="brewType.id" required>
 												<option value=1>Pilsner</option>
 												<option value=2>Lager</option>
@@ -86,11 +76,12 @@
 												<option value=7>Bock</option>
 											</select>
 										</div>
+								</div>
 
 									</div>
 									<div class="row">
 										<div class="col-md-6 mb-4 pb-2">
-											<div class="form-outline datepicker w-100">
+											<div class="form-outline">
 												<label for="abv">Brewing Company:</label> <input type="text"
 													name="brewingCompany" required>
 
@@ -101,7 +92,7 @@
 									<div class="row">
 										<div class="col-md-6 mb-4 pb-2">
 											<div class="form-outline">
-												<label for="name>">Name:</label> <input type="text"
+												<label for="name>">Name:</label><br> <input type="text"
 													name="name" required>
 											</div>
 
@@ -110,8 +101,8 @@
 
 									<div class="row">
 										<div class="col-md-6 mb-4 pb-2">
-											<div class="form-outline datepicker w-100">
-												<label for="abv">ABV:</label> <input type="number"
+											<div class="form-outline">
+												<label for="abv">ABV:</label><br> <input type="number"
 													step="0.01" name="abv" required>
 
 
@@ -120,8 +111,8 @@
 									</div>
 									<div class="row">
 										<div class="col-md-6 mb-4 pb-2">
-											<div class="form-outline datepicker w-100">
-												<label for="originCity">Origin City:</label> <input
+											<div class="form-outline">
+												<label for="originCity">Origin City:</label><br> <input
 													type="text" name="originCity">
 											</div>
 
@@ -132,7 +123,7 @@
 										<div class="col-md-6 mb-4 pb-2">
 
 											<div class="form-outline">
-												<label for="originState">Origin State:</label> <input
+												<label for="originState">Origin State:</label><br> <input
 													type="text" name="originState" required>
 
 											</div>
@@ -149,11 +140,9 @@
 										</div>
 
 									</div>
-								</div>
 
 								<div class="row">
 									<div class="col-md-6 mb-4 pb-2">
-
 										<div class="form-outline">
 											<label for="imageUrl">Image URL:</label> <input type="text"
 												name="imageUrl">

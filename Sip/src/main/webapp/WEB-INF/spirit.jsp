@@ -34,7 +34,7 @@
 												</c:forEach>
 											</select>
 										</div>
-
+</div>
 									</div>
 
 									<div class="row">
@@ -45,16 +45,17 @@
 													value="Submit" />
 											</div>
 										</div>
+										</div>
 							</form>
 							
 							<h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Add a new spirit</h3>
 							<form action="spirit.do" method="POST">
 
-								<div class="row">
-									<div class="col-md-6 mb-4">
+										<div class="row">
+										<div class="col-md-6 mb-4 pb-2">
 
-										<div class="form-outline">
-											<label for="spiritType.id">Spirit Type:</label> <select
+									<div class="form-outline">
+											<label for="spiritType.id">Spirit Type:</label><br> <select
 												name="spiritType.id" required>
 												<option value="1">Whiskey</option>
 												<option value="2">Bourbon</option>
@@ -65,69 +66,64 @@
 												<option value="7">Scotch</option>
 											</select>
 										</div>
-
+</div>
 									</div>
-									<div class="col-md-6 mb-4">
-
+									<div class="row">
+									<div class="col-md-6 mb-4 pb-2">
 										<div class="form-outline">
-											<label for="name>">Name:</label> <input type="text"
+											<label for="name>">Name:</label><br><input type="text"
 												name="name" required>
 										</div>
 
 									</div>
 								</div>
-
 								<div class="row">
-									<div class="col-md-6 mb-4 d-flex align-items-center">
-
-										<div class="form-outline datepicker w-100">
-											<label for="proof">Proof:</label> <input type="number"
+									<div class="col-md-6 mb-4 pb-2">
+										<div class="form-outline">
+											<label for="proof">Proof:</label> <br><input type="number"
 												name="proof" required>
 
 
 										</div>
-
+</div>
 									</div>
-									<div class="col-md-6 mb-4 d-flex align-items-center">
-
-										<div class="form-outline datepicker w-100">
-											<label for="originCountry">Origin Country:</label> <input
+																	<div class="row">
+									<div class="col-md-6 mb-4 pb-2">
+										<div class="form-outline">
+											<label for="originCountry">Origin Country:</label> <br><input
 												type="text" name="originCountry">
 										</div>
 
 									</div>
 								</div>
 
-								<div class="row">
+												<div class="row">
 									<div class="col-md-6 mb-4 pb-2">
-
 										<div class="form-outline">
-											<label for="originStateProvince">Origin State or Province:</label> <input
+											<label for="originStateProvince">Origin State or Province:</label><br> <input
 												type="text" name="originStateProvince" required>
 
 										</div>
-
+</div>
 									</div>
+											<div class="row">
 									<div class="col-md-6 mb-4 pb-2">
-
 										<div class="form-outline">
-											<label for="description">Description:</label> <input
-												type="text" name="description"
-												placeholder="Add your taste description here">
+											<label for="description">Description:</label> <br><textarea cols="50"
+											rows="6" name="description"
+												placeholder="Add your taste description here"></textarea>
 											<!--add more creative lingo  -->
 										</div>
-
 									</div>
 								</div>
 
 								<div class="row">
 									<div class="col-md-6 mb-4 pb-2">
-
 										<div class="form-outline">
-											<label for="imageUrl">Image URL:</label> <input type="text"
+											<label for="imageUrl">Image URL:</label><br> <input type="text"
 												name="imageUrl">
 										</div>
-
+</div>
 									</div>
 
 									<div class="mt-4 pt-2">

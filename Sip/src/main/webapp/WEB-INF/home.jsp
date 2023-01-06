@@ -21,18 +21,27 @@
 	<br>
 	<br>
 
+
+
 	<form>
 		<div id="beer">
 			<h1>Beer</h1>
 		</div>
-		<c:forEach var="tasting" items=" ${loggedInUser.beerTasting}">
+<%-- 		<c:forEach var="beerTasting" items="${loggedInUser.beerTasting }">
+		${beerTasting.beer.name }
+		<br>
+		</c:forEach> --%>
+		
+ <c:forEach var="beerTasting" items="${loggedInUser.beerTasting }">
 			<div class="accordion" id="accordionPanelsStayOpenExample">
 				<div class="accordion-item">
 					<h2 class="accordion-header" id="panelsStayOpen-headingOne">
 						<button class="accordion-button" type="button"
 							data-bs-toggle="collapse"
 							data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-							aria-controls="panelsStayOpen-collapseOne">${tasting}
+							aria-controls="panelsStayOpen-collapseOne">
+							${beerTasting.beer.name } ${beerTasting.dateSampled }
+							<br>
 
 						</button>
 					</h2>
@@ -40,16 +49,18 @@
 						class="accordion-collapse collapse show"
 						aria-labelledby="panelsStayOpen-headingOne">
 						<div class="accordion-body">
-							<strong>This is the first item's accordion body.</strong> It is
-							shown by default, until the collapse plugin adds the appropriate
-							classes that we use to style each element. These classes control
-							the overall appearance, as well as the showing and hiding via CSS
-							transitions. You can modify any of this with custom CSS or
-							overriding our default variables. It's also worth noting that
-							just about any HTML can go within the
-							<code>.accordion-body</code>
-							, though the transition does limit overflow.
-						</div>
+							<strong>Rating: ${beerTasting.rating } out of 10</strong><br> 
+							<strong>Type:</strong> ${beerTasting.beer.brewType } <br>
+							<strong>Origin City:</strong> ${beerTasting.beer.originCity } <br>
+							<strong>Origin State:</strong> ${beerTasting.beer.originState } <br>
+							<strong>ABV:</strong> ${beerTasting.beer.abv }% <br>
+							<strong>Notes:</strong> ${beerTasting.notes } <br>
+							<strong>Beer Description:</strong> ${beerTasting.beer.description }
+							<strong>Price Per Glass:</strong> ${beerTasting.price }
+							<c:if test="${not empty beerTasting.photo }" >
+							<img src="${beerTasting.photo }">
+							</c:if>
+							</div>
 					</div>
 				</div>
 

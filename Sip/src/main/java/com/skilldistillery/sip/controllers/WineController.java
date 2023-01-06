@@ -8,17 +8,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.skilldistillery.sip.data.UserDAO;
 import com.skilldistillery.sip.data.WineDao;
-import com.skilldistillery.sip.entities.Wine;
-import com.skilldistillery.sip.entities.WineTasting;
 import com.skilldistillery.sip.entities.User;
 import com.skilldistillery.sip.entities.Wine;
+import com.skilldistillery.sip.entities.WineTasting;
 
 @Controller
 public class WineController {
 
 	@Autowired
 	private WineDao wineDao;
+	
+	@Autowired
+	private UserDAO userDao;
 	
 	@RequestMapping("wine.do")
 	public String createWine(Wine wine, Model model) {
@@ -55,6 +58,7 @@ public class WineController {
 			wineDao.wineJournalEntry(wineTasting, wineId, user);
 			model.addAttribute("wineTasting", wineTasting);
 			System.out.println(wineTasting);
+			session.setAttribute("loggedInUser", userDao.findById(user.getId()));
 			return "home";
 		} else {
 			return "login";

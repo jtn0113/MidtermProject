@@ -73,34 +73,60 @@
 		</c:forEach>
 
 		<h1>Wine</h1>
-		<div class="accordion" id="accordionPanelsStayOpenExample">
-			<div class="accordion-item">
-				<h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-					<button class="accordion-button" type="button"
-						data-bs-toggle="collapse"
-						data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true"
-						aria-controls="panelsStayOpen-collapseTwo">Accordion Item
-						#1</button>
-				</h2>
-				<div id="panelsStayOpen-collapseTwo"
-					class="accordion-collapse collapse show"
-					aria-labelledby="panelsStayOpen-headingTwo">
-					<div class="accordion-body">
-						<strong>This is the first item's accordion body.</strong> It is
-						shown by default, until the collapse plugin adds the appropriate
-						classes that we use to style each element. These classes control
-						the overall appearance, as well as the showing and hiding via CSS
-						transitions. You can modify any of this with custom CSS or
-						overriding our default variables. It's also worth noting that just
-						about any HTML can go within the
-						<code>.accordion-body</code>
-						, though the transition does limit overflow.
+		<c:forEach var="wineTasting" items="${loggedInUser.wineTasting }">
+			<div class="accordion" id="accordionExample">
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="headingOne${wineTasting.id}">
+						<button class="accordion-button" type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#panelsStayOpen-collapseOne${wineTasting.id}" aria-expanded="false"
+							aria-controls="panelsStayOpen-collapseOne${wineTasting.id}">
+							${wineTasting.wine.name } ${wineTasting.dateSampled } <br>
+
+						</button>
+					</h2>
+					<div id="panelsStayOpen-collapseOne${wineTasting.id}"
+						class="accordion-collapse collapse"
+						aria-labelledby="panelsStayOpen-headingOne${wineTasting.id}">
+						<div class="accordion-body">
+							<c:if test="${not empty wineTasting.rating }">
+								<strong>Rating: ${wineTasting.rating } out of 10</strong>
+								<br>
+							</c:if>
+							<c:if test="${not empty wineTasting.wine.wineType.name }">
+							<strong>Type:</strong> ${wineTasting.wine.wineType.name } <br> 
+							</c:if>
+
+							<c:if test="${not empty wineTasting.wine.vineyardName }">
+							<strong>Vineyard :</strong> ${wineTasting.wine.vineyardName } <br> 
+							</c:if>
+							<c:if test="${not empty wineTasting.wine.vineyardLocation }">
+							<strong>Vineyard Location:</strong> ${wineTasting.wine.vineyardLocation } <br> 
+							</c:if>
+							<c:if test="${not empty wineTasting.wine.abv }">
+							<strong>ABV:</strong> ${wineTasting.wine.abv }% <br> 
+							</c:if>
+							<c:if test="${not empty wineTasting.notes }">
+							<strong>Notes:</strong> ${wineTasting.notes } <br>
+							</c:if>
+							<c:if test="${not empty wineTasting.wine.description }">
+							 <strong>Wine Description:</strong> ${wineTasting.wine.description }<br>
+							</c:if>										
+							<c:if test="${not empty wineTasting.price }">
+							<strong>Price Per Glass:</strong> ${wineTasting.price }
+							</c:if>
+							<c:if test="${not empty wineTasting.photo }">
+								<img src="${wineTasting.photo }">
+							</c:if>
+						</div>
 					</div>
 				</div>
+
 			</div>
+		</c:forEach>
 
 
-		</div>
+		
 		<h1>Spirit</h1>
 		<c:forEach var="spiritTasting" items="${loggedInUser.spiritTasting }">
 			<div class="accordion" id="accordionExample">

@@ -27,12 +27,12 @@
 		<div id="beer">
 			<h1>Beer</h1>
 		</div>
-<%-- 		<c:forEach var="beerTasting" items="${loggedInUser.beerTasting }">
+		<%-- 		<c:forEach var="beerTasting" items="${loggedInUser.beerTasting }">
 		${beerTasting.beer.name }
 		<br>
 		</c:forEach> --%>
-		
- <c:forEach var="beerTasting" items="${loggedInUser.beerTasting }">
+
+		<c:forEach var="beerTasting" items="${loggedInUser.beerTasting }">
 			<div class="accordion" id="accordionPanelsStayOpenExample">
 				<div class="accordion-item">
 					<h2 class="accordion-header" id="panelsStayOpen-headingOne">
@@ -40,8 +40,7 @@
 							data-bs-toggle="collapse"
 							data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
 							aria-controls="panelsStayOpen-collapseOne">
-							${beerTasting.beer.name } ${beerTasting.dateSampled }
-							<br>
+							${beerTasting.beer.name } ${beerTasting.dateSampled } <br>
 
 						</button>
 					</h2>
@@ -49,18 +48,36 @@
 						class="accordion-collapse collapse show"
 						aria-labelledby="panelsStayOpen-headingOne">
 						<div class="accordion-body">
-							<strong>Rating: ${beerTasting.rating } out of 10</strong><br> 
-							<strong>Type:</strong> ${beerTasting.beer.brewType } <br>
-							<strong>Origin City:</strong> ${beerTasting.beer.originCity } <br>
-							<strong>Origin State:</strong> ${beerTasting.beer.originState } <br>
-							<strong>ABV:</strong> ${beerTasting.beer.abv }% <br>
-							<strong>Notes:</strong> ${beerTasting.notes } <br>
-							<strong>Beer Description:</strong> ${beerTasting.beer.description }
-							<strong>Price Per Glass:</strong> ${beerTasting.price }
-							<c:if test="${not empty beerTasting.photo }" >
-							<img src="${beerTasting.photo }">
+							<c:if test="${not empty beerTasting.rating }">
+								<strong>Rating: ${beerTasting.rating } out of 10</strong>
+								<br>
 							</c:if>
-							</div>
+							<c:if test="${not empty beerTasting.beer.brewType }">
+							<strong>Type:</strong> ${beerTasting.beer.brewType } <br> 
+							</c:if>
+
+							<c:if test="${not empty beerTasting.beer.originCity }">
+							<strong>Origin City:</strong> ${beerTasting.beer.originCity } <br> 
+							</c:if>
+							<c:if test="${not empty beerTasting.beer.originState }">
+							<strong>Origin State:</strong> ${beerTasting.beer.originState } <br> 
+							</c:if>
+							<c:if test="${not empty beerTasting.beer.abv }">
+							<strong>ABV:</strong> ${beerTasting.beer.abv }% <br> 
+							</c:if>
+							<c:if test="${not empty beerTasting.notes }">
+							<strong>Notes:</strong> ${beerTasting.notes } <br>
+							</c:if>
+							<c:if test="${not empty beerTasting.beer.description }">
+							 <strong>Beer Description:</strong> ${beerTasting.beer.description }<br>
+							</c:if>										
+							<c:if test="${not empty beerTasting.price }">
+							<strong>Price Per Glass:</strong> ${beerTasting.price }
+							</c:if>
+							<c:if test="${not empty beerTasting.photo }">
+								<img src="${beerTasting.photo }">
+							</c:if>
+						</div>
 					</div>
 				</div>
 

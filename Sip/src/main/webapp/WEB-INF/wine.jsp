@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,8 +15,43 @@
 					<div class="card shadow-2-strong card-registration"
 						style="border-radius: 15px;">
 						<div class="card-body p-4 p-md-5">
+
+
+							<h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Select a Wine</h3>
+
+							<form action="selectWine.do" method="POST">
+
+								<div class="row">
+									<div class="col-md-6 mb-4">
+
+										<div class="form-outline">
+											<label for="wineType">Select Wine:</label> <select
+												name="id" required>
+
+												<c:forEach var="wine" items="${wines}">
+													<option value="${wine.id}">${wine.name}</option>
+												</c:forEach>
+											</select>
+										</div>
+
+									</div>
+
+									<div class="row">
+										<div class="col-md-6 mb-4 pb-2">
+
+											<div class="mt-4 pt-2">
+												<input class="btn btn-primary btn-lg" type="submit"
+													value="Submit" />
+											</div>
+										</div>
+							</form>
+
+
 							<h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Add a new wine</h3>
+
 							<form action="wine.do" method="POST">
+
+
 
 								<div class="row">
 									<div class="col-md-6 mb-4">
@@ -97,21 +132,21 @@
 										</div>
 
 									</div>
-									
+
 									<div class="col-md-6 mb-4 pb-2">
 
 										<div class="form-outline">
-											<label for="vintageYear">Vintage Year</label> <input type="text"
-												name="vintageYear">
+											<label for="vintageYear">Vintage Year</label> <input
+												type="text" name="vintageYear">
 										</div>
 
 									</div>
 								</div>
 
-									<div class="mt-4 pt-2">
-										<input class="btn btn-primary btn-lg" type="submit"
-											value="Submit" />
-									</div>
+								<div class="mt-4 pt-2">
+									<input class="btn btn-primary btn-lg" type="submit"
+										value="Submit" />
+								</div>
 							</form>
 						</div>
 					</div>

@@ -23,7 +23,7 @@
 
 
 
-<ul>
+<%-- <ul>
 			<li><a href="home.do">Home</a></li>
 </ul>
 			<c:choose>
@@ -39,7 +39,7 @@
 					</ul>
 							
 				</c:otherwise>
-			</c:choose>
+			</c:choose> --%>
 
 	</nav>
 </body>

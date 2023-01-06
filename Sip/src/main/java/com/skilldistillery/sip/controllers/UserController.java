@@ -67,6 +67,7 @@ public class UserController {
 			return "home";
 		}
 	}
+
 //	If the login fails, display the login view.
 
 //	logout.do removes the user from session and returns the index.
@@ -75,7 +76,8 @@ public class UserController {
 		session.removeAttribute("loggedInUser");
 		return "login";
 	}
-
+	
+	
 //	@RequestMapping("journalEntry")
 //	public String journalEntry() {
 //	}

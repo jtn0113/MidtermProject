@@ -15,45 +15,37 @@
 <link rel="stylesheet" href="main.css">
 </head>
 <body>
+	<div id="beer">
+		<h1>Beer</h1>
+	</div>
 
-	<br>
-	<!--fix and remove breaks  -->
-	<br>
-	<br>
-
-
-
-	<form>
-		<div id="beer">
-			<h1>Beer</h1>
-		</div>
 		<%-- 		<c:forEach var="beerTasting" items="${loggedInUser.beerTasting }">
 		${beerTasting.beer.name }
 		<br>
 		</c:forEach> --%>
 
 		<c:forEach var="beerTasting" items="${loggedInUser.beerTasting }">
-			<div class="accordion" id="accordionPanelsStayOpenExample">
+			<div class="accordion" id="accordionExample">
 				<div class="accordion-item">
-					<h2 class="accordion-header" id="panelsStayOpen-headingOne">
+					<h2 class="accordion-header" id="headingOne${beerTasting.id}">
 						<button class="accordion-button" type="button"
 							data-bs-toggle="collapse"
-							data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-							aria-controls="panelsStayOpen-collapseOne">
+							data-bs-target="#panelsStayOpen-collapseOne${beerTasting.id}" aria-expanded="false"
+							aria-controls="panelsStayOpen-collapseOne${beerTasting.id}">
 							${beerTasting.beer.name } ${beerTasting.dateSampled } <br>
 
 						</button>
 					</h2>
-					<div id="panelsStayOpen-collapseOne"
-						class="accordion-collapse collapse show"
-						aria-labelledby="panelsStayOpen-headingOne">
+					<div id="panelsStayOpen-collapseOne${beerTasting.id}"
+						class="accordion-collapse collapse"
+						aria-labelledby="panelsStayOpen-headingOne${beerTasting.id}">
 						<div class="accordion-body">
 							<c:if test="${not empty beerTasting.rating }">
 								<strong>Rating: ${beerTasting.rating } out of 10</strong>
 								<br>
 							</c:if>
-							<c:if test="${not empty beerTasting.beer.brewType }">
-							<strong>Type:</strong> ${beerTasting.beer.brewType } <br> 
+							<c:if test="${not empty beerTasting.beer.brewType.name }">
+							<strong>Type:</strong> ${beerTasting.beer.brewType.name } <br> 
 							</c:if>
 
 							<c:if test="${not empty beerTasting.beer.originCity }">
@@ -87,16 +79,16 @@
 		<h1>Wine</h1>
 		<div class="accordion" id="accordionPanelsStayOpenExample">
 			<div class="accordion-item">
-				<h2 class="accordion-header" id="panelsStayOpen-headingOne">
+				<h2 class="accordion-header" id="panelsStayOpen-headingTwo">
 					<button class="accordion-button" type="button"
 						data-bs-toggle="collapse"
-						data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-						aria-controls="panelsStayOpen-collapseOne">Accordion Item
+						data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true"
+						aria-controls="panelsStayOpen-collapseTwo">Accordion Item
 						#1</button>
 				</h2>
-				<div id="panelsStayOpen-collapseOne"
+				<div id="panelsStayOpen-collapseTwo"
 					class="accordion-collapse collapse show"
-					aria-labelledby="panelsStayOpen-headingOne">
+					aria-labelledby="panelsStayOpen-headingTwo">
 					<div class="accordion-body">
 						<strong>This is the first item's accordion body.</strong> It is
 						shown by default, until the collapse plugin adds the appropriate
@@ -116,16 +108,16 @@
 		<h1>Spirit</h1>
 		<div class="accordion" id="accordionPanelsStayOpenExample">
 			<div class="accordion-item">
-				<h2 class="accordion-header" id="panelsStayOpen-headingOne">
+				<h2 class="accordion-header" id="panelsStayOpen-headingThree">
 					<button class="accordion-button" type="button"
 						data-bs-toggle="collapse"
-						data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-						aria-controls="panelsStayOpen-collapseOne">Accordion Item
+						data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true"
+						aria-controls="panelsStayOpen-collapseThree">Accordion Item
 						#1</button>
 				</h2>
-				<div id="panelsStayOpen-collapseOne"
+				<div id="panelsStayOpen-collapseThree"
 					class="accordion-collapse collapse show"
-					aria-labelledby="panelsStayOpen-headingOne">
+					aria-labelledby="panelsStayOpen-headingThree">
 					<div class="accordion-body">
 						<strong>This is the first item's accordion body.</strong> It is
 						shown by default, until the collapse plugin adds the appropriate
@@ -142,8 +134,6 @@
 
 
 		</div>
-
-	</form>
 
 </body>
 </html>

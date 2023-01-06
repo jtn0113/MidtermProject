@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.sip.data.BeerDao;
+import com.skilldistillery.sip.data.UserDAO;
 import com.skilldistillery.sip.entities.Beer;
 import com.skilldistillery.sip.entities.BeerTasting;
 import com.skilldistillery.sip.entities.User;
@@ -18,6 +19,9 @@ public class BeerController {
 
 	@Autowired
 	private BeerDao beerDao;
+	
+	@Autowired
+	private UserDAO userDao;
 
 	@RequestMapping("beer.do")
 	public String createBeer(Beer beer, Model model) {
@@ -53,6 +57,7 @@ public class BeerController {
 			beerDao.beerJournalEntry(beerTasting, beerId, user);
 			model.addAttribute("beerTasting", beerTasting);
 			System.out.println(beerTasting);
+			session.setAttribute("loggedInUser", userDao.findById(user.getId()));
 			return "home";
 		} else {
 			return "login";

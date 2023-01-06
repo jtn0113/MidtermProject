@@ -17,6 +17,7 @@
 
 	<nav class="navbar navbar-dark bg-dark fixed-top">
 		<div class="container-fluid">
+		<img class="logo" src="https://i.imgur.com/chsxQSO.jpg" style="width: 40px;" style="height: 60px;" alt="logo">
 			<a class="navbar-brand" href="home.do">Sip.</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"

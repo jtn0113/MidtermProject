@@ -25,8 +25,8 @@
 									<div class="col-md-6 mb-4">
 
 										<div class="form-outline">
-											<label for="wineType">Select Wine:</label> <select
-												name="id" required>
+											<label for="wineType">Select Wine:</label> <select name="id"
+												required>
 
 												<c:forEach var="wine" items="${wines}">
 													<option value="${wine.id}">${wine.name}</option>
@@ -52,11 +52,10 @@
 							<form action="wine.do" method="POST">
 
 
+								<div class="col-md-6 mb-4 pb-2">
 
-								<div class="row">
-									<div class="col-md-6 mb-4">
-
-										<div class="form-outline">
+									<div class="form-outline datepicker w-100">
+										<div class="row">
 											<label for="wineType">Wine Type:</label> <select
 												name="wineType.id" required>
 												<option value=1>Pinot Noir</option>
@@ -70,83 +69,81 @@
 										</div>
 
 									</div>
-									<div class="col-md-6 mb-4">
-
-										<div class="form-outline">
-											<label for="name>">Name:</label> <input type="text"
-												name="name" required>
-										</div>
-
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="col-md-6 mb-4 d-flex align-items-center">
-
-										<div class="form-outline datepicker w-100">
-											<label for="abv">ABV:</label> <input type="number"
-												step="0.01" name="abv" required>
-
+									<div class="row">
+										<div class="col-md-6 mb-4 pb-2">
+											<div class="form-outline datepicker w-100">
+												<label for="name>">Name:</label> <input type="text"
+													name="name" required>
+											</div>
 
 										</div>
-
 									</div>
-									<div class="col-md-6 mb-4 d-flex align-items-center">
 
-										<div class="form-outline datepicker w-100">
-											<label for="originCity">Vineyard Name:</label> <input
-												type="text" name="originCity">
-										</div>
+									<div class="row">
+										<div class="col-md-6 mb-4 pb-2">
+											<div class="form-outline">
+												<label for="abv">ABV:</label> <input type="number"
+													step="0.01" name="abv" required>
 
-									</div>
-								</div>
 
-								<div class="row">
-									<div class="col-md-6 mb-4 pb-2">
-
-										<div class="form-outline">
-											<label for="originState">Vineyard Location:</label> <input
-												type="text" name="originState" required>
+											</div>
 
 										</div>
+										<div class="col-md-6 mb-4 d-flex align-items-center">
 
+											<div class="form-outline datepicker w-100">
+												<label for="originCity">Vineyard Name:</label> <input
+													type="text" name="originCity">
+											</div>
+
+										</div>
 									</div>
-									<div class="col-md-6 mb-4 pb-2">
 
-										<div class="form-outline">
-											<label for="description">Description:</label> <input
-												type="text" name="description"
-												placeholder="Add your taste description here">
-											<!--add more creative lingo  -->
+									<div class="row">
+										<div class="col-md-6 mb-4 pb-2">
+
+											<div class="form-outline">
+												<label for="originState">Vineyard Location:</label> <input
+													type="text" name="originState" required>
+
+											</div>
+
 										</div>
 
-									</div>
-								</div>
+									<div class="row">
+										<div class="col-md-6 mb-4 pb-2">
+											<div class="form-outline datepicker w-100">
+												<label for="description">Description:</label> <input
+													type="text" name="description"
+													placeholder="Add your taste description here">
+												<!--add more creative lingo  -->
+											</div>
 
-								<div class="row">
-									<div class="col-md-6 mb-4 pb-2">
-
-										<div class="form-outline">
-											<label for="imageUrl">Image URL:</label> <input type="text"
-												name="imageUrl">
 										</div>
-
 									</div>
+									<div class="row">
+										<div class="col-md-6 mb-4 pb-2">
+											<div class="form-outline datepicker w-100">
+												<label for="imageUrl">Image URL:</label> <input type="text"
+													name="imageUrl">
+											</div>
 
-									<div class="col-md-6 mb-4 pb-2">
-
-										<div class="form-outline">
-											<label for="vintageYear">Vintage Year</label> <input
-												type="text" name="vintageYear">
 										</div>
+</div>
+										<div class="col-md-6 mb-4 pb-2">
 
+											<div class="form-outline">
+												<label for="vintageYear">Vintage Year</label> <input
+													type="text" name="vintageYear">
+											</div>
+
+										</div>
 									</div>
-								</div>
 
-								<div class="mt-4 pt-2">
-									<input class="btn btn-primary btn-lg" type="submit"
-										value="Submit" />
-								</div>
+									<div class="mt-4 pt-2">
+										<input class="btn btn-primary btn-lg" type="submit"
+											value="Submit" />
+									</div>
 							</form>
 						</div>
 					</div>

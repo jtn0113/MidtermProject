@@ -45,6 +45,7 @@ class BeerTest {
 		assertNotNull(beer);
 		assertEquals(2, beer.getBrewType().getId());
 		assertEquals("Bud Light Lime", beer.getName());
+		assertEquals("Anheuser-Busch", beer.getBrewingCompany());
 	}
 
 }

@@ -23,12 +23,19 @@ public class Beer {
 	@Column(name="origin_city")
 	private String originCity;
 	
+	@Column(name="image_url")
+	private String imageUrl;
+	
 	@Column(name="origin_state")
 	private String originState;
 	
 	private double abv;
 	private String description;	
 	
+	@Column(name="brewing_company")
+	private String brewingCompany;
+	
+
 	public Beer() {
 		super();
 	}
@@ -51,8 +58,8 @@ public class Beer {
 	@Override
 	public String toString() {
 		return "Beer [id=" + id + ", name=" + name + ", brewType=" + brewType + ", originCity=" + originCity
-				+ ", originState=" + originState + ", abv=" + abv + ", description=" + description + ", imageUrl="
-				+ imageUrl + "]";
+				+ ", originState=" + originState + ", abv=" + abv + ", description=" + description + ", brewingCompany="
+				+ brewingCompany + ", imageUrl=" + imageUrl + "]";
 	}
 	public int getId() {
 		return id;
@@ -106,6 +113,11 @@ public class Beer {
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
-	@Column(name="image_url")
-	private String imageUrl;
+	public String getBrewingCompany() {
+		return brewingCompany;
+	}
+	
+	public void setBrewingCompany(String brewingCompany) {
+		this.brewingCompany = brewingCompany;
+	}
 }

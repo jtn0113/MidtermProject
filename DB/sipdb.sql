@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `beer` (
   `abv` DOUBLE NOT NULL,
   `description` TEXT NULL,
   `image_url` TEXT NULL,
-  `brewingCompany` VARCHAR(100) NULL,
+  `brewing_company` VARCHAR(100) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_beer_brew_type1_idx` (`brew_type_id` ASC),
   CONSTRAINT `fk_beer_brew_type1`
@@ -453,20 +453,20 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `sipdb`;
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewingCompany`) VALUES (1, 'Bud Light Lime', 2, NULL, 'Texas', 4.2, '', NULL, 'Anheuser-Busch');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewingCompany`) VALUES (2, 'Bud Light', 2, NULL, 'Texas', 4.2, '', NULL, 'Anheuser-Busch');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewingCompany`) VALUES (3, 'Coors Light', 2, NULL, 'Colorado', 4.2, '', NULL, 'Molson Coors');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewingCompany`) VALUES (4, 'Dogfish Head 60 Minute IPA', 3, 'Milton', 'Delaware', 6.0, '', NULL, 'Dogfish Head Brewery');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewingCompany`) VALUES (5 , 'Karbach Hopadillo', 3, 'Houston', 'Texas', 6.60, '', NULL, 'Karbach Brewing Company');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewingCompany`) VALUES (6, 'New Belgium Voodoo Ranger Impeial IPA', 3, 'Fort Collins', 'Colorado', 9, '', NULL, 'New Belgium Brewing Company');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewingCompany`) VALUES (7, 'Stone Delicious IPA', 3, NULL, 'California', 7.5, '', NULL, 'Stone Brewing Company');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewingCompany`) VALUES (8, 'Stone Hazy IPA ', 3, NULL, 'California', 6.7, '', NULL, 'Stone Brewing Company');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewingCompany`) VALUES (9, 'Alaskan Pilsner', 1, 'Juneau', 'Alaska', 4.8, NULL, NULL, 'Alaskan Brewing Company');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewingCompany`) VALUES (10, 'Dogfish Head Shelter Pale', 4, NULL, 'Delaware', 5, NULL, NULL, 'Dogfish Head Brewery');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewingCompany`) VALUES (11, 'Bell\'s Juicy Gossip', 4, 'Kalamazoo', 'Michigan', 4.7, NULL, NULL, 'Bell\'s Brewing Company');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewingCompany`) VALUES (12, 'Guinness Draught', 5, NULL, 'Ireland', 4.2, NULL, NULL, 'Guinness');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewingCompany`) VALUES (13, 'Real Ale Coffee Porter', 6, 'Blanco', 'Texas', 6.6, NULL, NULL, 'Real Ale Brewing Company');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewingCompany`) VALUES (14, 'Live Oak Primus', 7, 'Del Valle', 'Texas', 8, NULL, NULL, 'Live Oak Brewing Company');
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (1, 'Bud Light Lime', 2, NULL, 'Texas', 4.2, '', NULL, 'Anheuser-Busch');
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (2, 'Bud Light', 2, NULL, 'Texas', 4.2, '', NULL, 'Anheuser-Busch');
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (3, 'Coors Light', 2, NULL, 'Colorado', 4.2, '', NULL, 'Molson Coors');
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (4, 'Dogfish Head 60 Minute IPA', 3, 'Milton', 'Delaware', 6.0, '', NULL, 'Dogfish Head Brewery');
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (5 , 'Karbach Hopadillo', 3, 'Houston', 'Texas', 6.60, '', NULL, 'Karbach Brewing Company');
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (6, 'New Belgium Voodoo Ranger Impeial IPA', 3, 'Fort Collins', 'Colorado', 9, '', NULL, 'New Belgium Brewing Company');
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (7, 'Stone Delicious IPA', 3, NULL, 'California', 7.5, '', NULL, 'Stone Brewing Company');
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (8, 'Stone Hazy IPA ', 3, NULL, 'California', 6.7, '', NULL, 'Stone Brewing Company');
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (9, 'Alaskan Pilsner', 1, 'Juneau', 'Alaska', 4.8, NULL, NULL, 'Alaskan Brewing Company');
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (10, 'Dogfish Head Shelter Pale', 4, NULL, 'Delaware', 5, NULL, NULL, 'Dogfish Head Brewery');
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (11, 'Bell\'s Juicy Gossip', 4, 'Kalamazoo', 'Michigan', 4.7, NULL, NULL, 'Bell\'s Brewing Company');
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (12, 'Guinness Draught', 5, NULL, 'Ireland', 4.2, NULL, NULL, 'Guinness');
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (13, 'Real Ale Coffee Porter', 6, 'Blanco', 'Texas', 6.6, NULL, NULL, 'Real Ale Brewing Company');
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (14, 'Live Oak Primus', 7, 'Del Valle', 'Texas', 8, NULL, NULL, 'Live Oak Brewing Company');
 
 COMMIT;
 

@@ -89,33 +89,32 @@
 											</div>
 
 										</div>
-										<div class="col-md-6 mb-4 d-flex align-items-center">
+										<div class="row">
+										<div class="col-md-6 mb-4 pb-2">
 
 											<div class="form-outline datepicker w-100">
-												<label for="originCity">Vineyard Name:</label> <input
-													type="text" name="originCity">
+												<label for="vineyardName">Vineyard Name:</label> <input
+													type="text" name="vineyardName">
 											</div>
 
 										</div>
 									</div>
 
 									<div class="row">
-										<div class="col-md-6 mb-4 pb-2">
-
+										<div class="col-md-7 mb-4 pb-2">
 											<div class="form-outline">
-												<label for="originState">Vineyard Location:</label> <input
-													type="text" name="originState" required>
-
+												<label for="vineyardLocation">Vineyard Location:</label> <input
+													type="text" name="vineyardLocation" required>
 											</div>
 
 										</div>
-
+									</div>
 									<div class="row">
 										<div class="col-md-6 mb-4 pb-2">
 											<div class="form-outline datepicker w-100">
-												<label for="description">Description:</label> <input
-													type="text" name="description"
-													placeholder="Add your taste description here">
+												<label for="description">Description:</label>
+												<textarea cols="50" rows="6" name="description"
+													placeholder="Add your taste description here"></textarea>
 												<!--add more creative lingo  -->
 											</div>
 
@@ -129,10 +128,10 @@
 											</div>
 
 										</div>
-</div>
+									</div>
+									<div class="row">
 										<div class="col-md-6 mb-4 pb-2">
-
-											<div class="form-outline">
+											<div class="form-outline datepicker w-100">
 												<label for="vintageYear">Vintage Year</label> <input
 													type="text" name="vintageYear">
 											</div>

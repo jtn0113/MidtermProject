@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.sip.data.SpiritDao;
+import com.skilldistillery.sip.data.UserDAO;
 import com.skilldistillery.sip.entities.Spirit;
 import com.skilldistillery.sip.entities.SpiritTasting;
 import com.skilldistillery.sip.entities.User;
@@ -18,6 +19,9 @@ public class SpiritController {
 
 	@Autowired
 	private SpiritDao spiritDao;
+	
+	@Autowired
+	private UserDAO userDao;
 
 	@RequestMapping("spirit.do")
 	public String createspirit(Spirit spirit, Model model) {
@@ -53,6 +57,7 @@ public class SpiritController {
 			spiritDao.spiritJournalEntry(spiritTasting, spiritId, user);
 			model.addAttribute("spiritTasting", spiritTasting);
 			System.out.println(spiritTasting);
+			session.setAttribute("loggedInUser", userDao.findById(user.getId()));
 			return "home";
 		} else {
 			return "login";

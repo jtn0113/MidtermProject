@@ -19,10 +19,6 @@
 		<h1>Beer</h1>
 	</div>
 
-		<%-- 		<c:forEach var="beerTasting" items="${loggedInUser.beerTasting }">
-		${beerTasting.beer.name }
-		<br>
-		</c:forEach> --%>
 
 		<c:forEach var="beerTasting" items="${loggedInUser.beerTasting }">
 			<div class="accordion" id="accordionExample">
@@ -106,32 +102,57 @@
 
 		</div>
 		<h1>Spirit</h1>
-		<div class="accordion" id="accordionPanelsStayOpenExample">
-			<div class="accordion-item">
-				<h2 class="accordion-header" id="panelsStayOpen-headingThree">
-					<button class="accordion-button" type="button"
-						data-bs-toggle="collapse"
-						data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true"
-						aria-controls="panelsStayOpen-collapseThree">Accordion Item
-						#1</button>
-				</h2>
-				<div id="panelsStayOpen-collapseThree"
-					class="accordion-collapse collapse show"
-					aria-labelledby="panelsStayOpen-headingThree">
-					<div class="accordion-body">
-						<strong>This is the first item's accordion body.</strong> It is
-						shown by default, until the collapse plugin adds the appropriate
-						classes that we use to style each element. These classes control
-						the overall appearance, as well as the showing and hiding via CSS
-						transitions. You can modify any of this with custom CSS or
-						overriding our default variables. It's also worth noting that just
-						about any HTML can go within the
-						<code>.accordion-body</code>
-						, though the transition does limit overflow.
+		<c:forEach var="spiritTasting" items="${loggedInUser.spiritTasting }">
+			<div class="accordion" id="accordionExample">
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="headingOne${spiritTasting.id}">
+						<button class="accordion-button" type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#panelsStayOpen-collapseOne${spiritTasting.id}" aria-expanded="false"
+							aria-controls="panelsStayOpen-collapseOne${spiritTasting.id}">
+							${spiritTasting.spirit.name } ${spiritTasting.dateSampled } <br>
+
+						</button>
+					</h2>
+					<div id="panelsStayOpen-collapseOne${spiritTasting.id}"
+						class="accordion-collapse collapse"
+						aria-labelledby="panelsStayOpen-headingOne${spiritTasting.id}">
+						<div class="accordion-body">
+							<c:if test="${not empty spiritTasting.rating }">
+								<strong>Rating: ${spiritTasting.rating } out of 10</strong>
+								<br>
+							</c:if>
+							<c:if test="${not empty spiritTasting.spirit.spiritType.name }">
+							<strong>Type:</strong> ${spiritTasting.spirit.spiritType.name } <br> 
+							</c:if>
+
+							<c:if test="${not empty spiritTasting.spirit.originCountry }">
+							<strong>Origin Country:</strong> ${spiritTasting.spirit.originCountry } <br> 
+							</c:if>
+							<c:if test="${not empty spiritTasting.spirit.originStateProvince }">
+							<strong>Origin State Province:</strong> ${spiritTasting.spirit.originStateProvince } <br> 
+							</c:if>
+							<c:if test="${not empty spiritTasting.spirit.proof }">
+							<strong>Proof:</strong> ${spiritTasting.spirit.proof }% <br> 
+							</c:if>
+							<c:if test="${not empty spiritTasting.notes }">
+							<strong>Notes:</strong> ${spiritTasting.notes } <br>
+							</c:if>
+							<c:if test="${not empty spiritTasting.spirit.description }">
+							 <strong>Spirit Description:</strong> ${spiritTasting.spirit.description }<br>
+							</c:if>										
+							<c:if test="${not empty spiritTasting.price }">
+							<strong>Price Per Glass:</strong> ${spiritTasting.price }
+							</c:if>
+							<c:if test="${not empty spiritTasting.photo }">
+								<img src="${spiritTasting.photo }">
+							</c:if>
+						</div>
 					</div>
 				</div>
-			</div>
 
+			</div>
+		</c:forEach>
 
 		</div>
 

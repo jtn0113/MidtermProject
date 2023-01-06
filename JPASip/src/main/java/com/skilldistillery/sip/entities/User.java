@@ -33,8 +33,8 @@ public class User {
 	private List<BeerTasting> beerTasting;
 	@OneToMany(mappedBy="user")
 	private List<WineTasting> wineTasting;
-//	@OneToMany(mappedBy="spiritTasting")
-//	private List<SpiritTasting> spiritTasting;
+	@OneToMany(mappedBy="user")
+	private List<SpiritTasting> spiritTasting;
 	
 
 	public User() {
@@ -146,14 +146,14 @@ public class User {
 	public void setWineTasting(List<WineTasting> wineTasting) {
 		this.wineTasting = wineTasting;
 	}
-//
-//	public List<SpiritTasting> getSpiritTasting() {
-//		return spiritTasting;
-//	}
-//
-//	public void setSpiritTasting(List<SpiritTasting> spiritTasting) {
-//		this.spiritTasting = spiritTasting;
-//	}
+
+	public List<SpiritTasting> getSpiritTasting() {
+		return spiritTasting;
+	}
+
+	public void setSpiritTasting(List<SpiritTasting> spiritTasting) {
+		this.spiritTasting = spiritTasting;
+	}
 
 	@Override
 	public String toString() {

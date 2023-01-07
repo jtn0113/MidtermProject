@@ -22,19 +22,19 @@
 	<c:if test="${empty loggedInUser.beerTasting }">
 		<div class="accordion" id="accordionExample">
 			<div class="accordion-item">
-				<h2 class="accordion-header" id="headingOne${beerTasting.id}">
+				<h2 class="accordion-header" id="headingOne${beerTasting}EmptyBeer">
 					<button class="accordion-button" type="button"
 						data-bs-toggle="collapse"
-						data-bs-target="#panelsStayOpen-collapseOne${beerTasting.id}"
+						data-bs-target="#panelsStayOpen-collapseOne${beerTasting}EmptyBeer"
 						aria-expanded="false"
-						aria-controls="panelsStayOpen-collapseOne${beerTasting.id}">
+						aria-controls="panelsStayOpen-collapseOne${beerTasting}EmptyBeer">
 						<c:if test="${empty loggedInUser.beerTasting }">Hmm. Looks empty!
 							</c:if>
 					</button>
 				</h2>
-				<div id="panelsStayOpen-collapseOne${beerTasting.id}"
+				<div id="panelsStayOpen-collapseOne${beerTasting}EmptyBeer"
 					class="accordion-collapse collapse"
-					aria-labelledby="panelsStayOpen-headingOne${beerTasting.id}">
+					aria-labelledby="panelsStayOpen-headingOne${beerTasting.id}EmptyBeer">
 					<div class="accordion-body">
 						<Strong>Click on the top right menu to add some tastings!</Strong>
 					</div>
@@ -100,19 +100,19 @@
 	<c:if test="${empty loggedInUser.wineTasting }">
 		<div class="accordion" id="accordionExample">
 			<div class="accordion-item">
-				<h2 class="accordion-header" id="headingOne${wineTasting.id}">
+				<h2 class="accordion-header" id="headingOne${wineTasting}EmptyWine">
 					<button class="accordion-button" type="button"
 						data-bs-toggle="collapse"
-						data-bs-target="#panelsStayOpen-collapseOne${wineTasting.id}"
+						data-bs-target="#panelsStayOpen-collapseOne${wineTasting}EmptyWine"
 						aria-expanded="false"
-						aria-controls="panelsStayOpen-collapseOne${wineTasting.id}">
+						aria-controls="panelsStayOpen-collapseOne${wineTasting}EmptyWine">
 						<c:if test="${empty loggedInUser.wineTasting }">Hmm. Looks empty!<br>
 							</c:if>
 					</button>
 				</h2>
-				<div id="panelsStayOpen-collapseOne${wineTasting.id}"
+				<div id="panelsStayOpen-collapseOne${wineTasting}EmptyWine"
 					class="accordion-collapse collapse"
-					aria-labelledby="panelsStayOpen-headingOne${wineTasting.id}">
+					aria-labelledby="panelsStayOpen-headingOne${wineTasting}EmptyWine">
 					<div class="accordion-body">
 						<Strong>Click on the top right menu to add some tastings!</Strong>
 					</div>
@@ -179,19 +179,19 @@
 	<c:if test="${empty loggedInUser.spiritTasting }">
 		<div class="accordion" id="accordionExample">
 			<div class="accordion-item">
-				<h2 class="accordion-header" id="headingOne${spiritTasting.id}">
+				<h2 class="accordion-header" id="headingOne${spiritTasting}EmptySpirit">
 					<button class="accordion-button" type="button"
 						data-bs-toggle="collapse"
-						data-bs-target="#panelsStayOpen-collapseOne${spiritTasting.id}"
+						data-bs-target="#panelsStayOpen-collapseOne${spiritTasting}EmptySpirit"
 						aria-expanded="false"
-						aria-controls="panelsStayOpen-collapseOne${spiritTasting.id}">
+						aria-controls="panelsStayOpen-collapseOne${spiritTasting}EmptySpirit">
 						<c:if test="${empty loggedInUser.spiritTasting }">Hmm. Looks empty!
 							</c:if>
 					</button>
 				</h2>
-				<div id="panelsStayOpen-collapseOne${spiritTasting.id}"
+				<div id="panelsStayOpen-collapseOne${spiritTasting}EmptySpirit"
 					class="accordion-collapse collapse"
-					aria-labelledby="panelsStayOpen-headingOne${spiritTasting.id}">
+					aria-labelledby="panelsStayOpen-headingOne${spiritTasting}EmptySpirit">
 					<div class="accordion-body">
 						<Strong>Click on the top right menu to add some tastings!</Strong>
 					</div>

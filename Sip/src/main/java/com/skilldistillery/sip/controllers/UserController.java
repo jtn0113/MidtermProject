@@ -77,10 +77,10 @@ public class UserController {
 	}
 	
 	@RequestMapping("editInformation.do")
-	public String editInformation(Model model, User user, HttpSession session) {
+	public String accountUpdate(Model model, User user, HttpSession session) {
 		model.addAttribute("loggedInUser", user);
 		return "home";
-	
+		
 	}
 	
 }

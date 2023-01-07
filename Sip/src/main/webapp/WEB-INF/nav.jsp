@@ -17,8 +17,8 @@
 
 	<nav class="navbar navbar-dark bg-dark fixed-top">
 		<div class="container-fluid">
-		<img class="logo" src="https://i.imgur.com/chsxQSO.jpg" style="width: 40px;" style="height: 60px;" alt="logo">
-			<a class="navbar-brand" href="home.do">Sip.</a>
+		<a href="home.do"><img class="logo" src="https://i.imgur.com/chsxQSO.jpg" style="width: 40px;" style="height: 60px;" alt="logo">
+			</a><a class="navbar-brand" href="home.do">Sip.</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
 				aria-controls="offcanvasDarkNavbar">
@@ -42,7 +42,7 @@
 					<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
 						<li class="nav-item"><a class="nav-link active"
 							aria-current="page" href="home.do">Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="account.do">Account</a></li>
+						<li class="nav-item"><a class="nav-link active" href="account.do">Account</a></li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false"> New Tasting

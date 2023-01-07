@@ -55,6 +55,10 @@ public class UserDaoImpl implements UserDAO {
 		return addr;
 	}
 	
+//	@Override 
+//	public User editInformation(User user) {
+//		String jpql = "UPDATE  "
+//	}
 	
 
 }

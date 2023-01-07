@@ -18,7 +18,9 @@
 	<div id="beer">
 		<h1>Beer</h1>
 	</div>
-
+<c:if test="${empty loggedInUser.beerTasting }">
+Hmm. Looks empty! Click on the Nav Bar in the right corner to add your latest drinks.
+</c:if>
 
 		<c:forEach var="beerTasting" items="${loggedInUser.beerTasting }">
 			<div class="accordion" id="accordionExample">
@@ -73,6 +75,9 @@
 		</c:forEach>
 
 		<h1>Wine</h1>
+		<c:if test="${empty loggedInUser.wineTasting }">
+Hmm. Looks empty! Click on the Nav Bar in the right corner to add your latest drinks.
+</c:if>
 		<c:forEach var="wineTasting" items="${loggedInUser.wineTasting }">
 			<div class="accordion" id="accordionExample">
 				<div class="accordion-item">
@@ -128,6 +133,9 @@
 
 		
 		<h1>Spirit</h1>
+		<c:if test="${empty loggedInUser.spiritTasting }">
+Hmm. Looks empty! Click on the Nav Bar in the right corner to add your latest drinks. 
+</c:if>
 		<c:forEach var="spiritTasting" items="${loggedInUser.spiritTasting }">
 			<div class="accordion" id="accordionExample">
 				<div class="accordion-item">

@@ -51,9 +51,6 @@ public class UserController {
 		}
 	}
 
-//	POST login.do attempts to log in the user by retrieving it from the DAO (use a User command object parameter).
-// session.setAttribute("loggedInUser", user);
-//	If the userName and password match the DAO data, load the User object into session, and return the account view.
 
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public String login(Model model, User user, HttpSession session) {
@@ -68,19 +65,22 @@ public class UserController {
 		}
 	}
 
-//	If the login fails, display the login view.
-
-//	logout.do removes the user from session and returns the index.
 	@RequestMapping("logout.do")
 	public String logout(HttpSession session) {
 		session.removeAttribute("loggedInUser");
 		return "login";
 	}
 	
+	@RequestMapping("account.do")
+	public String account(Model model, User user, HttpSession session) {		
+		return "account";
+	}
 	
-//	@RequestMapping("journalEntry")
-//	public String journalEntry() {
-//	}
+	@RequestMapping("editInformation.do")
+	public String editInformation(Model model, User user, HttpSession session) {
+		model.addAttribute("loggedInUser", user);
+		return "home";
 	
+	}
 	
 }

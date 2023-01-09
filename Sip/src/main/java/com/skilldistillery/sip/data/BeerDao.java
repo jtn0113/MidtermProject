@@ -15,4 +15,6 @@ public interface BeerDao {
 	Beer findById(int id);
 
 	public BeerTasting beerJournalEntry(BeerTasting beerTasting, Integer beerId, User user);
+
+	List<BeerTasting> searchBeerTastings(String searchTerm, User user);
 }

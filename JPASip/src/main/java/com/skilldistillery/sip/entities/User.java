@@ -157,12 +157,13 @@ public class User {
 		this.spiritTasting = spiritTasting;
 	}
 
+	
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
 				+ ", role=" + role + ", addressId=" + addressId + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", image=" + image + ", aboutMe=" + aboutMe + ", birthDate=" + birthDate + ", beerTasting="
-				+ beerTasting + ", wineTasting=" + wineTasting + ", spiritTasting=" + spiritTasting + "]";
+				+ ", image=" + image + ", aboutMe=" + aboutMe + ", birthDate=" + birthDate + "]";
 	}
 
 	@Override

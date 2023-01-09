@@ -33,9 +33,10 @@
 						data-bs-dismiss="offcanvas" aria-label="Close"></button>
 				</div>
 				<div class="offcanvas-body">
-					<form class="d-flex mt-3" role="search">
+					<form action="search.do" class="d-flex mt-3" role="search">
+						<input type="hidden" name="userId" value="${loggedInUser.id}">
 						<input class="form-control me-2" type="search"
-							placeholder="Search" aria-label="Search">
+							placeholder="Search by Name" aria-label="Search" name="searchTerm">
 						<button class="btn btn-success" type="submit">Search</button>
 					</form>
 					

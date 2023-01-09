@@ -1,5 +1,8 @@
 package com.skilldistillery.sip.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,15 +12,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.skilldistillery.sip.data.BeerDao;
+import com.skilldistillery.sip.data.SpiritDao;
 import com.skilldistillery.sip.data.UserDAO;
+import com.skilldistillery.sip.data.WineDao;
 import com.skilldistillery.sip.entities.Address;
+import com.skilldistillery.sip.entities.BeerTasting;
+import com.skilldistillery.sip.entities.SpiritTasting;
 import com.skilldistillery.sip.entities.User;
+import com.skilldistillery.sip.entities.WineTasting;
 
 @Controller
 public class UserController {
 
 	@Autowired
 	private UserDAO userDao;
+	@Autowired
+	private BeerDao beerDao;
+	@Autowired
+	private WineDao wineDao;
+	@Autowired
+	private SpiritDao spiritDao;
 
 	@RequestMapping(path = { "/", "home.do" })
 	public String home(Model model, HttpSession session) {
@@ -83,6 +98,40 @@ public class UserController {
 		session.setAttribute("loggedInUser", editUser);
 		return "home";
 	}
+	
+	@RequestMapping("search.do")
+	public String search(@RequestParam String searchTerm, HttpSession session, Model model, User user, @RequestParam int userId) {
+		user = userDao.findById(userId);
+		List<BeerTasting> beerResults = new ArrayList<BeerTasting>();
+		List<WineTasting> wineResults = new ArrayList<WineTasting>();
+		List<SpiritTasting> spiritResults = new ArrayList<SpiritTasting>();
+		
+		for (BeerTasting beerTasting : user.getBeerTasting()) {
+			if(beerTasting.getBeer().getName().contains(searchTerm)) {
+				beerResults.add(beerTasting);
+			}
+		}
+		
+		for (WineTasting wineTasting : user.getWineTasting()) {
+			if(wineTasting.getWine().getName().contains(searchTerm)) {
+				wineResults.add(wineTasting);
+			}
+		}
+		
+		for (SpiritTasting spiritTasting : user.getSpiritTasting()) {
+			if(spiritTasting.getSpirit().getName().contains(searchTerm)) {
+				spiritResults.add(spiritTasting);
+			}
+		}
+		
+		model.addAttribute("beerResults", beerResults);
+		model.addAttribute("wineResults", wineResults);
+		model.addAttribute("spiritResults", spiritResults);
+		
+		return "results";
+	}
+	
+	
 	
 //	@RequestMapping("profile.do")
 //	public String viewProfile(Model model, User user, HttpSession session) {

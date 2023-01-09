@@ -1,5 +1,6 @@
 package com.skilldistillery.sip.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -47,6 +48,19 @@ public class BeerDaoImpl implements BeerDao {
 		   em.persist(beerTasting);
 		   return beerTasting;
 	   }
-	return null;
-}
+	   return null;
+	}
+	
+	@Override
+	public List<BeerTasting> searchBeerTastings(String searchTerm, User user) {
+		List<BeerTasting> results = new ArrayList<BeerTasting>();
+		
+		for (BeerTasting beerTasting : user.getBeerTasting()) {
+			if(beerTasting.getBeer().getName().contains(searchTerm)) {
+				results.add(beerTasting);
+			}
+		}
+		
+		return results;
+	}
 }

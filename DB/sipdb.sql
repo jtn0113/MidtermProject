@@ -641,3 +641,16 @@ INSERT INTO `wine_color` (`id`, `description`, `color`) VALUES (4, 'Dry', 'White
 
 COMMIT;
 
+
+-- -----------------------------------------------------
+-- Data for table `drinking_buddy`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `sipdb`;
+INSERT INTO `drinking_buddy` (`user_id`, `friend_id`) VALUES (2, 3);
+INSERT INTO `drinking_buddy` (`user_id`, `friend_id`) VALUES (3, 4);
+INSERT INTO `drinking_buddy` (`user_id`, `friend_id`) VALUES (5, 2);
+INSERT INTO `drinking_buddy` (`user_id`, `friend_id`) VALUES (1, 3);
+
+COMMIT;
+

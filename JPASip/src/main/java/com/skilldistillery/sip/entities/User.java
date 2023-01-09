@@ -1,5 +1,6 @@
 package com.skilldistillery.sip.entities;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
@@ -28,7 +29,8 @@ public class User {
 	private String image;
 	@Column(name = "about_me")
 	private String aboutMe;
-	private Integer age;
+	@Column(name = "date_of_birth")
+	private LocalDate birthDate;
 	@OneToMany(mappedBy="user")
 	private List<BeerTasting> beerTasting;
 	@OneToMany(mappedBy="user")
@@ -121,15 +123,15 @@ public class User {
 		this.aboutMe = aboutMe;
 	}
 
-	public Integer getAge() {
-		return age;
+	
+	public LocalDate getBirthDate() {
+		return birthDate;
 	}
 
-	public void setAge(Integer age) {
-		this.age = age;
+	public void setBirthDate(LocalDate birthDate) {
+		this.birthDate = birthDate;
 	}
-	
-	
+
 	public List<BeerTasting> getBeerTasting() {
 		return beerTasting;
 	}
@@ -159,7 +161,8 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
 				+ ", role=" + role + ", addressId=" + addressId + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", image=" + image + ", aboutMe=" + aboutMe + ", age=" + age + "]";
+				+ ", image=" + image + ", aboutMe=" + aboutMe + ", birthDate=" + birthDate + ", beerTasting="
+				+ beerTasting + ", wineTasting=" + wineTasting + ", spiritTasting=" + spiritTasting + "]";
 	}
 
 	@Override

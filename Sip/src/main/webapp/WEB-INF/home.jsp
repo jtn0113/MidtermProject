@@ -129,7 +129,7 @@
 						data-bs-target="#panelsStayOpen-collapseOne${wineTasting.id}"
 						aria-expanded="false"
 						aria-controls="panelsStayOpen-collapseOne${wineTasting.id}">
-						${wineTasting.wine.name } ${wineTasting.dateSampled } <br>
+						${wineTasting.wine.name } - ${wineTasting.dateSampled } <br>
 
 					</button>
 				</h2>
@@ -208,7 +208,7 @@
 						data-bs-target="#panelsStayOpen-collapseOne${spiritTasting.id}"
 						aria-expanded="false"
 						aria-controls="panelsStayOpen-collapseOne${spiritTasting.id}">
-						${spiritTasting.spirit.name } ${spiritTasting.dateSampled } <br>
+						${spiritTasting.spirit.name } - ${spiritTasting.dateSampled } <br>
 
 					</button>
 				</h2>

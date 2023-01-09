@@ -1,5 +1,8 @@
 package com.skilldistillery.sip.data;
 
+import java.time.LocalDate;
+import java.time.Period;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -7,7 +10,6 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.sip.entities.Address;
-import com.skilldistillery.sip.entities.Spirit;
 import com.skilldistillery.sip.entities.User;
 
 @Service
@@ -71,6 +73,21 @@ public class UserDaoImpl implements UserDAO {
 		return userEdit;
 	
 	}
+	
+	
+	@Override
+	public int dateOfBirth(User user) {
+		LocalDate dob = user.getBirthDate();
+		LocalDate today = LocalDate.now();
+		return Period.between(dob, today).getYears();
+	}
+	
+	
+	
+	
+	
+	
+	
 	/*
 	 * @Override
 	public NationalPark update(Integer parkId, NationalPark park) {

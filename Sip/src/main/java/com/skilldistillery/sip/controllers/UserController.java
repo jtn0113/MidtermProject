@@ -83,5 +83,10 @@ public class UserController {
 		session.setAttribute("loggedInUser", editUser);
 		return "home";
 	}
+	
+//	@RequestMapping("profile.do")
+//	public String viewProfile(Model model, User user, HttpSession session) {
+//		
+//	}
 
 }

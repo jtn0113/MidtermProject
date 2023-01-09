@@ -45,6 +45,7 @@ class UserTest {
 	void test_User_entity_mapping() {
 		assertNotNull(user);
 		assertEquals("admin", user.getUsername());
+		assertEquals(1, user.getFollowing().size());
 	
 	}
 

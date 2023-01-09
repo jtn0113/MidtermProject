@@ -6,9 +6,13 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -38,9 +42,38 @@ public class User {
 	@OneToMany(mappedBy="user")
 	private List<SpiritTasting> spiritTasting;
 	
+	
+	
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "drinking_buddy", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "friend_id"))
+	private List<User> following;
+	
+	
+	@ManyToMany(mappedBy="following")
+	private List<User> followedBy;
+	
 
+	
+	
+	
 	public User() {
 		super();
+	}
+
+	public List<User> getFollowing() {
+		return following;
+	}
+
+	public void setFollowing(List<User> following) {
+		this.following = following;
+	}
+
+	public List<User> getFollowedBy() {
+		return followedBy;
+	}
+
+	public void setFollowedBy(List<User> followedBy) {
+		this.followedBy = followedBy;
 	}
 
 	public int getId() {

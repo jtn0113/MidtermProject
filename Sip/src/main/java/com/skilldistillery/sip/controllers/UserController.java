@@ -131,11 +131,16 @@ public class UserController {
 		return "results";
 	}
 	
+	@RequestMapping("friends.do")
+	public String friendsList(Model model, HttpSession session) {
+		User user = (User) session.getAttribute("loggedInUser");
+		System.out.println(user.getId());
+		List<User> friends =  user.getFollowing();
+		System.out.println(friends);
+		model.addAttribute("friends", friends);
+		
+		return "friends";
+	}
 	
-	
-//	@RequestMapping("profile.do")
-//	public String viewProfile(Model model, User user, HttpSession session) {
-//		
-//	}
 
 }

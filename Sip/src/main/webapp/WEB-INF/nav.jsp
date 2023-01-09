@@ -36,7 +36,7 @@
 					<form action="search.do" class="d-flex mt-3" role="search">
 						<input type="hidden" name="userId" value="${loggedInUser.id}">
 						<input class="form-control me-2" type="search"
-							placeholder="Search by Name" aria-label="Search" name="searchTerm">
+							placeholder="Search Beverage By Name" aria-label="Search" name="searchTerm">
 						<button class="btn btn-success" type="submit">Search</button>
 					</form>
 					
@@ -56,6 +56,9 @@
 								<li><a class="dropdown-item" href="findAllWines.do">Wine</a></li>
 								
 							</ul></li>
+							
+							<li class="nav-item"><a class="nav-link active" href="friends.do">Friends</a></li>
+							
 							<li class="nav-item"><a class="nav-link active"
 							aria-current="page" href="logout.do">Logout</a></li>
 					</ul>

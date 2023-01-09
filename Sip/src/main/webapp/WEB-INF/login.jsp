@@ -28,7 +28,7 @@
 
 									<div class="text-center">
 										<img src="https://i.imgur.com/chsxQSO.jpg"
-											style="width: 185px;" alt="logo">
+											style="width: 185px;" alt="logo"> 
 										<h4 class="mt-1 mb-5 pb-1">Welcome to Sip.</h4>
 									</div>
 

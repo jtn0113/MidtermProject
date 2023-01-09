@@ -18,7 +18,7 @@
 						style="border-radius: 15px;">
 						<div class="card-body p-4 p-md-5">
 
-							<h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Add a new wine</h3>
+							<h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Account Information</h3>
 
 							<form action="editInformation.do" method="POST">
 								<input type="hidden" name="userId" value="${loggedInUser.id}">
@@ -84,7 +84,7 @@
 									<div class="col-md-6 mb-4 pb-2">
 
 										<div class="form-outline">
-											<label for="image">Image URL:</label><br> <input
+											<label for="image">Profile Photo:</label><br> <input
 												type="text" name="image">
 										</div>
 

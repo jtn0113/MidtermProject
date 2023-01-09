@@ -53,7 +53,7 @@
 						data-bs-target="#panelsStayOpen-collapseOne${beerTasting.id}"
 						aria-expanded="false"
 						aria-controls="panelsStayOpen-collapseOne${beerTasting.id}">
-						${beerTasting.beer.name } ${beerTasting.dateSampled } <br>
+						${beerTasting.beer.name } - ${beerTasting.dateSampled } <br>
 					</button>
 				</h2>
 				<div id="panelsStayOpen-collapseOne${beerTasting.id}"

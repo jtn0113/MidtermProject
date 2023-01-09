@@ -1,6 +1,7 @@
 package com.skilldistillery.sip.entities;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -29,7 +30,7 @@ public class SpiritTasting {
 	private String photo;
 	@Column(name = "date_sampled")
 	private LocalDate dateSampled;
-
+	private static final DateTimeFormatter dateFmt = DateTimeFormatter.ofPattern("MMM d, yyyy");
 	@ManyToOne
 	@JoinColumn(name="spirit_id")
 	private Spirit spirit;
@@ -108,8 +109,8 @@ public class SpiritTasting {
 		this.photo = photo;
 	}
 
-	public LocalDate getDateSampled() {
-		return dateSampled;
+	public String getDateSampled() {
+		return dateFmt.format(dateSampled);
 	}
 
 	public void setDateSampled(LocalDate dateSampled) {

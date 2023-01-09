@@ -42,8 +42,8 @@
                 <div class="col-md-6 mb-4 d-flex align-items-center">
 
                   <div class="form-outline datepicker w-100">
-                    <input type="number" class="form-control form-control-lg" name="age" />
-                    <label for="age" class="form-label">Age</label>
+                    <input type="date" class="form-control form-control-lg" name="dateOfBirth" />
+                    <label for="dateOfBirth" class="form-label">Date of Birth</label>
                   </div>
 
                 </div>

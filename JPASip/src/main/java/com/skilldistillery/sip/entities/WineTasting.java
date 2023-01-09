@@ -1,6 +1,7 @@
 package com.skilldistillery.sip.entities;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -27,6 +28,7 @@ public class WineTasting {
 	private double price;
 	private Integer rating;
 	private String photo;
+	private static final DateTimeFormatter dateFmt = DateTimeFormatter.ofPattern("MMM d, yyyy");
 
 	@Column(name = "date_sampled")
 	private LocalDate dateSampled;
@@ -80,8 +82,8 @@ public class WineTasting {
 		this.photo = photo;
 	}
 
-	public LocalDate getDateSampled() {
-		return dateSampled;
+	public String getDateSampled() {
+		return dateFmt.format(dateSampled);
 	}
 
 	public void setDateSampled(LocalDate dateSampled) {

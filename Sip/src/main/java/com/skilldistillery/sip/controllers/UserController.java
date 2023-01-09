@@ -107,19 +107,19 @@ public class UserController {
 		List<SpiritTasting> spiritResults = new ArrayList<SpiritTasting>();
 		
 		for (BeerTasting beerTasting : user.getBeerTasting()) {
-			if(beerTasting.getBeer().getName().contains(searchTerm)) {
+			if(beerTasting.getBeer().getName().toLowerCase().contains(searchTerm.toLowerCase())) {
 				beerResults.add(beerTasting);
 			}
 		}
 		
 		for (WineTasting wineTasting : user.getWineTasting()) {
-			if(wineTasting.getWine().getName().contains(searchTerm)) {
+			if(wineTasting.getWine().getName().toLowerCase().contains(searchTerm.toLowerCase())) {
 				wineResults.add(wineTasting);
 			}
 		}
 		
 		for (SpiritTasting spiritTasting : user.getSpiritTasting()) {
-			if(spiritTasting.getSpirit().getName().contains(searchTerm)) {
+			if(spiritTasting.getSpirit().getName().toLowerCase().contains(searchTerm.toLowerCase())) {
 				spiritResults.add(spiritTasting);
 			}
 		}

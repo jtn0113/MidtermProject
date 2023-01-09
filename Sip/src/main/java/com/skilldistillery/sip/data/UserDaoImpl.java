@@ -55,10 +55,39 @@ public class UserDaoImpl implements UserDAO {
 		return addr;
 	}
 	
-//	@Override 
-//	public User editInformation(User user) {
-//		String jpql = "UPDATE  "
-//	}
+	@Override 
+	public User editInformation(Integer userId, User user) {
+		User userEdit = em.find(User.class, userId);
+		if(userEdit != null) {
+			userEdit.setFirstName(user.getFirstName());
+			userEdit.setLastName(user.getLastName());
+			userEdit.setUsername(user.getUsername());
+			userEdit.setPassword(user.getPassword());
+			userEdit.setAboutMe(user.getAboutMe());
+			userEdit.setImage(user.getImage());
+			em.persist(userEdit);
+		}
+		
+		return userEdit;
+	
+	}
+	/*
+	 * @Override
+	public NationalPark update(Integer parkId, NationalPark park) {
+ NationalPark updatePark = em.find(NationalPark.class, parkId);
+ System.out.println("1" + updatePark);
+ System.out.println("2" + park);
+ if (updatePark != null) {
+ updatePark.setName(park.getName());
+ updatePark.setState(park.getState());
+ updatePark.setDescription(park.getDescription());
+ updatePark.setYearEstablished(park.getYearEstablished());
+ em.persist(updatePark);
+ em.flush();
+ }
+ return updatePark;
+	}
+	 */
 	
 
 }

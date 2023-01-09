@@ -9,5 +9,6 @@ public interface UserDAO {
 	User findUsernameAndPassword(String username, String password);
 	User create(User user);
 	Address createAddress(Address address);
+	User editInformation(Integer userId, User user);
 }
  

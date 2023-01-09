@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.sip.data.UserDAO;
 import com.skilldistillery.sip.entities.Address;
@@ -51,7 +52,6 @@ public class UserController {
 		}
 	}
 
-
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public String login(Model model, User user, HttpSession session) {
 		User validatedUser = userDao.findUsernameAndPassword(user.getUsername(), user.getPassword());
@@ -70,17 +70,18 @@ public class UserController {
 		session.removeAttribute("loggedInUser");
 		return "login";
 	}
-	
+
 	@RequestMapping("account.do")
-	public String account(Model model, User user, HttpSession session) {		
+	public String account(Model model, User user, HttpSession session) {
+		model.addAttribute("user", user);
 		return "account";
 	}
-	
+
 	@RequestMapping("editInformation.do")
-	public String accountUpdate(Model model, User user, HttpSession session) {
-		model.addAttribute("loggedInUser", user);
+	public String accountEdit(@RequestParam Integer userId, User user, Model model, HttpSession session) {
+		User editUser = userDao.editInformation(userId, user);
+		session.setAttribute("loggedInUser", editUser);
 		return "home";
-		
 	}
-	
+
 }

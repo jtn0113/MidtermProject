@@ -651,6 +651,9 @@ INSERT INTO `drinking_buddy` (`user_id`, `friend_id`) VALUES (2, 3);
 INSERT INTO `drinking_buddy` (`user_id`, `friend_id`) VALUES (3, 4);
 INSERT INTO `drinking_buddy` (`user_id`, `friend_id`) VALUES (5, 2);
 INSERT INTO `drinking_buddy` (`user_id`, `friend_id`) VALUES (1, 3);
+INSERT INTO `drinking_buddy` (`user_id`, `friend_id`) VALUES (2, 4);
+INSERT INTO `drinking_buddy` (`user_id`, `friend_id`) VALUES (2, 5);
+INSERT INTO `drinking_buddy` (`user_id`, `friend_id`) VALUES (2, 6);
 
 COMMIT;
 

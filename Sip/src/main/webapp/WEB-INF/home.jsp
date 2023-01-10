@@ -286,6 +286,9 @@
 					data-bs-parent="#accordionFlushExample${friend.firstName }${friend.lastName}">
 					<div class="accordion-body">
 	<a href="friends.do">Click here to go to their profile page!</a>
+	<c:forEach var="beerTasting" items="${friend.beerTasting }"> 
+	${beerTasting}
+	</c:forEach>
 						<br>
 
 					</div>

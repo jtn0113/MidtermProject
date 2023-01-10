@@ -23,4 +23,5 @@ public interface BeerDao {
 	BeerTasting findByJournalId(int id);
 
 	boolean delete(int beerId);
+	
 }

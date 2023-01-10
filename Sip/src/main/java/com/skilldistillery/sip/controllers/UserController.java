@@ -36,10 +36,12 @@ public class UserController {
 
 	@RequestMapping(path = { "/", "home.do" })
 	public String home(Model model, HttpSession session) {
-		if (session.getAttribute("loggedInUser") == null) {
+		User user = (User)session.getAttribute("loggedInUser");
+		if (user == null) {
 			return "login";
 		} else {
-
+			model.addAttribute("friends", userDao.findFriendsForUser(user.getId()));
+			
 			return "home";
 		}
 	}
@@ -60,10 +62,12 @@ public class UserController {
 
 //	GET login.do displays the login view.
 	@RequestMapping(path = "login.do", method = RequestMethod.GET)
-	public String goToLogin(HttpSession session) {
-		if (session.getAttribute("loggedInUser") == null) {
+	public String goToLogin(HttpSession session, Model model) {
+		User user = (User)session.getAttribute("loggedInUser");
+		if (user == null) {
 			return "login";
 		} else {
+			model.addAttribute("friends", userDao.findFriendsForUser(user.getId()));
 			return "home";
 		}
 	}
@@ -78,8 +82,8 @@ public class UserController {
 			return "login";
 		} else {
 			session.setAttribute("loggedInUser", validatedUser);
-			List<User> friends =  validatedUser.getFollowing();
-			model.addAttribute("friends", friends);
+			//List<User> friends =  validatedUser.getFollowing();
+			model.addAttribute("friends", userDao.findFriendsForUser(validatedUser.getId()));
 			return "home";
 		}
 	}
@@ -100,6 +104,7 @@ public class UserController {
 	public String accountEdit(@RequestParam Integer userId, User user, Model model, HttpSession session) {
 		User editUser = userDao.editInformation(userId, user);
 		session.setAttribute("loggedInUser", editUser);
+		model.addAttribute("friends", userDao.findFriendsForUser(editUser.getId()));
 		return "home";
 	}
 	

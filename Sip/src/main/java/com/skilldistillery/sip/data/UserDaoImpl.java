@@ -1,7 +1,6 @@
 package com.skilldistillery.sip.data;
 
-import java.time.LocalDate;
-import java.time.Period;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -50,18 +49,18 @@ public class UserDaoImpl implements UserDAO {
 		em.persist(user);
 		return user;
 	}
-	
+
 	@Override
 	public Address createAddress(Address address) {
 		Address addr = new Address();
 		em.persist(addr);
 		return addr;
 	}
-	
-	@Override 
+
+	@Override
 	public User editInformation(Integer userId, User user) {
 		User userEdit = em.find(User.class, userId);
-		if(userEdit != null) {
+		if (userEdit != null) {
 			userEdit.setFirstName(user.getFirstName());
 			userEdit.setLastName(user.getLastName());
 			userEdit.setUsername(user.getUsername());
@@ -70,25 +69,23 @@ public class UserDaoImpl implements UserDAO {
 			userEdit.setImage(user.getImage());
 			em.persist(userEdit);
 		}
-		
+
 		return userEdit;
-	
+
 	}
-	
-	
-//	@Override
-//	public int dateOfBirth(User user) {
-//		LocalDate dob = user.getBirthDate();
-//		LocalDate today = LocalDate.now();
-//		return Period.between(dob, today).getYears();
-//	}
 
 	@Override
 	public List<User> findFriendsForUser(int userId) {
-//		String jpqlBeer = "SELECT u FROM User u JOIN User f ON u.id 
+
+		//String jpql = "SELECT u.following FROM User u WHERE u.id = :userId";
+		String jpql = "SELECT u.following FROM User u WHERE u.id = :userId";
+
 		
 		
-		return null;
-	}	
+		List<Object> objects = em.createQuery(jpql, Object.class).setParameter("userId", userId).getResultList();
+		List<User> friends = new ArrayList<>();
+		objects.forEach(o->friends.add((User)o));
+		return friends;
+	}
 
 }

@@ -63,5 +63,21 @@ public class BeerController {
 			return "login";
 		}
 	}
+@RequestMapping("editBeer.do")
+public String editBeer(@RequestParam Integer beerId, BeerTasting beerTasting, Model model, HttpSession session) {
+	BeerTasting edit = beerDao.updateBeer(beerTasting, beerId);
+	User user = (User) session.getAttribute("loggedInUser");
+
+	//session.setAttribute("beerTasting", edit);
+	session.setAttribute("loggedInUser", userDao.findById(user.getId()));
+	return"home";
+}
+@RequestMapping("updateBeer.do")
+public String updateBeer(@RequestParam int id, Model model, HttpSession session) {
+	//model.addAttribute("beerTasting", beerTasting);
+	BeerTasting bt = beerDao.findByJournalId(id);
+	model.addAttribute("beerTasting", bt);
+	return "updateBeer";
+}
 
 }

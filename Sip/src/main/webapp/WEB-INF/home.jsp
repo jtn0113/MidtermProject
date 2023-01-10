@@ -89,6 +89,9 @@
 						<c:if test="${not empty beerTasting.photo }">
 							<img src="${beerTasting.photo }">
 						</c:if>
+			
+			<a href="updateBeer.do?id=${beerTasting.id}"><button type="button" class="btn btn-success">Update</button></a>
+			<a href="deleteBeer.do"><button type="button" class="btn btn-danger">Delete</button></a>
 					</div>
 				</div>
 			</div>

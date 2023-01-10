@@ -56,7 +56,7 @@
 
 										<div class="text-center pt-1 mb-5 pb-1">
 											<button
-												class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
+												class="btn btn-primary btn-block fa-lg mb-3" id = "gradient"
 												type="submit">Log in</button>
 											<a class="text-muted" href="#!">Forgot password?</a>
 										</div>
@@ -72,7 +72,7 @@
 
 								</div>
 							</div>
-							<div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+							<div class="col-lg-6 d-flex align-items-center" id = "gradient">
 								<div class="
 								text-black px-3 py-4 p-md-5 mx-md-4 bio" id="bio">
 									<h4 class="mb-4">What you sippin' on?</h4>

@@ -1,34 +1,35 @@
 @charset "UTF-8";
+
 .gradient-custom {
-/* fallback for old browsers */
-background: #f093fb;
-
-/* Chrome 10-25, Safari 5.1-6 */
-background: -webkit-linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));
-
-/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-background: linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));
+	/* fallback for old browsers */
+	background: #f093fb;
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: -webkit-linear-gradient(to bottom right, rgba(240, 147, 251, 1),
+		rgba(245, 87, 108, 1));
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: linear-gradient(to bottom right, rgba(240, 147, 251, 1),
+		rgba(245, 87, 108, 1));
 }
 
-.card-registration .select-input.form-control[readonly]:not([disabled]) {
-font-size: 1rem;
-line-height: 2.15;
-padding-left: .75em;
-padding-right: .75em;
+.card-registration .select-input.form-control[readonly]:not([disabled])
+	{
+	font-size: 1rem;
+	line-height: 2.15;
+	padding-left: .75em;
+	padding-right: .75em;
 }
+
 .card-registration .select-arrow {
-top: 13px;
+	top: 13px;
 }
 
 .gradient-custom-2 {
-/* fallback for old browsers */
-background:#7F6C75;
-
-/* Chrome 10-25, Safari 5.1-6 */
-background: -webkit-linear-gradient(to right, #1C202B, #629488, #7F6C75 );
-
-/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-background: linear-gradient(to right, #1C202B, #629488, #7F6C75);
+	/* fallback for old browsers */
+	background: #7F6C75;
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: -webkit-linear-gradient(to right, #1C202B, #629488, #7F6C75);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: linear-gradient(to right, #1C202B, #629488, #7F6C75);
 }
 
 /* @media (min-width: 768px) {
@@ -41,25 +42,31 @@ height: 100vh !important;
 border-top-right-radius: .3rem;
 border-bottom-right-radius: .3rem;
 } */
-#beer{
+#beer {
 	padding-top: 75px;
 }
-#login{
+
+#login {
 	font-family: 'Gill Sans Nova', sans-seif;
 	color: #000;
 	font-size: 50px;
 }
-#bio{
+
+#bio {
 	font-size: 20px;
 }
 
-.gradient-custom-2 {
-/* fallback for old browsers */
+#gradient {
+	/* /* fallback for old browsers
 background: #fbc2eb;
 
-/* Chrome 10-25, Safari 5.1-6 */
+Chrome 10-25, Safari 5.1-6
 background: -webkit-linear-gradient(to right, rgba(251, 194, 235, 1), rgba(166, 193, 238, 1));
 
-/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+
 background: linear-gradient(to right, rgba(251, 194, 235, 1), rgba(166, 193, 238, 1))
+ */
+	background: rgb(98, 148, 136);
+	background: linear-gradient( to bottom right, rgba(98, 148, 136, 1),
+		rgba(127, 108, 120, 1));
 }

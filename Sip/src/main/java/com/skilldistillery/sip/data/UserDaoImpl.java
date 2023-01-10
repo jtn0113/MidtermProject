@@ -76,12 +76,12 @@ public class UserDaoImpl implements UserDAO {
 	}
 	
 	
-	@Override
-	public int dateOfBirth(User user) {
-		LocalDate dob = user.getBirthDate();
-		LocalDate today = LocalDate.now();
-		return Period.between(dob, today).getYears();
-	}
+//	@Override
+//	public int dateOfBirth(User user) {
+//		LocalDate dob = user.getBirthDate();
+//		LocalDate today = LocalDate.now();
+//		return Period.between(dob, today).getYears();
+//	}
 
 	@Override
 	public List<User> findFriendsForUser(int userId) {

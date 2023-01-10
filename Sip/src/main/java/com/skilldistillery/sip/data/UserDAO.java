@@ -12,7 +12,7 @@ public interface UserDAO {
 	User create(User user);
 	Address createAddress(Address address);
 	User editInformation(Integer userId, User user);
-	int dateOfBirth(User user);
+//	int dateOfBirth(User user);
 	List<User> findFriendsForUser(int userId);
 
 }

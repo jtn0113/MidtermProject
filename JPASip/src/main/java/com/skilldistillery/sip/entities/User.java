@@ -34,8 +34,8 @@ public class User {
 	private String image;
 	@Column(name = "about_me")
 	private String aboutMe;
-	@Column(name = "date_of_birth")
-	private LocalDate birthDate;
+	@Column(name = "over_twenty_one")
+	private boolean overTwentyOne;
 	@OneToMany(mappedBy = "user")
 	private List<BeerTasting> beerTasting;
 	@OneToMany(mappedBy = "user")
@@ -150,14 +150,6 @@ public class User {
 		this.aboutMe = aboutMe;
 	}
 
-	public LocalDate getBirthDate() {
-		return birthDate;
-	}
-
-	public void setBirthDate(LocalDate birthDate) {
-		this.birthDate = birthDate;
-	}
-
 	public List<BeerTasting> getBeerTasting() {
 		return beerTasting;
 	}
@@ -182,11 +174,19 @@ public class User {
 		this.spiritTasting = spiritTasting;
 	}
 
+	public boolean isOverTwentyOne() {
+		return overTwentyOne;
+	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
 				+ ", role=" + role + ", addressId=" + addressId + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", image=" + image + ", aboutMe=" + aboutMe + ", birthDate=" + birthDate + "]";
+				+ ", image=" + image + ", aboutMe=" + aboutMe + ", overTwentyOne=" + overTwentyOne + "]";
+	}
+
+	public void setOverTwentyOne(boolean overTwentyOne) {
+		this.overTwentyOne = overTwentyOne;
 	}
 
 	@Override

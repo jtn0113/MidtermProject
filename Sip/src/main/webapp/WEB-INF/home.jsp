@@ -87,8 +87,9 @@
 							<strong>Price Per Glass:</strong> ${beerTasting.price }<br>
 							</c:if>
 						<c:if test="${not empty beerTasting.photo }">
-							<img src="${beerTasting.photo }">
+							<img class="drinkImage" src="${beerTasting.photo }">
 						</c:if>
+						<br>
 			
 			<a href="updateBeer.do?id=${beerTasting.id}"><button type="button" class="btn btn-success">Update</button></a>
 			<a href="deleteConfirm.do?id=${beerTasting.id}"><button type="button" class="btn btn-danger">Delete</button></a>
@@ -167,8 +168,9 @@
 							<strong>Price Per Glass:</strong> ${wineTasting.price }<br>
 							</c:if>
 						<c:if test="${not empty wineTasting.photo }">
-							<img src="${wineTasting.photo }">
+							<img class="drinkImage" src="${wineTasting.photo }">
 						</c:if>
+						<br>
 						
 						<a href="updateWine.do?id=${wineTasting.id}"><button type="button" class="btn btn-success">Update</button></a>
 						<a href="deleteConfirmWine.do?id=${wineTasting.id}"><button type="button" class="btn btn-danger">Delete</button></a>
@@ -250,8 +252,10 @@
 							<strong>Price Per Glass:</strong> ${spiritTasting.price }<br>
 							</c:if>
 						<c:if test="${not empty spiritTasting.photo }">
-							<img src="${spiritTasting.photo }">
+							<img class="drinkImage" src="${spiritTasting.photo }">
 						</c:if>
+						<br>
+						
 					<a href="updateSpirit.do?id=${spiritTasting.id}"><button type="button" class="btn btn-success">Update</button></a>
 			<a href="deleteConfirmSpirit.do?id=${spiritTasting.id}"><button type="button" class="btn btn-danger">Delete</button></a>
 					</div>

@@ -72,3 +72,13 @@ background: linear-gradient(to right, rgba(251, 194, 235, 1), rgba(166, 193, 238
 	background: linear-gradient( to bottom right, rgba(98, 148, 136, 1),
 		rgba(127, 108, 120, 1));
 }
+
+.deleteConfirm {
+	text-align: center;
+}
+
+.drinkImage {
+	width: auto;
+	height: 100px;
+}
+	

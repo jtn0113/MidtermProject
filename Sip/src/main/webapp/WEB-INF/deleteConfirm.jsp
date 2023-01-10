@@ -9,6 +9,7 @@
 
 </head>
 <body>
+<div class="deleteConfirm">
 <h3 id="delete"><Strong>Was this drink that forgettable?</Strong></h3>
 <form action="deleteBeer.do">
 <input type="hidden" name="id" value="${beerTasting.id}"> 
@@ -18,6 +19,6 @@
 <a href="home.do"><button type="button" class="btn btn-outline-warning">NO, I want to keep it</button></a>
 
 
-
+</div>
 </body>
 </html>

@@ -38,11 +38,12 @@ public class BeerDaoImpl implements BeerDao {
 	public Beer findById(int id) {
 		return em.find(Beer.class, id);
 	}
+
 	@Override
 	public BeerTasting findByJournalId(int id) {
 		return em.find(BeerTasting.class, id);
 	}
-	
+
 	@Override
 	public BeerTasting beerJournalEntry(BeerTasting beerTasting, Integer beerId, User user) {
 		Beer beer = em.find(Beer.class, beerId);
@@ -72,18 +73,29 @@ public class BeerDaoImpl implements BeerDao {
 	public BeerTasting updateBeer(BeerTasting beerTasting, Integer beerId) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MMM-dd");
 		BeerTasting edit = em.find(BeerTasting.class, beerId);
-      if(edit != null) {
-    //	  LocalDate date = LocalDate.parse(beerTasting.getDateSampled(), formatter);
-    	  edit.setNotes(beerTasting.getNotes());
-          edit.setPrice(beerTasting.getPrice());
-          
-          edit.setRating(beerTasting.getRating());
-         
-          edit.setPhoto(beerTasting.getPhoto());
-        //  edit.setDateSampled(date);
-          
-      }
+		if (edit != null) {
+			// LocalDate date = LocalDate.parse(beerTasting.getDateSampled(), formatter);
+			edit.setNotes(beerTasting.getNotes());
+			edit.setPrice(beerTasting.getPrice());
+
+			edit.setRating(beerTasting.getRating());
+
+			edit.setPhoto(beerTasting.getPhoto());
+			// edit.setDateSampled(date);
+
+		}
 		return edit;
+	}
+
+	@Override
+	public boolean delete(int beerId) {
+		boolean success = false;
+		BeerTasting beerTasting = em.find(BeerTasting.class, beerId);
+		if (beerTasting != null) {
+			em.remove(beerTasting);
+			success = !em.contains(beerTasting);
+		}
+		return success;
 	}
 
 }

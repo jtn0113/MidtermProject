@@ -91,7 +91,7 @@
 						</c:if>
 			
 			<a href="updateBeer.do?id=${beerTasting.id}"><button type="button" class="btn btn-success">Update</button></a>
-			<a href="deleteBeer.do"><button type="button" class="btn btn-danger">Delete</button></a>
+			<a href="deleteConfirm.do?id=${beerTasting.id}"><button type="button" class="btn btn-danger">Delete</button></a>
 					</div>
 				</div>
 			</div>
@@ -249,6 +249,8 @@
 						<c:if test="${not empty spiritTasting.photo }">
 							<img src="${spiritTasting.photo }">
 						</c:if>
+					<a href="updateSpirit.do?id=${spiritTasting.id}"><button type="button" class="btn btn-success">Update</button></a>
+			<a href="deleteConfirmSpirit.do?id=${spiritTasting.id}"><button type="button" class="btn btn-danger">Delete</button></a>
 					</div>
 				</div>
 			</div>

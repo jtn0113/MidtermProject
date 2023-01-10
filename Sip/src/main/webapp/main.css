@@ -41,7 +41,9 @@ height: 100vh !important;
 border-top-right-radius: .3rem;
 border-bottom-right-radius: .3rem;
 } */
-#beer{
+
+
+#beer, #delete{
 	padding-top: 75px;
 }
 #login{

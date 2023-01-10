@@ -21,4 +21,6 @@ public interface BeerDao {
 	BeerTasting updateBeer(BeerTasting beerTasting, Integer beerId);
 
 	BeerTasting findByJournalId(int id);
+
+	boolean delete(int beerId);
 }

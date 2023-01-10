@@ -14,4 +14,9 @@ public interface SpiritDao {
 	Spirit findById(int id);
 
   public SpiritTasting spiritJournalEntry(SpiritTasting spiritTasting, Integer spiritId, User user);
+
+SpiritTasting updateSpirit(SpiritTasting spiritTasting, Integer spiritId);
+
+SpiritTasting findByJournalId(int id);
+boolean delete(int id);
 }

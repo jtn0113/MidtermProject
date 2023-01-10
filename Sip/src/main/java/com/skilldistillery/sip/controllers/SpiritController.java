@@ -63,4 +63,34 @@ public class SpiritController {
 			return "login";
 		}
 	}
+	@RequestMapping("editSpirit.do")
+	public String editSpirit(@RequestParam Integer spiritId, SpiritTasting spiritTasting, Model model, HttpSession session) {
+		SpiritTasting edit = spiritDao.updateSpirit(spiritTasting, spiritId);
+		User user = (User) session.getAttribute("loggedInUser");
+
+		//session.setAttribute("spiritTasting", edit);
+		session.setAttribute("loggedInUser", userDao.findById(user.getId()));
+		return"home";
+	}
+	@RequestMapping("updateSpirit.do")
+	public String updateSpirit(@RequestParam int id, Model model, HttpSession session) {
+		//model.addAttribute("spiritTasting", spiritTasting);
+		SpiritTasting bt = spiritDao.findByJournalId(id);
+		model.addAttribute("spiritTasting", bt);
+		return "updateSpirit";
+	}
+
+	@RequestMapping("deleteSpirit.do")
+	public String deleteSpirit(@RequestParam int id, Model model, HttpSession session) {
+		User user = (User) session.getAttribute("loggedInUser");
+		spiritDao.delete(id);
+		session.setAttribute("loggedInUser", userDao.findById(user.getId()));
+		return "home";
+	}
+	@RequestMapping("deleteConfirmSpirit.do")
+	public String deleteConfirm(@RequestParam int id, SpiritTasting spiritTasting, Model model, HttpSession session) {
+		SpiritTasting bt = spiritDao.findByJournalId(id);
+		model.addAttribute("spiritTasting", bt);
+		return "deleteConfirmSpirit";
+	}
 }

@@ -4,17 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>updateBeer</title>
+<title>Insert title here</title>
 <%@ include file="nav.jsp"%>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-	crossorigin="anonymous">
-<link rel="stylesheet" href="main.css">
 </head>
 <body>
-<h1>Update Your Profile Information:</h1>
 	<section class="vh-100 gradient-custom">
 		<div class="container py-5 h-100">
 			<div class="row justify-content-center align-items-center h-100">
@@ -25,8 +18,8 @@
 
 							<h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Account Information</h3>
 
-							<form action="editBeer.do" method="POST">
-								<input type="hidden" name="beerId" value="${beerTasting.id}">
+							<form action="editSpirit.do" method="POST">
+								<input type="hidden" name="spiritId" value="${spiritTasting.id}">
 
 								<div class="row">
 									<div class="col-md-6 mb-4 pb-2">
@@ -34,7 +27,7 @@
 										<div class="form-outline">
 											<label for="notes>">Notes:</label><br> <input
 												type="text" name="notes"
-												value="${beerTasting.notes }">
+												value="${spiritTasting.notes }">
 										</div>
 
 									</div>
@@ -45,7 +38,7 @@
 										<div class="form-outline">
 											<label for="price">Price:</label><br> <input
 												type="number" name="price" step="0.01"
-												value="${beerTasting.price }">
+												value="${spiritTasting.price }">
 
 
 										</div>
@@ -57,7 +50,7 @@
 										<div class="form-outline">
 											<label for="rating">Rating:</label><br> <input
 												type="number" name="rating" min = 0  max = 10
-												value="${beerTasting.rating }" required>
+												value="${spiritTasting.rating }" required>
 										</div>
 
 									</div>
@@ -69,7 +62,7 @@
 										<div class="form-outline">
 											<label for="dateSampled">Date Sampled:</label><br> <input
 												type="date" name="dateSampled"
-												value="${beerTasting.dateSampled }" required>
+												value="${spiritTasting.dateSampled }" required>
 										</div>
 
 									</div>

@@ -63,7 +63,7 @@
 									</div>
 								</div>
 
-					<%-- 			<div class="row">
+ 								<div class="row">
 									<div class="col-md-6 mb-4 pb-2">
 
 										<div class="form-outline">
@@ -73,7 +73,7 @@
 										</div>
 
 									</div>
-								</div> --%>
+								</div> 
 				
 								<div class="row">
 									<div class="col-md-6 mb-4 pb-2">

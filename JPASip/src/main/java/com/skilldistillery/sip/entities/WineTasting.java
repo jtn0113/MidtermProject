@@ -82,15 +82,15 @@ public class WineTasting {
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
-
-	public String getDateSampled() {
-		return dateFmt.format(dateSampled);
+	
+	public LocalDate getDateSampled() {
+		return dateSampled;
 	}
 
 	public void setDateSampled(LocalDate dateSampled) {
 		this.dateSampled = dateSampled;
 	}
-	
+
 	public User getUser() {
 		return user;
 	}
@@ -105,6 +105,10 @@ public class WineTasting {
 
 	public void setWine(Wine wine) {
 		this.wine = wine;
+	}
+	
+	public String getFormattedDate() {
+		return dateFmt.format(dateSampled);
 	}
 
 	@Override

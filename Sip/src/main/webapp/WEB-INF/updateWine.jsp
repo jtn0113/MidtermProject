@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Update Spirit</title>
+<title>Update Wine</title>
 <%@ include file="nav.jsp"%>
 </head>
 <body>
@@ -18,8 +18,8 @@
 
 							<h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Account Information</h3>
 
-							<form action="editSpirit.do" method="POST">
-								<input type="hidden" name="spiritId" value="${spiritTasting.id}">
+							<form action="editWine.do" method="POST">
+								<input type="hidden" name="wineId" value="${wineTasting.id}">
 
 								<div class="row">
 									<div class="col-md-6 mb-4 pb-2">
@@ -27,7 +27,7 @@
 										<div class="form-outline">
 											<label for="notes>">Notes:</label><br> <input
 												type="text" name="notes"
-												value="${spiritTasting.notes }">
+												value="${wineTasting.notes }">
 										</div>
 
 									</div>
@@ -38,7 +38,7 @@
 										<div class="form-outline">
 											<label for="price">Price:</label><br> <input
 												type="number" name="price" step="0.01"
-												value="${spiritTasting.price }">
+												value="${wineTasting.price }">
 
 
 										</div>
@@ -50,7 +50,7 @@
 										<div class="form-outline">
 											<label for="rating">Rating:</label><br> <input
 												type="number" name="rating" min = 0  max = 10
-												value="${spiritTasting.rating }" required>
+												value="${wineTasting.rating }" required>
 										</div>
 
 									</div>
@@ -62,11 +62,11 @@
 										<div class="form-outline">
 											<label for="dateSampled">Date Sampled:</label><br> <input
 												type="date" name="dateSampled"
-												value="${spiritTasting.dateSampled }" required>
+												value="${wineTasting.dateSampled }" required>
 										</div>
 
 									</div>
-								</div> 
+								</div>
 				
 								<div class="row">
 									<div class="col-md-6 mb-4 pb-2">

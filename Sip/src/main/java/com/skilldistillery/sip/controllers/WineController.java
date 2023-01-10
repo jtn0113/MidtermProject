@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.sip.data.UserDAO;
 import com.skilldistillery.sip.data.WineDao;
+import com.skilldistillery.sip.entities.WineTasting;
 import com.skilldistillery.sip.entities.User;
 import com.skilldistillery.sip.entities.Wine;
 import com.skilldistillery.sip.entities.WineTasting;
@@ -64,4 +65,36 @@ public class WineController {
 			return "login";
 		}
 	}
+	
+	@RequestMapping("editWine.do")
+	public String editWine(@RequestParam Integer wineId, WineTasting wineTasting, Model model, HttpSession session) {
+		WineTasting edit = wineDao.updateWine(wineTasting, wineId);
+		User user = (User) session.getAttribute("loggedInUser");
+
+		//session.setAttribute("wineTasting", edit);
+		session.setAttribute("loggedInUser", userDao.findById(user.getId()));
+		return"home";
+	}
+	@RequestMapping("updateWine.do")
+	public String updateWine(@RequestParam int id, Model model, HttpSession session) {
+		//model.addAttribute("wineTasting", wineTasting);
+		WineTasting bt = wineDao.findByJournalId(id);
+		model.addAttribute("wineTasting", bt);
+		return "updateWine";
+	}
+
+	@RequestMapping("deleteWine.do")
+	public String deleteWine(@RequestParam int id, Model model, HttpSession session) {
+		User user = (User) session.getAttribute("loggedInUser");
+		wineDao.delete(id);
+		session.setAttribute("loggedInUser", userDao.findById(user.getId()));
+		return "home";
+	}
+	@RequestMapping("deleteConfirmWine.do")
+	public String deleteConfirm(@RequestParam int id, WineTasting wineTasting, Model model, HttpSession session) {
+		WineTasting bt = wineDao.findByJournalId(id);
+		model.addAttribute("wineTasting", bt);
+		return "deleteConfirmWine";
+	}
+	
 }

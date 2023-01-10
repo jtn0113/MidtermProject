@@ -53,7 +53,7 @@
 						data-bs-target="#panelsStayOpen-collapseOne${beerTasting.id}"
 						aria-expanded="false"
 						aria-controls="panelsStayOpen-collapseOne${beerTasting.id}">
-						${beerTasting.beer.name } - ${beerTasting.dateSampled } <br>
+						${beerTasting.beer.name } - ${beerTasting.getFormattedDate() } <br>
 					</button>
 				</h2>
 				<div id="panelsStayOpen-collapseOne${beerTasting.id}"
@@ -132,7 +132,7 @@
 						data-bs-target="#panelsStayOpen-collapseOne${wineTasting.id}"
 						aria-expanded="false"
 						aria-controls="panelsStayOpen-collapseOne${wineTasting.id}">
-						${wineTasting.wine.name } - ${wineTasting.dateSampled } <br>
+						${wineTasting.wine.name } - ${wineTasting.getFormattedDate() } <br>
 
 					</button>
 				</h2>
@@ -169,6 +169,9 @@
 						<c:if test="${not empty wineTasting.photo }">
 							<img src="${wineTasting.photo }">
 						</c:if>
+						
+						<a href="updateWine.do?id=${wineTasting.id}"><button type="button" class="btn btn-success">Update</button></a>
+						<a href="deleteConfirmWine.do?id=${wineTasting.id}"><button type="button" class="btn btn-danger">Delete</button></a>
 					</div>
 				</div>
 			</div>
@@ -211,7 +214,7 @@
 						data-bs-target="#panelsStayOpen-collapseOne${spiritTasting.id}"
 						aria-expanded="false"
 						aria-controls="panelsStayOpen-collapseOne${spiritTasting.id}">
-						${spiritTasting.spirit.name } - ${spiritTasting.dateSampled } <br>
+						${spiritTasting.spirit.name } - ${spiritTasting.getFormattedDate() } <br>
 
 					</button>
 				</h2>

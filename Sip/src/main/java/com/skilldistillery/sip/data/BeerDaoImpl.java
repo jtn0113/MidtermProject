@@ -1,8 +1,11 @@
 package com.skilldistillery.sip.data;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -71,17 +74,13 @@ public class BeerDaoImpl implements BeerDao {
 
 	@Override
 	public BeerTasting updateBeer(BeerTasting beerTasting, Integer beerId) {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MMM-dd");
 		BeerTasting edit = em.find(BeerTasting.class, beerId);
 		if (edit != null) {
-			// LocalDate date = LocalDate.parse(beerTasting.getDateSampled(), formatter);
 			edit.setNotes(beerTasting.getNotes());
 			edit.setPrice(beerTasting.getPrice());
-
 			edit.setRating(beerTasting.getRating());
-
 			edit.setPhoto(beerTasting.getPhoto());
-			// edit.setDateSampled(date);
+			edit.setDateSampled(beerTasting.getDateSampled());
 
 		}
 		return edit;

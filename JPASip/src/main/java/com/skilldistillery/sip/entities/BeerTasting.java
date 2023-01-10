@@ -37,6 +37,19 @@ public class BeerTasting {
 	@ManyToOne
 	@JoinColumn(name="beer_id")
 	private Beer beer;
+	
+
+	public LocalDate getDateSampled() {
+		return dateSampled;
+	}
+
+	public void setDateSampled(LocalDate dateSampled) {
+		this.dateSampled = dateSampled;
+	}
+
+	public String getFormattedDate() {
+		return dateFmt.format(dateSampled);
+	}
 
 	public BeerTasting() {
 		super();
@@ -82,13 +95,6 @@ public class BeerTasting {
 		this.photo = photo;
 	}
 
-	public String getDateSampled() {
-		return dateFmt.format(dateSampled);
-	}
-
-	public void setDateSampled(LocalDate dateSampled) {
-		this.dateSampled = dateSampled;
-	}
 
 	public User getUser() {
 		return user;

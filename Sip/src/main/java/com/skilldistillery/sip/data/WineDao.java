@@ -15,6 +15,12 @@ public interface WineDao {
 	Wine findById(int id);
 
 	public WineTasting wineJournalEntry(WineTasting wineTasting, Integer wineId, User user);
+
+	WineTasting updateWine(WineTasting wineTasting, Integer wineId);
+
+	WineTasting findByJournalId(int id);
+
+	boolean delete(int id);
 	
 	
 

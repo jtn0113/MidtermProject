@@ -110,8 +110,8 @@ public class SpiritTasting {
 		this.photo = photo;
 	}
 
-	public String getDateSampled() {
-		return dateFmt.format(dateSampled);
+	public LocalDate getDateSampled() {
+		return dateSampled;
 	}
 
 	public void setDateSampled(LocalDate dateSampled) {
@@ -130,4 +130,7 @@ public class SpiritTasting {
 		super();
 	}
 
+	public String getFormattedDate() {
+		return dateFmt.format(dateSampled);
+	}
 }

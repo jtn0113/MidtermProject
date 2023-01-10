@@ -19,9 +19,9 @@ import com.skilldistillery.sip.entities.User;
 public class SpiritDaoImpl implements SpiritDao {
 
 	@PersistenceContext
-	private EntityManager em; 
+	private EntityManager em;
 
-	@Override 
+	@Override
 	public Spirit createSpirit(Spirit spirit) {
 		em.persist(spirit);
 		return spirit;
@@ -31,42 +31,39 @@ public class SpiritDaoImpl implements SpiritDao {
 	public List<Spirit> findAllSpirits() {
 		String jpql = "SELECT s FROM Spirit s ORDER BY s.name";
 		return em.createQuery(jpql, Spirit.class).getResultList();
-		
+
 	}
 
 	@Override
 	public Spirit findById(int id) {
-	
-			return em.find(Spirit.class, id);
+
+		return em.find(Spirit.class, id);
 	}
 
 	@Override
 	public SpiritTasting spiritJournalEntry(SpiritTasting spiritTasting, Integer spiritId, User user) {
-		   Spirit spirit = em.find(Spirit.class, spiritId);
-		   if(spirit != null) {
-			   spiritTasting.setSpirit(spirit);
-			   spiritTasting.setUser(user);
-			   em.persist(spiritTasting);
-			   return spiritTasting;
-	}
-	return null;
-	
+		Spirit spirit = em.find(Spirit.class, spiritId);
+		if (spirit != null) {
+			spiritTasting.setSpirit(spirit);
+			spiritTasting.setUser(user);
+			em.persist(spiritTasting);
+			return spiritTasting;
+		}
+		return null;
+
 	}
 
 	@Override
 	public SpiritTasting updateSpirit(SpiritTasting spiritTasting, Integer spiritId) {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MMM-dd");
 		SpiritTasting edit = em.find(SpiritTasting.class, spiritId);
 		if (edit != null) {
-			// LocalDate date = LocalDate.parse(beerTasting.getDateSampled(), formatter);
 			edit.setNotes(spiritTasting.getNotes());
 			edit.setPrice(spiritTasting.getPrice());
-
 			edit.setRating(spiritTasting.getRating());
-
 			edit.setPhoto(spiritTasting.getPhoto());
+			edit.setDateSampled(spiritTasting.getDateSampled());
 		}
-			return edit;
+		return edit;
 	}
 
 	@Override
@@ -84,4 +81,4 @@ public class SpiritDaoImpl implements SpiritDao {
 		}
 		return success;
 	}
-	}
+}

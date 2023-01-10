@@ -39,6 +39,7 @@ public class UserController {
 		if (session.getAttribute("loggedInUser") == null) {
 			return "login";
 		} else {
+
 			return "home";
 		}
 	}
@@ -76,6 +77,8 @@ public class UserController {
 			return "login";
 		} else {
 			session.setAttribute("loggedInUser", validatedUser);
+			List<User> friends =  validatedUser.getFollowing();
+			model.addAttribute("friends", friends);
 			return "home";
 		}
 	}
@@ -132,13 +135,10 @@ public class UserController {
 	}
 	
 	@RequestMapping("friends.do")
-	public String friendsList(Model model, HttpSession session) {
+	public String friendsList(@RequestParam int friendId, Model model, HttpSession session) {
 		User user = (User) session.getAttribute("loggedInUser");
-		System.out.println(user.getId());
 		List<User> friends =  user.getFollowing();
-		System.out.println(friends);
 		model.addAttribute("friends", friends);
-		
 		return "friends";
 	}
 	

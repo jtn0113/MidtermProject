@@ -84,7 +84,7 @@
 							<strong>Beer Description:</strong> ${beerTasting.beer.description }<br>
 						</c:if>
 						<c:if test="${not empty beerTasting.price }">
-							<strong>Price Per Glass:</strong> ${beerTasting.price }
+							<strong>Price Per Glass:</strong> ${beerTasting.price }<br>
 							</c:if>
 						<c:if test="${not empty beerTasting.photo }">
 							<img src="${beerTasting.photo }">
@@ -161,7 +161,7 @@
 							<strong>Wine Description:</strong> ${wineTasting.wine.description }<br>
 						</c:if>
 						<c:if test="${not empty wineTasting.price }">
-							<strong>Price Per Glass:</strong> ${wineTasting.price }
+							<strong>Price Per Glass:</strong> ${wineTasting.price }<br>
 							</c:if>
 						<c:if test="${not empty wineTasting.photo }">
 							<img src="${wineTasting.photo }">
@@ -241,7 +241,7 @@
 							<strong>Spirit Description:</strong> ${spiritTasting.spirit.description }<br>
 						</c:if>
 						<c:if test="${not empty spiritTasting.price }">
-							<strong>Price Per Glass:</strong> ${spiritTasting.price }
+							<strong>Price Per Glass:</strong> ${spiritTasting.price }<br>
 							</c:if>
 						<c:if test="${not empty spiritTasting.photo }">
 							<img src="${spiritTasting.photo }">
@@ -252,7 +252,35 @@
 
 		</div>
 	</c:forEach>
+	
+			<br>
+			<h2>Friends List</h2>
 
+	<div class="accordion accordion-flush"
+		id="accordionFlushExample${friend.firstName }${friend.lastName}">
+		<c:forEach var="friend" items="${friends}">
+			<div class="accordion-item">
+				<h2 class="accordion-header"
+					id="flush-headingOne${friend.firstName }${friend.lastName}">
+					<button class="accordion-button collapsed" type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#flush-collapseOne${friend.firstName }${friend.lastName}"
+						aria-expanded="false" aria-controls="flush-collapseOne">
+						${friend.firstName} ${friend.lastName}</button>
+				</h2>
+				<div id="flush-collapseOne${friend.firstName }${friend.lastName}"
+					class="accordion-collapse collapse"
+					aria-labelledby="flush-headingOne${friend.firstName }${friend.lastName}"
+					data-bs-parent="#accordionFlushExample${friend.firstName }${friend.lastName}">
+					<div class="accordion-body">
+	<a href="friends.do">Click here to go to their profile page!</a>
+						<br>
+
+					</div>
+				</div>
+			</div>
+		</c:forEach>
+	</div>
 
 </body>
 </html>

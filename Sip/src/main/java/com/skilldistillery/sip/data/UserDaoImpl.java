@@ -2,6 +2,7 @@ package com.skilldistillery.sip.data;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -81,30 +82,13 @@ public class UserDaoImpl implements UserDAO {
 		LocalDate today = LocalDate.now();
 		return Period.between(dob, today).getYears();
 	}
-	
-	
-	
-	
-	
-	
-	
-	/*
-	 * @Override
-	public NationalPark update(Integer parkId, NationalPark park) {
- NationalPark updatePark = em.find(NationalPark.class, parkId);
- System.out.println("1" + updatePark);
- System.out.println("2" + park);
- if (updatePark != null) {
- updatePark.setName(park.getName());
- updatePark.setState(park.getState());
- updatePark.setDescription(park.getDescription());
- updatePark.setYearEstablished(park.getYearEstablished());
- em.persist(updatePark);
- em.flush();
- }
- return updatePark;
-	}
-	 */
-	
+
+	@Override
+	public List<User> findFriendsForUser(int userId) {
+//		String jpqlBeer = "SELECT u FROM User u JOIN User f ON u.id 
+		
+		
+		return null;
+	}	
 
 }

@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -35,27 +36,20 @@ public class User {
 	private String aboutMe;
 	@Column(name = "date_of_birth")
 	private LocalDate birthDate;
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy = "user")
 	private List<BeerTasting> beerTasting;
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy = "user")
 	private List<WineTasting> wineTasting;
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy = "user")
 	private List<SpiritTasting> spiritTasting;
-	
-	
-	
+
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "drinking_buddy", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "friend_id"))
 	private List<User> following;
-	
-	
-	@ManyToMany(mappedBy="following")
-	private List<User> followedBy;
-	
 
-	
-	
-	
+	@ManyToMany(mappedBy = "following")
+	private List<User> followedBy;
+
 	public User() {
 		super();
 	}
@@ -156,7 +150,6 @@ public class User {
 		this.aboutMe = aboutMe;
 	}
 
-	
 	public LocalDate getBirthDate() {
 		return birthDate;
 	}
@@ -172,7 +165,6 @@ public class User {
 	public void setBeerTasting(List<BeerTasting> beerTasting) {
 		this.beerTasting = beerTasting;
 	}
-	
 
 	public List<WineTasting> getWineTasting() {
 		return wineTasting;
@@ -189,8 +181,6 @@ public class User {
 	public void setSpiritTasting(List<SpiritTasting> spiritTasting) {
 		this.spiritTasting = spiritTasting;
 	}
-
-	
 
 	@Override
 	public String toString() {

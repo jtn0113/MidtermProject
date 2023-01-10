@@ -1,5 +1,7 @@
 package com.skilldistillery.sip.data;
 
+import java.util.List;
+
 import com.skilldistillery.sip.entities.Address;
 import com.skilldistillery.sip.entities.User;
 
@@ -11,5 +13,7 @@ public interface UserDAO {
 	Address createAddress(Address address);
 	User editInformation(Integer userId, User user);
 	int dateOfBirth(User user);
+	List<User> findFriendsForUser(int userId);
+
 }
  

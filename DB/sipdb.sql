@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `last_name` VARCHAR(50) NULL,
   `image` TEXT NULL,
   `about_me` TEXT NULL,
-  `date_of_birth` DATE NOT NULL,
+  `over_twenty_one` TINYINT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_user_address1_idx` (`address_id` ASC),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC),
@@ -422,12 +422,13 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `sipdb`;
-INSERT INTO `user` (`id`, `username`, `enabled`, `password`, `role`, `address_id`, `first_name`, `last_name`, `image`, `about_me`, `date_of_birth`) VALUES (1, 'admin', 1, 'admin', 'ADMIN', 1, NULL, NULL, NULL, NULL, '1901-01-01');
-INSERT INTO `user` (`id`, `username`, `enabled`, `password`, `role`, `address_id`, `first_name`, `last_name`, `image`, `about_me`, `date_of_birth`) VALUES (2, 'bobloblaw', 1, 'bobloblaw', 'user', 2, 'Bob', 'Loblaw', NULL, NULL, '1987-08-13');
-INSERT INTO `user` (`id`, `username`, `enabled`, `password`, `role`, `address_id`, `first_name`, `last_name`, `image`, `about_me`, `date_of_birth`) VALUES (3, 'alexanderhamilton', 1, 'Alexander', 'user', 2, 'Alexander', 'Hamilton', NULL, NULL, '1993-12-14');
-INSERT INTO `user` (`id`, `username`, `enabled`, `password`, `role`, `address_id`, `first_name`, `last_name`, `image`, `about_me`, `date_of_birth`) VALUES (4, 'johnadams', 1, 'johnadams', 'user', 2, 'John', 'Adams', NULL, NULL, '1962-06-18');
-INSERT INTO `user` (`id`, `username`, `enabled`, `password`, `role`, `address_id`, `first_name`, `last_name`, `image`, `about_me`, `date_of_birth`) VALUES (5, 'samadams', 1, 'samadams', 'user', 2, 'Sam', 'Adams', NULL, NULL, '1994-02-14');
-INSERT INTO `user` (`id`, `username`, `enabled`, `password`, `role`, `address_id`, `first_name`, `last_name`, `image`, `about_me`, `date_of_birth`) VALUES (6, 'skaterboy', 1, 'skaterboy', 'user', 2, 'Tony', 'Hawk', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8h_pXUkASbiTcQj488-GMJCtUaZvXwO0gQA&usqp=CAU', 'LIkes to skateboard, probably also likes beer', '1968-05-12');
+INSERT INTO `user` (`id`, `username`, `enabled`, `password`, `role`, `address_id`, `first_name`, `last_name`, `image`, `about_me`, `over_twenty_one`) VALUES (1, 'admin', 1, 'admin', 'ADMIN', 1, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `user` (`id`, `username`, `enabled`, `password`, `role`, `address_id`, `first_name`, `last_name`, `image`, `about_me`, `over_twenty_one`) VALUES (2, 'bobloblaw', 1, 'bobloblaw', 'user', 2, 'Bob', 'Loblaw', NULL, NULL, 1);
+INSERT INTO `user` (`id`, `username`, `enabled`, `password`, `role`, `address_id`, `first_name`, `last_name`, `image`, `about_me`, `over_twenty_one`) VALUES (3, 'alexanderhamilton', 1, 'Alexander', 'user', 2, 'Alexander', 'Hamilton', NULL, NULL, 1);
+INSERT INTO `user` (`id`, `username`, `enabled`, `password`, `role`, `address_id`, `first_name`, `last_name`, `image`, `about_me`, `over_twenty_one`) VALUES (4, 'johnadams', 1, 'johnadams', 'user', 2, 'John', 'Adams', NULL, NULL, 1);
+INSERT INTO `user` (`id`, `username`, `enabled`, `password`, `role`, `address_id`, `first_name`, `last_name`, `image`, `about_me`, `over_twenty_one`) VALUES (5, 'samadams', 1, 'samadams', 'user', 2, 'Sam', 'Adams', NULL, NULL, 1);
+INSERT INTO `user` (`id`, `username`, `enabled`, `password`, `role`, `address_id`, `first_name`, `last_name`, `image`, `about_me`, `over_twenty_one`) VALUES (6, 'skaterboy', 1, 'skaterboy', 'user', 2, 'Tony', 'Hawk', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8h_pXUkASbiTcQj488-GMJCtUaZvXwO0gQA&usqp=CAU', 'LIkes to skateboard, probably also likes beer', 1);
+INSERT INTO `user` (`id`, `username`, `enabled`, `password`, `role`, `address_id`, `first_name`, `last_name`, `image`, `about_me`, `over_twenty_one`) VALUES (DEFAULT, 'lauren', NULL, 'lauren', 'user', NULL, 'Lauren', 'Ackley', 'https://i.imgur.com/VwIqFYH.jpg', 'Likes merlot wine, and cats', 1);
 
 COMMIT;
 

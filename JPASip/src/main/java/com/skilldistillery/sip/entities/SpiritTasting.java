@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="spirit_tasting")
@@ -130,7 +131,11 @@ public class SpiritTasting {
 		super();
 	}
 
+	@Transient
 	public String getFormattedDate() {
-		return dateFmt.format(dateSampled);
+		if(dateSampled == null) {
+			return null;
+		}
+		return DateTimeFormatter.ofPattern("MMM d, yyyy").format(dateSampled);
 	}
 }

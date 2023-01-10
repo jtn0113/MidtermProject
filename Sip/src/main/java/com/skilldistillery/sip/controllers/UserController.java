@@ -70,6 +70,7 @@ public class UserController {
 
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public String login(Model model, User user, HttpSession session) {
+		System.out.println("********************************");
 		User validatedUser = userDao.findUsernameAndPassword(user.getUsername(), user.getPassword());
 		if (validatedUser == null) {
 			String errorMessage = "Error: Username or password incorrect.";

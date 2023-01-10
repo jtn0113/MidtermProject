@@ -53,7 +53,7 @@
 						data-bs-target="#panelsStayOpen-collapseOne${beerTasting.id}"
 						aria-expanded="false"
 						aria-controls="panelsStayOpen-collapseOne${beerTasting.id}">
-						${beerTasting.beer.name } - ${beerTasting.getFormattedDate() } <br>
+						${beerTasting.beer.name } - ${beerTasting.formattedDate} <br>
 					</button>
 				</h2>
 				<div id="panelsStayOpen-collapseOne${beerTasting.id}"
@@ -133,7 +133,7 @@
 						data-bs-target="#panelsStayOpen-collapseOne${wineTasting.id}"
 						aria-expanded="false"
 						aria-controls="panelsStayOpen-collapseOne${wineTasting.id}">
-						${wineTasting.wine.name } - ${wineTasting.getFormattedDate() } <br>
+						${wineTasting.wine.name } - ${wineTasting.formattedDate } <br>
 
 					</button>
 				</h2>
@@ -216,7 +216,7 @@
 						data-bs-target="#panelsStayOpen-collapseOne${spiritTasting.id}"
 						aria-expanded="false"
 						aria-controls="panelsStayOpen-collapseOne${spiritTasting.id}">
-						${spiritTasting.spirit.name } - ${spiritTasting.getFormattedDate() } <br>
+						${spiritTasting.spirit.name } - ${spiritTasting.formattedDate } <br>
 
 					</button>
 				</h2>

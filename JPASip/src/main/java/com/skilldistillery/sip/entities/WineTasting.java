@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="wine_tasting")
@@ -107,8 +108,12 @@ public class WineTasting {
 		this.wine = wine;
 	}
 	
+	@Transient
 	public String getFormattedDate() {
-		return dateFmt.format(dateSampled);
+		if(dateSampled == null) {
+			return null;
+		}
+		return DateTimeFormatter.ofPattern("MMM d, yyyy").format(dateSampled);
 	}
 
 	@Override

@@ -6,13 +6,13 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="beer_tasting")
@@ -29,7 +29,6 @@ public class BeerTasting {
 	private double price;
 	private Integer rating;
 	private String photo;
-	private static final DateTimeFormatter dateFmt = DateTimeFormatter.ofPattern("MMM d, yyyy");
 
 	@Column(name = "date_sampled")
 	private LocalDate dateSampled;
@@ -47,8 +46,12 @@ public class BeerTasting {
 		this.dateSampled = dateSampled;
 	}
 
+	@Transient
 	public String getFormattedDate() {
-		return dateFmt.format(dateSampled);
+		if(dateSampled == null) {
+			return null;
+		}
+		return DateTimeFormatter.ofPattern("MMM d, yyyy").format(dateSampled);
 	}
 
 	public BeerTasting() {

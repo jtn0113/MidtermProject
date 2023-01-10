@@ -58,6 +58,7 @@ public class SpiritController {
 			model.addAttribute("spiritTasting", spiritTasting);
 			System.out.println(spiritTasting);
 			session.setAttribute("loggedInUser", userDao.findById(user.getId()));
+			model.addAttribute("friends", userDao.findFriendsForUser(user.getId()));
 			return "home";
 		} else {
 			return "login";
@@ -70,6 +71,7 @@ public class SpiritController {
 
 		//session.setAttribute("spiritTasting", edit);
 		session.setAttribute("loggedInUser", userDao.findById(user.getId()));
+		model.addAttribute("friends", userDao.findFriendsForUser(user.getId()));
 		return"home";
 	}
 	@RequestMapping("updateSpirit.do")
@@ -85,6 +87,7 @@ public class SpiritController {
 		User user = (User) session.getAttribute("loggedInUser");
 		spiritDao.delete(id);
 		session.setAttribute("loggedInUser", userDao.findById(user.getId()));
+		model.addAttribute("friends", userDao.findFriendsForUser(user.getId()));
 		return "home";
 	}
 	@RequestMapping("deleteConfirmSpirit.do")

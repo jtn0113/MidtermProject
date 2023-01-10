@@ -19,7 +19,7 @@ public class BeerController {
 
 	@Autowired
 	private BeerDao beerDao;
-	
+
 	@Autowired
 	private UserDAO userDao;
 
@@ -58,39 +58,43 @@ public class BeerController {
 			model.addAttribute("beerTasting", beerTasting);
 			System.out.println(beerTasting);
 			session.setAttribute("loggedInUser", userDao.findById(user.getId()));
+			model.addAttribute("friends", userDao.findFriendsForUser(user.getId()));
 			return "home";
 		} else {
 			return "login";
 		}
 	}
-@RequestMapping("editBeer.do")
-public String editBeer(@RequestParam Integer beerId, BeerTasting beerTasting, Model model, HttpSession session) {
-	BeerTasting edit = beerDao.updateBeer(beerTasting, beerId);
-	User user = (User) session.getAttribute("loggedInUser");
 
-	//session.setAttribute("beerTasting", edit);
-	session.setAttribute("loggedInUser", userDao.findById(user.getId()));
-	return"home";
-}
-@RequestMapping("updateBeer.do")
-public String updateBeer(@RequestParam int id, Model model, HttpSession session) {
-	//model.addAttribute("beerTasting", beerTasting);
-	BeerTasting bt = beerDao.findByJournalId(id);
-	model.addAttribute("beerTasting", bt);
-	return "updateBeer";
-}
+	@RequestMapping("editBeer.do")
+	public String editBeer(@RequestParam Integer beerId, BeerTasting beerTasting, Model model, HttpSession session) {
+		BeerTasting edit = beerDao.updateBeer(beerTasting, beerId);
+		User user = (User) session.getAttribute("loggedInUser");
+		session.setAttribute("loggedInUser", userDao.findById(user.getId()));
+		model.addAttribute("friends", userDao.findFriendsForUser(user.getId()));
+		return "home";
+	}
 
-@RequestMapping("deleteBeer.do")
-public String deleteBeer(@RequestParam int id, Model model, HttpSession session) {
-	User user = (User) session.getAttribute("loggedInUser");
-	beerDao.delete(id);
-	session.setAttribute("loggedInUser", userDao.findById(user.getId()));
-	return "home";
-}
-@RequestMapping("deleteConfirm.do")
-public String deleteConfirm(@RequestParam int id, BeerTasting beerTasting, Model model, HttpSession session) {
-	BeerTasting bt = beerDao.findByJournalId(id);
-	model.addAttribute("beerTasting", bt);
-	return "deleteConfirm";
-}
+	@RequestMapping("updateBeer.do")
+	public String updateBeer(@RequestParam int id, Model model, HttpSession session) {
+		BeerTasting bt = beerDao.findByJournalId(id);
+		model.addAttribute("beerTasting", bt);
+		return "updateBeer";
+	}
+
+	@RequestMapping("deleteBeer.do")
+	public String deleteBeer(@RequestParam int id, Model model, HttpSession session) {
+		User user = (User) session.getAttribute("loggedInUser");
+		beerDao.delete(id);
+		session.setAttribute("loggedInUser", userDao.findById(user.getId()));
+		model.addAttribute("friends", userDao.findFriendsForUser(user.getId()));
+
+		return "home";
+	}
+
+	@RequestMapping("deleteConfirm.do")
+	public String deleteConfirm(@RequestParam int id, BeerTasting beerTasting, Model model, HttpSession session) {
+		BeerTasting bt = beerDao.findByJournalId(id);
+		model.addAttribute("beerTasting", bt);
+		return "deleteConfirm";
+	}
 }

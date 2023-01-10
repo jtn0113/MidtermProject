@@ -60,6 +60,7 @@ public class WineController {
 			model.addAttribute("wineTasting", wineTasting);
 			System.out.println(wineTasting);
 			session.setAttribute("loggedInUser", userDao.findById(user.getId()));
+			model.addAttribute("friends", userDao.findFriendsForUser(user.getId()));
 			return "home";
 		} else {
 			return "login";
@@ -73,6 +74,7 @@ public class WineController {
 
 		//session.setAttribute("wineTasting", edit);
 		session.setAttribute("loggedInUser", userDao.findById(user.getId()));
+		model.addAttribute("friends", userDao.findFriendsForUser(user.getId()));
 		return"home";
 	}
 	@RequestMapping("updateWine.do")
@@ -88,6 +90,7 @@ public class WineController {
 		User user = (User) session.getAttribute("loggedInUser");
 		wineDao.delete(id);
 		session.setAttribute("loggedInUser", userDao.findById(user.getId()));
+		model.addAttribute("friends", userDao.findFriendsForUser(user.getId()));
 		return "home";
 	}
 	@RequestMapping("deleteConfirmWine.do")

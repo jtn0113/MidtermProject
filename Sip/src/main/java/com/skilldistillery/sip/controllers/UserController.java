@@ -146,7 +146,7 @@ public class UserController {
 	}
 	
 	@RequestMapping("friends.do")
-	public String friendsList(@RequestParam int friendId, Model model, HttpSession session) {
+	public String friendsList(Model model, HttpSession session) {
 		User user = (User) session.getAttribute("loggedInUser");
 		List<User> friends =  user.getFollowing();
 		model.addAttribute("friends", friends);

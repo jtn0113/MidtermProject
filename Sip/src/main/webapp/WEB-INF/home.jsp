@@ -448,7 +448,7 @@
 														<strong>Origin State Province:</strong> ${spiritTasting.spirit.originStateProvince } <br>
 													</c:if>
 													<c:if test="${not empty spiritTasting.spirit.proof }">
-														<strong>Proof:</strong> ${spiritTasting.spirit.proof }% <br>
+														<strong>Proof:</strong> ${spiritTasting.spirit.proof } <br>
 													</c:if>
 													<c:if test="${not empty spiritTasting.notes }">
 														<strong>Notes:</strong> ${spiritTasting.notes } <br>

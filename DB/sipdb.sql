@@ -38,9 +38,9 @@ DROP TABLE IF EXISTS `user` ;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NOT NULL,
-  `enabled` TINYINT NULL,
+  `enabled` TINYINT NULL DEFAULT 1,
   `password` VARCHAR(45) NOT NULL,
-  `role` VARCHAR(45) NULL,
+  `role` VARCHAR(45) NULL DEFAULT 'user',
   `address_id` INT NULL,
   `first_name` VARCHAR(45) NULL,
   `last_name` VARCHAR(50) NULL,
@@ -459,16 +459,16 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `sipdb`;
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (1, 'Bud Light Lime', 2, NULL, 'Texas', 4.2, '', NULL, 'Anheuser-Busch');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (2, 'Bud Light', 2, NULL, 'Texas', 4.2, '', NULL, 'Anheuser-Busch');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (3, 'Coors Light', 2, NULL, 'Colorado', 4.2, '', NULL, 'Molson Coors');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (4, 'Dogfish Head 60 Minute IPA', 3, 'Milton', 'Delaware', 6.0, '', NULL, 'Dogfish Head Brewery');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (5 , 'Karbach Hopadillo', 3, 'Houston', 'Texas', 6.60, '', NULL, 'Karbach Brewing Company');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (6, 'New Belgium Voodoo Ranger Impeial IPA', 3, 'Fort Collins', 'Colorado', 9, '', NULL, 'New Belgium Brewing Company');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (7, 'Stone Delicious IPA', 3, NULL, 'California', 7.5, '', NULL, 'Stone Brewing Company');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (8, 'Stone Hazy IPA ', 3, NULL, 'California', 6.7, '', NULL, 'Stone Brewing Company');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (9, 'Alaskan Pilsner', 1, 'Juneau', 'Alaska', 4.8, NULL, NULL, 'Alaskan Brewing Company');
-INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (10, 'Dogfish Head Shelter Pale', 4, NULL, 'Delaware', 5, NULL, NULL, 'Dogfish Head Brewery');
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (1, 'Bud Light Lime', 2, NULL, 'Texas', 4.2, 'This is an American style light lager that combines the superior drinkability of Bud Light with a splash of 100% lime flavor. It has a delicate malt sweetness, a clean, crisp finish and the taste of fresh-squeezed lime for ultimate refreshment.', NULL, 'Anheuser-Busch');
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (2, 'Bud Light', 2, NULL, 'Texas', 4.2, 'Bud Light is a light-bodied beer featuring a fresh, clean taste with a subtle hop aroma, delicate malt sweetness and a crisp finish that delivers the ultimate refreshment.', NULL, 'Anheuser-Busch');
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (3, 'Coors Light', 2, NULL, 'Colorado', 4.2, 'Coors Light is a natural light lager beer that delivers Rocky Mountain cold refreshment.', NULL, 'Molson Coors');
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (4, 'Dogfish Head 60 Minute IPA', 3, 'Milton', 'Delaware', 6.0, 'This quintessential American IPA is brewed with Warrior, Amarillo & \'Mystery Hop X.\' It is a powerful East Coast I.P.A. with a lot of citrusy hop character with hints of floral and orange.', NULL, 'Dogfish Head Brewery');
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (5 , 'Karbach Hopadillo', 3, 'Houston', 'Texas', 6.60, 'Pours a deep amber orange with a thick, creamy white head and big aromas of grapefruit, pine and some sweet breadiness. Citrus flavor followed by pine, caramel malts and a bit of bread. Finishes with a hoppy citrus kick.', NULL, 'Karbach Brewing Company');
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (6, 'New Belgium Voodoo Ranger Impeial IPA', 3, 'Fort Collins', 'Colorado', 9, 'Bursting with tropical aromas and juicy fruit flavors from Mosaic and Amarillo hops, this golden IPA is perfectly bitter with a refreshing finish.', NULL, 'New Belgium Brewing Company');
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (7, 'Stone Delicious IPA', 3, NULL, 'California', 7.5, 'Enjoy all of the bitter, piney & citrusy flavors of an IPA without the gluten. This beer offers a delightful blend of hop flavors balanced by subtle hints of sweet malts.', NULL, 'Stone Brewing Company');
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (8, 'Stone Hazy IPA ', 3, NULL, 'California', 6.7, 'Blooming with bold, juicy flavors. This amazingly hazy IPA features El Dorado & Azacca hops which bring tons of citrus & fruit elements while intense Sabro hops highlight the tropical notes of this beer.', NULL, 'Stone Brewing Company');
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (9, 'Alaskan Pilsner', 1, 'Juneau', 'Alaska', 4.8, 'Clean and crisp, Alaskan Pilsner is golden straw in color with a fluffy white head. Its slight malty sweetness finishes with a moderate bitterness that doesn’t linger. This artful balance makes each sip better than the last.', NULL, 'Alaskan Brewing Company');
+INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (10, 'Dogfish Head Shelter Pale', 4, NULL, 'Delaware', 5, 'This is the original Dogfish Head brew and it\'s highly drinkable beer. Shelter Pale Ale is brewed with a premium barley and whole-leaf Glacial & Warrior hops. It has a fine malt backbone and a slightly nutty flavor. A versatile, quaffable beer.', NULL, 'Dogfish Head Brewery');
 INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (11, 'Bell\'s Juicy Gossip', 4, 'Kalamazoo', 'Michigan', 4.7, NULL, NULL, 'Bell\'s Brewing Company');
 INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (12, 'Guinness Draught', 5, NULL, 'Ireland', 4.2, NULL, NULL, 'Guinness');
 INSERT INTO `beer` (`id`, `name`, `brew_type_id`, `origin_city`, `origin_state`, `abv`, `description`, `image_url`, `brewing_company`) VALUES (13, 'Real Ale Coffee Porter', 6, 'Blanco', 'Texas', 6.6, NULL, NULL, 'Real Ale Brewing Company');

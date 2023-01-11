@@ -14,6 +14,10 @@ public interface UserDAO {
 	User editInformation(Integer userId, User user);
 //	int dateOfBirth(User user);
 	List<User> findFriendsForUser(int userId);
+	boolean deactivated(int userId);
+	boolean activateAccount(int userId);
+	List<User> findActiveAccounts();
+	List<User> findDeactivatedAccounts();
 
 }
  

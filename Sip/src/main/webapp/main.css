@@ -44,9 +44,12 @@ border-bottom-right-radius: .3rem;
 } */
 
 
-#beer, #delete{
+
+
+ body {
 	padding-top: 75px;
-}
+	padding-left: 25px;
+} 
 
 #login {
 	font-family: 'Gill Sans Nova', sans-seif;

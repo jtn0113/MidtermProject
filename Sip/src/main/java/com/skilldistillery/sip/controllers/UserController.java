@@ -80,7 +80,12 @@ public class UserController {
 			String errorMessage = "Error: Username or password incorrect.";
 			model.addAttribute("errorMessage", errorMessage);
 			return "login";
-		} else {
+		} else if (validatedUser.getEnabled() != true) {
+			String errorMessage = "Error: Account has been disabled.";
+			model.addAttribute("errorMessage", errorMessage);
+			return "login";
+		}
+		else {
 			session.setAttribute("loggedInUser", validatedUser);
 			//List<User> friends =  validatedUser.getFollowing();
 			model.addAttribute("friends", userDao.findFriendsForUser(validatedUser.getId()));
@@ -148,5 +153,45 @@ public class UserController {
 		return "friends";
 	}
 	
+	@RequestMapping("manageUsers.do")
+	public String manageUsers(HttpSession session, Model model) {
+	
+		
+		User user = (User) session.getAttribute("loggedInUser");
+		if (user.getRole().equals("ADMIN")) {
+			List<User> activeUsers = userDao.findActiveAccounts();
+			List<User> deactivatedUsers = userDao.findDeactivatedAccounts();
+			model.addAttribute("activeUsers", activeUsers);
+			model.addAttribute("deactivatedUsers", deactivatedUsers);
+			return "manageUsers";
+		} else {
+			
+			return "home";
+		}
+		
+		
+	}
+	
+	@RequestMapping("deactivate.do")
+	public String deactivateUser(@RequestParam int id, Model model) {
+		userDao.deactivated(id);
+		List<User> activeUsers = userDao.findActiveAccounts();
+		List<User> deactivatedUsers = userDao.findDeactivatedAccounts();
+		model.addAttribute("activeUsers", activeUsers);
+		model.addAttribute("deactivatedUsers", deactivatedUsers);
+		return "manageUsers";
+		
+	}
+	@RequestMapping("activate.do")
+	public String activateUser(@RequestParam int id, Model model) {
+		userDao.activateAccount(id);
+		List<User> activeUsers = userDao.findActiveAccounts();
+		List<User> deactivatedUsers = userDao.findDeactivatedAccounts();
+		model.addAttribute("activeUsers", activeUsers);
+		model.addAttribute("deactivatedUsers", deactivatedUsers);
+		return "manageUsers";
+		
+	}
+
 
 }

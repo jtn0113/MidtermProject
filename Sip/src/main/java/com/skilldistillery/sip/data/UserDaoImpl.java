@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.sip.entities.Address;
+import com.skilldistillery.sip.entities.BeerTasting;
 import com.skilldistillery.sip.entities.User;
 
 @Service
@@ -86,6 +87,41 @@ public class UserDaoImpl implements UserDAO {
 		List<User> friends = new ArrayList<>();
 		objects.forEach(o->friends.add((User)o));
 		return friends;
+	}
+	
+	
+	@Override
+	public boolean deactivated(int userId) {
+		User user = em.find(User.class, userId);
+		if (user != null) {
+			user.setEnabled(false);
+		}
+		return user.getEnabled();
+	}
+	@Override
+	public boolean activateAccount(int userId) {
+		User user = em.find(User.class, userId);
+		if (user != null) {
+			user.setEnabled(true);
+		}
+		return user.getEnabled();
+	}
+	
+	@Override
+	public List<User> findActiveAccounts() {
+
+		String jpql = "select u from User u where u.enabled  = 1";
+		List<User> activeUsers = em.createQuery(jpql, User.class).getResultList();
+		
+		return activeUsers;
+	}
+	@Override
+	public List<User> findDeactivatedAccounts() {
+		
+		String jpql = "select u from User u where u.enabled <> 1 OR u.enabled IS NULL";
+		List<User> activeUsers = em.createQuery(jpql, User.class).getResultList();
+		
+		return activeUsers;
 	}
 
 }

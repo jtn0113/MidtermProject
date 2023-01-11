@@ -59,6 +59,11 @@
 							
 							<li class="nav-item"><a class="nav-link active" href="friends.do">Friends</a></li>
 							
+							<c:if test="${loggedInUser.role == 'ADMIN'}">
+							<li class="nav-item"><a class="nav-link active" href="manageUsers.do">Manage Users</a></li>
+							
+							</c:if>
+							
 							<li class="nav-item"><a class="nav-link active"
 							aria-current="page" href="logout.do">Logout</a></li>
 					</ul>

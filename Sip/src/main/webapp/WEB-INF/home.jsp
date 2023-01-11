@@ -345,7 +345,7 @@
 													<br>
 													<strong>Name of Drink:</strong> ${beerTasting.beer.name}<br>
 													<c:if test="${ not empty beerTasting.formattedDate }">
-														<strong>Date Sampled:</strong> 	${beerTasting.formattedDate }}<br>
+														<strong>Date Sampled:</strong> 	${beerTasting.formattedDate }<br>
 													</c:if>
 													<c:if test="${not empty beerTasting.rating }">
 														<strong>Rating: ${beerTasting.rating } out of 10</strong>
@@ -401,7 +401,7 @@
 													<c:if
 														test="${not empty wineTasting.wine.vineyardLocation }">
 														<strong>Vineyard Location:</strong> ${wineTasting.wine.vineyardLocation } <br>
-								s					</c:if>
+													</c:if>
 													<c:if test="${not empty wineTasting.wine.abv }">
 														<strong>ABV:</strong> ${wineTasting.wine.abv }% <br>
 													</c:if>
@@ -427,7 +427,7 @@
 													items="${friend.spiritTasting }">
 													<strong>Name of Drink:</strong> ${spiritTasting.spirit.name}<br>
 													<c:if test="${ not empty spiritTasting.formattedDate }">
-														<strong>Date Sampled:</strong> 	${spiritTasting.formattedDate }}<br>
+														<strong>Date Sampled:</strong> 	${spiritTasting.formattedDate }<br>
 													</c:if>
 													<c:if test="${not empty spiritTasting.rating }">
 														<strong>Rating: ${spiritTasting.rating } out of

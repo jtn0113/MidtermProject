@@ -117,12 +117,6 @@
 									</div>
 								</div>
 
-								<div class="row">
-									<div class="col-md-6 mb-4 pb-2">
-										<div class="form-outline">
-											<label for="imageUrl">Image URL:</label><br> <input type="text"
-												name="imageUrl">
-										</div>
 </div>
 									</div>
 

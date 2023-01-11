@@ -141,12 +141,6 @@
 
 									</div>
 
-								<div class="row">
-									<div class="col-md-6 mb-4 pb-2">
-										<div class="form-outline">
-											<label for="imageUrl">Image URL:</label> <input type="text"
-												name="imageUrl">
-										</div>
 
 									</div>
 								</div>

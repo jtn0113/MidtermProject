@@ -1,5 +1,6 @@
 package com.skilldistillery.sip.entities;
 
+import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
@@ -68,7 +69,10 @@ public class SpiritTasting {
 		this.id = id;
 	}
 
-	
+	public String getFormattedPrice() {
+		NumberFormat formatter = NumberFormat.getCurrencyInstance();
+		return formatter.format(price);
+	}
 
 	public User getUser() {
 		return user;

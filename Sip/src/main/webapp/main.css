@@ -1,14 +1,17 @@
 @charset "UTF-8";
 
 .gradient-custom {
-	/* fallback for old browsers */
+	/* /* 	fallback for old browsers
 	background: #f093fb;
-	/* Chrome 10-25, Safari 5.1-6 */
+	Chrome 10-25, Safari 5.1-6
 	background: -webkit-linear-gradient(to bottom right, rgba(240, 147, 251, 1),
 		rgba(245, 87, 108, 1));
-	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+
 	background: linear-gradient(to bottom right, rgba(240, 147, 251, 1),
-		rgba(245, 87, 108, 1));
+		rgba(245, 87, 108, 1)); */
+	background: rgb(98, 148, 136);
+	background: linear-gradient(to bottom right, rgba(98, 148, 136, 1),
+		rgba(127, 108, 120, 1));
 }
 
 .card-registration .select-input.form-control[readonly]:not([disabled])
@@ -42,14 +45,14 @@ height: 100vh !important;
 border-top-right-radius: .3rem;
 border-bottom-right-radius: .3rem;
 } */
-
-
-
-
- body {
+body {
 	padding-top: 75px;
+	padding-bottom: 50px;
 	padding-left: 25px;
-} 
+	padding-right: 25px;
+	background-image: url('https://i.imgur.com/2b7FJIc.jpg');
+	background-size: cover;
+}
 
 #login {
 	font-family: 'Gill Sans Nova', sans-seif;
@@ -72,7 +75,7 @@ W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+
 background: linear-gradient(to right, rgba(251, 194, 235, 1), rgba(166, 193, 238, 1))
  */
 	background: rgb(98, 148, 136);
-	background: linear-gradient( to bottom right, rgba(98, 148, 136, 1),
+	background: linear-gradient(to bottom right, rgba(98, 148, 136, 1),
 		rgba(127, 108, 120, 1));
 }
 
@@ -84,4 +87,3 @@ background: linear-gradient(to right, rgba(251, 194, 235, 1), rgba(166, 193, 238
 	width: auto;
 	height: 100px;
 }
-	

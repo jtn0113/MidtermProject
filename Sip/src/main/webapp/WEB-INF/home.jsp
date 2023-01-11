@@ -47,18 +47,18 @@
 	<c:forEach var="beerTasting" items="${loggedInUser.beerTasting }">
 		<div class="accordion" id="accordionExample">
 			<div class="accordion-item">
-				<h2 class="accordion-header" id="headingOne${beerTasting.id}">
+				<h2 class="accordion-header" id="headingOne${beerTasting.id}Beer">
 					<button class="accordion-button" type="button"
 						data-bs-toggle="collapse"
-						data-bs-target="#panelsStayOpen-collapseOne${beerTasting.id}"
+						data-bs-target="#panelsStayOpen-collapseOne${beerTasting.id}Beer"
 						aria-expanded="false"
-						aria-controls="panelsStayOpen-collapseOne${beerTasting.id}">
+						aria-controls="panelsStayOpen-collapseOne${beerTasting.id}Beer">
 						${beerTasting.beer.name } - ${beerTasting.formattedDate} <br>
 					</button>
 				</h2>
-				<div id="panelsStayOpen-collapseOne${beerTasting.id}"
+				<div id="panelsStayOpen-collapseOne${beerTasting.id}Beer"
 					class="accordion-collapse collapse"
-					aria-labelledby="panelsStayOpen-headingOne${beerTasting.id}">
+					aria-labelledby="panelsStayOpen-headingOne${beerTasting.id}Beer">
 					<div class="accordion-body">
 						<c:if test="${not empty beerTasting.rating }">
 							<strong>Rating: ${beerTasting.rating } out of 10</strong>
@@ -83,8 +83,8 @@
 						<c:if test="${not empty beerTasting.beer.description }">
 							<strong>Beer Description:</strong> ${beerTasting.beer.description }<br>
 						</c:if>
-						<c:if test="${not empty beerTasting.price }">
-							<strong>Price Per Glass:</strong> ${beerTasting.price }<br>
+						<c:if test="${not empty beerTasting.formattedPrice }">
+							<strong>Price Per Glass:</strong> ${beerTasting.formattedPrice }<br>
 						</c:if>
 						<c:if test="${not empty beerTasting.photo }">
 							<img class="drinkImage" src="${beerTasting.photo }">
@@ -127,19 +127,19 @@
 	<c:forEach var="wineTasting" items="${loggedInUser.wineTasting }">
 		<div class="accordion" id="accordionExample">
 			<div class="accordion-item">
-				<h2 class="accordion-header" id="headingOne${wineTasting.id}">
+				<h2 class="accordion-header" id="headingOne${wineTasting.id}Wine">
 					<button class="accordion-button" type="button"
 						data-bs-toggle="collapse"
-						data-bs-target="#panelsStayOpen-collapseOne${wineTasting.id}"
+						data-bs-target="#panelsStayOpen-collapseOne${wineTasting.id}Wine"
 						aria-expanded="false"
-						aria-controls="panelsStayOpen-collapseOne${wineTasting.id}">
+						aria-controls="panelsStayOpen-collapseOne${wineTasting.id}Wine">
 						${wineTasting.wine.name } - ${wineTasting.formattedDate } <br>
 
 					</button>
 				</h2>
-				<div id="panelsStayOpen-collapseOne${wineTasting.id}"
+				<div id="panelsStayOpen-collapseOne${wineTasting.id}Wine"
 					class="accordion-collapse collapse"
-					aria-labelledby="panelsStayOpen-headingOne${wineTasting.id}">
+					aria-labelledby="panelsStayOpen-headingOne${wineTasting.id}Wine">
 					<div class="accordion-body">
 						<c:if test="${not empty wineTasting.rating }">
 							<strong>Rating: ${wineTasting.rating } out of 10</strong>
@@ -164,8 +164,8 @@
 						<c:if test="${not empty wineTasting.wine.description }">
 							<strong>Wine Description:</strong> ${wineTasting.wine.description }<br>
 						</c:if>
-						<c:if test="${not empty wineTasting.price }">
-							<strong>Price Per Glass:</strong> ${wineTasting.price }<br>
+						<c:if test="${not empty wineTasting.formattedPrice }">
+							<strong>Price Per Glass:</strong> ${wineTasting.formattedPrice }<br>
 						</c:if>
 						<c:if test="${not empty wineTasting.photo }">
 							<img class="drinkImage" src="${wineTasting.photo }">
@@ -211,19 +211,19 @@
 	<c:forEach var="spiritTasting" items="${loggedInUser.spiritTasting }">
 		<div class="accordion" id="accordionExample">
 			<div class="accordion-item">
-				<h2 class="accordion-header" id="headingOne${spiritTasting.id}">
+				<h2 class="accordion-header" id="headingOne${spiritTasting.id}Spirit">
 					<button class="accordion-button" type="button"
 						data-bs-toggle="collapse"
-						data-bs-target="#panelsStayOpen-collapseOne${spiritTasting.id}"
+						data-bs-target="#panelsStayOpen-collapseOne${spiritTasting.id}Spirit"
 						aria-expanded="false"
-						aria-controls="panelsStayOpen-collapseOne${spiritTasting.id}">
+						aria-controls="panelsStayOpen-collapseOne${spiritTasting.id}Spirit">
 						${spiritTasting.spirit.name } - ${spiritTasting.formattedDate } <br>
 
 					</button>
 				</h2>
-				<div id="panelsStayOpen-collapseOne${spiritTasting.id}"
+				<div id="panelsStayOpen-collapseOne${spiritTasting.id}Spirit"
 					class="accordion-collapse collapse"
-					aria-labelledby="panelsStayOpen-headingOne${spiritTasting.id}">
+					aria-labelledby="panelsStayOpen-headingOne${spiritTasting.id}Spirit">
 					<div class="accordion-body">
 						<c:if test="${not empty spiritTasting.rating }">
 							<strong>Rating: ${spiritTasting.rating } out of 10</strong>
@@ -249,8 +249,8 @@
 						<c:if test="${not empty spiritTasting.spirit.description }">
 							<strong>Spirit Description:</strong> ${spiritTasting.spirit.description }<br>
 						</c:if>
-						<c:if test="${not empty spiritTasting.price }">
-							<strong>Price Per Glass:</strong> ${spiritTasting.price }<br>
+						<c:if test="${not empty spiritTasting.formattedPrice }">
+							<strong>Price Per Glass:</strong> ${spiritTasting.formattedPrice }<br>
 						</c:if>
 						<c:if test="${not empty spiritTasting.photo }">
 							<img class="drinkImage" src="${spiritTasting.photo }">

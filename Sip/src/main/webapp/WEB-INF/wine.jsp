@@ -8,7 +8,7 @@
 <%@ include file="nav.jsp"%>
 </head>
 <body>
-	<section class="vh-100 gradient-custom">
+	<section class="gradient-custom">
 		<div class="container py-5 h-100">
 			<div class="row justify-content-center align-items-center h-100">
 				<div class="col-12 col-lg-9 col-xl-7">
@@ -125,15 +125,6 @@
 											</div>
 										</div>
 
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-6 mb-4 pb-2">
-
-												<div class="form-outline">
-													<label for="vintageYear">Vintage Year</label><br> <input
-														type="text" name="vintageYear">
-												</div>
 											</div>
 										</div>
 

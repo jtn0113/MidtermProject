@@ -1,5 +1,6 @@
 package com.skilldistillery.sip.entities;
 
+import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
@@ -79,7 +80,10 @@ public class WineTasting {
 	public String getPhoto() {
 		return photo;
 	}
-
+	public String getFormattedPrice() {
+		NumberFormat formatter = NumberFormat.getCurrencyInstance();
+		return formatter.format(price);
+	}
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}

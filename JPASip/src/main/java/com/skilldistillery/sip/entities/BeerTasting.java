@@ -1,5 +1,6 @@
 package com.skilldistillery.sip.entities;
 
+import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
@@ -38,6 +39,11 @@ public class BeerTasting {
 	private Beer beer;
 	
 
+	public String getFormattedPrice() {
+		NumberFormat formatter = NumberFormat.getCurrencyInstance();
+		return formatter.format(price);
+	}
+	
 	public LocalDate getDateSampled() {
 		return dateSampled;
 	}
@@ -81,6 +87,7 @@ public class BeerTasting {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	
 
 	public Integer getRating() {
 		return rating;

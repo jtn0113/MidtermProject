@@ -51,7 +51,7 @@
 															style="width: 150px; z-index: 1">
 													</div>
 													<div class="ms-3" style="margin-top: 130px;">
-														<h5>${friend.firstName }${friend.lastName}</h5>
+														<h5>${friend.firstName } ${friend.lastName}</h5>
 													</div>
 												</div>
 												<div class="p-4 text-black"

@@ -60,10 +60,12 @@ Sip., is a web based application that allows a user to create journal entries ba
  <br>
  <br>
 
+ <img src="welcome.png" alt="Welcome Page">
+
 
 <img src="SchemaDesign.png" alt="Schema">
 
-###<strong>Technologies Used:</strong>
+### <strong>Technologies Used:</strong>
 <ul>
 <li>Java</li>
 <li>MySQL</li>
@@ -86,17 +88,17 @@ Sip., is a web based application that allows a user to create journal entries ba
 <li>Trello</li>
 </ul>
 
-###<strong>Lessons Learned:</strong>
+### <strong>Lessons Learned:</strong>
 
 ADD LESSONS LEARNED SECTION
-###<strong>Stretch Goals Implemented:</strong>
+### <strong>Stretch Goals Implemented:</strong>
 <ul>
 <li> Give user ability to follow, add, and remove friends</li>
 <li> Give user ability to view friends profile page</li>
 <li> Give admin ability to activate/deactivate other user accounts</li>
 </ul>
 
-###<strong>How To Run:</strong>
+### <strong>How To Run:</strong>
 
 Go to: http://52.5.120.254:8080/Sip/
 <ul>

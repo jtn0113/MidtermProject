@@ -47,21 +47,9 @@ Sip., is a web based application that allows a user to create journal entries ba
 <img src="navbar.png" alt="NavBar">
  <br>
  <br>
-<img src="AccountInfo.png" alt="Account Info">
-<br>
-<br>
-<img src="tasting.png" alt="New Tasting">
-  <br>
-  <br>
-  <img src="friendsList.png" alt="Friends">
-    <br>
-     <br>
 <li> If the user has admin privileges they will also be able to "Manage Users" from the navigation bar where they can activate and deactivate users</li>
  </ul>
  <br>
-    <img src="AdminPrivs.png" alt="Admin Page">
-    <br>
-    <br>
 
 <strong><em> How CRUD was implemented:</strong></em>
 

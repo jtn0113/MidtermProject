@@ -22,10 +22,18 @@ Sip., is a web based application that allows a user to create journal entries ba
 <li> Existing user? Add your username and password to login</li>
 <li> New user? Select "Create New" to register your new account<li>
 </ul>
+<br>
+<img src="Welcome.png" alt="Welcome Page">
+<br>
+<br>
 
 <strong><em>Once logged in the user has the following options:</strong></em>
 <ul>
 <li> Read previous journal entries on the home page</li>
+<br>
+<img src="home.png" alt="Home Page">
+<br>
+<br>
 
 <strong><em>From the navigation bar:</strong></em>
 <li> Search previous entry by drink name</li>
@@ -61,12 +69,8 @@ Sip., is a web based application that allows a user to create journal entries ba
  <br>
  <br>
 
- <img src="Welcome.png" alt="Welcome Page">
- <br>
- <br>
-  <img src="home.png" alt="Home Page">
-  <br>
-  <br>
+
+
   <img src="journal.png" alt="Journal Entry">
    <br>
    <br>

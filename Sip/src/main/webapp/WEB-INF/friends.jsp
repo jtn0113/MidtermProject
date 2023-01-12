@@ -13,15 +13,13 @@
 		<c:if test="${errorMessage != null}">
 			<div class="alert alert-danger" role="alert">${errorMessage}</div>
 		</c:if>
-		<input type="text" name="searchFriend" placeholder="Add Friend by Username">
+		<input type="text" name="searchFriend"
+			placeholder="Add Friend by Username">
 		<button type="submit" class="btn btn-success">Add Friend</button>
 	</form>
-
 	<h2>Friends List</h2>
 
-	<form action="friends.do" method="POST">
-		<input type="hidden" name="id" value="${loggedInUser.id}"> <input
-			type="hidden" name="friendId" value="${friend.id}">
+		<input type="hidden" name="id" value="${loggedInUser.id}"> 
 		<div class="accordion accordion-flush"
 			id="accordionFlushExample${friend.firstName }${friend.lastName}">
 			<c:forEach var="friend" items="${friends}">
@@ -42,6 +40,11 @@
 
 
 
+						<%-- 	<input type="hidden" name="friendId" value="${friend.id }"> --%>
+							<!-- <button type="submit" class="btn btn-danger">Remove
+														Friend</button> -->
+
+
 
 							<section class="h-100 gradient-custom-2">
 								<div class="container py-5 h-100">
@@ -59,36 +62,21 @@
 															style="width: 150px; z-index: 1">
 													</div>
 													<div class="ms-3" style="margin-top: 130px;">
-														<h5>${friend.firstName } ${friend.lastName}</h5>
+														<h5>${friend.firstName }${friend.lastName}</h5>
 													</div>
 												</div>
-												<br>
-												<br>
-												<br>
-												<form action="deleteFriend.do">
-												<div class="p-4 text-black"
-													style="background-color: #f8f9fa;">
-													<input type="hidden" name="friendId" value="${friend.id }">
-													<button type="submit" class="btn btn-danger">Remove Friend</button>
-												</div>
-												</form>
-													<%-- <div class="d-flex justify-content-end text-center py-1">
-													<div>
-														<p class="mb-1 h5">${beerTasting.size() }SIZE</p>
-														<p class="small text-muted mb-0">Beer Entries</p>
-													</div>
-													<div class="px-3">
-														<p class="mb-1 h5">1026</p>
-														<p class="small text-muted mb-0">Followers</p>
-													</div>
-													<div>
-														<p class="mb-1 h5">478</p>
-														<p class="small text-muted mb-0">Following</p>
-													</div>
-												</div> --%>
+												<br> <br> <br>
+	<form action="deleteFriend.do" method="POST">
+			<input type="hidden" name="friendId" value="${friend.id}">
+			<div class="p-4" style="background-color: #f8f9fa;">
+							<button type="submit" class="btn btn-danger">Remove
+								Friend</button>
+								</div>
+								</form>
+
 												<div class="card-body p-4 text-black">
 													<div class="mb-5">
-														
+
 														<p class="lead fw-normal mb-1">About</p>
 														<div class="p-4" style="background-color: #f8f9fa;">
 															<p>${friend.aboutMe}</p>
@@ -101,6 +89,9 @@
 													</div>
 													<h3>Beer:</h3>
 													<br>
+													<c:if test="${empty friend.beerTasting }">
+														<em>Hmm...maybe they don't like beer.<br></em>
+													</c:if>
 													<c:forEach var="beerTasting" items="${friend.beerTasting }">
 														<br>
 														<strong>Name of Drink:</strong> ${beerTasting.beer.name}<br>
@@ -142,6 +133,10 @@
 													<br>
 													<h3>Wine:</h3>
 													<br>
+													<c:if test="${empty friend.wineTasting }">
+														<em>Hmm...maybe they don't like wine.</em>
+														<br>
+													</c:if>
 													<c:forEach var="wineTasting" items="${friend.wineTasting }">
 														<strong>Name of Drink:</strong> ${wineTasting.wine.name}<br>
 														<c:if test="${ not empty wineTasting.formattedDate }">
@@ -185,6 +180,10 @@
 													<br>
 													<c:forEach var="spiritTasting"
 														items="${friend.spiritTasting }">
+														<c:if test="${empty friend.spiritTasting }">
+															<em>Hmm...maybe they don't like spirits. </em>
+															<br>
+														</c:if>
 														<strong>Name of Drink:</strong> ${spiritTasting.spirit.name}<br>
 														<c:if test="${ not empty spiritTasting.formattedDate }">
 															<strong>Date Sampled:</strong> 	${spiritTasting.formattedDate }<br>
@@ -242,6 +241,5 @@
 			</c:forEach>
 		</div>
 
-	</form>
 </body>
 </html>

@@ -1,9 +1,7 @@
 ### Full Stack MVC Group Project
 
-<strong> SIP. </strong>
 
-
-Team Members:
+<strong> SIP. </strong>Team Members:
 <ul>
 <li>Lowell Belany (Developer)</li>
 <li>John Nichols (Developer, Repo Owner)</li>
@@ -20,7 +18,7 @@ Sip., is a web based application that allows a user to create journal entries ba
 <strong><em>When a user accesses the welcome page they can:</strong></em>
 <ul>
 <li> Existing user? Add your username and password to login</li>
-<li> New user? Select "Create New" to register your new account<li>
+<li> New user? Select "Create New" to register your new account</li>
 </ul>
 <br>
 <img src="Welcome.png" alt="Welcome Page">
@@ -34,6 +32,7 @@ Sip., is a web based application that allows a user to create journal entries ba
 <br>
 <img src="home.png" alt="Home Page">
 <br>
+<br>
 <img src="journal.png" alt="Journal Entry">
    <br>
    <br>
@@ -45,6 +44,9 @@ Sip., is a web based application that allows a user to create journal entries ba
 <li> View friends list where the user can search and add a new friend or remove friends from current list</li>
 <li> Logout</li>
 <br>
+<img src="navbar.png" alt="NavBar">
+ <br>
+ <br>
 <img src="AccountInfo.png" alt="Account Info">
 <br>
 <br>
@@ -85,6 +87,14 @@ Sip., is a web based application that allows a user to create journal entries ba
  </ul>
  <br>
  <br>
+
+
+
+
+
+
+
+
 
 
 <img src="SchemaDesign.png" alt="Schema">

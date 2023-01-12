@@ -63,7 +63,7 @@
 
 										<div class="form-outline">
 											<label for="password">Password:</label><br> <input
-												type="text" name="password"
+												type="password" name="password"
 												value="${loggedInUser.password }" required>
 										</div>
 

@@ -39,13 +39,6 @@
 					<div class="accordion-body">
 
 
-
-						<%-- 	<input type="hidden" name="friendId" value="${friend.id }"> --%>
-						<!-- <button type="submit" class="btn btn-danger">Remove
-														Friend</button> -->
-
-
-
 						<section class="h-100 gradient-custom-2">
 							<div class="container py-5 h-100">
 								<div
@@ -62,7 +55,7 @@
 														style="width: 150px; z-index: 1">
 														</c:if>
 													<c:if test="${ empty friend.image }">
-													<img src="https://i.imgur.com/6IsrahX.png" alt="Generic placeholder image"
+													<img src="https://i.imgur.com/6IsrahX.png" alt="Profile picture"
 														class="img-fluid img-thumbnail mt-4 mb-2"
 														style="width: 150px; z-index: 1">
 														</c:if>

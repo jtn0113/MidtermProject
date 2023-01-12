@@ -33,6 +33,9 @@
 						data-bs-dismiss="offcanvas" aria-label="Close"></button>
 				</div>
 				<div class="offcanvas-body">
+					<img src="${loggedInUser.image }" alt="Profile Picture"
+														class="img-fluid img-thumbnail mt-4 mb-2"
+														style="width: 150px; z-index: 1">
 					<form action="search.do" class="d-flex mt-3" role="search">
 						<input type="hidden" name="userId" value="${loggedInUser.id}">
 						<input class="form-control me-2" type="search"

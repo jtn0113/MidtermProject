@@ -74,8 +74,8 @@
 
 										<div class="form-outline">
 											<label for="aboutMe">About Me:</label><br>
-											<textarea cols="50" rows="6" name="description"
-												value="${loggedInUser.aboutMe}"></textarea>
+											<textarea cols="50" rows="6" name="aboutMe"
+												> ${loggedInUser.aboutMe} </textarea>
 											<!--add more creative lingo  -->
 										</div>
 									</div>
@@ -84,8 +84,9 @@
 									<div class="col-md-6 mb-4 pb-2">
 
 										<div class="form-outline">
-											<label for="image">Profile Photo:</label><br> <input
-												type="text" name="image">
+											<label for="image">Profile Photo:</label><br>
+											<textarea cols="50" rows="6" name="image">${loggedInUser.image}
+												</textarea> 
 										</div>
 
 									</div>

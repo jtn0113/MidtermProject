@@ -30,10 +30,13 @@ Sip., is a web based application that allows a user to create journal entries ba
 <strong><em>Once logged in the user has the following options:</strong></em>
 <ul>
 <li> Read previous journal entries on the home page</li>
+<li> Click and view details of entry</li>
 <br>
 <img src="home.png" alt="Home Page">
 <br>
-<br>
+<img src="journal.png" alt="Journal Entry">
+   <br>
+   <br>
 
 <strong><em>From the navigation bar:</strong></em>
 <li> Search previous entry by drink name</li>
@@ -41,8 +44,22 @@ Sip., is a web based application that allows a user to create journal entries ba
 <li> Create a new tasting (beer, wine, spirit)</li>
 <li> View friends list where the user can search and add a new friend or remove friends from current list</li>
 <li> Logout</li>
+<br>
+<img src="AccountInfo.png" alt="Account Info">
+<br>
+<br>
+<img src="navbar.png" alt="Nav Bar">
+  <br>
+  <br>
+  <img src="friendsList.png" alt="Friends">
+    <br>
+     <br>
 <li> If the user has admin privileges they will also be able to "Manage Users" from the navigation bar where they can activate and deactivate users</li>
  </ul>
+ <br>
+    <img src="AdminPrivs.png" alt="Admin Page">
+    <br>
+    <br>
 
 <strong><em> How CRUD was implemented:</strong></em>
 
@@ -68,28 +85,6 @@ Sip., is a web based application that allows a user to create journal entries ba
  </ul>
  <br>
  <br>
-
-
-
-  <img src="journal.png" alt="Journal Entry">
-   <br>
-   <br>
-  <img src="navbar.png" alt="Nav Bar">
-    <br>
-    <br>
-  <img src="AccountInfo.png" alt="Account Info">
-  <br>
-  <br>
-  <img src="tasting.png" alt="New Tasting">
-   <br>
-   <br>
-  <img src="friendsList.png" alt="Friends">
-    <br>
-     <br>
-  <img src="FriendsProfile.png" alt="Friends Profile">
-      <br>
-      <br>
-   <img src="AdminPrivs.png" alt="Admin Page">
 
 
 <img src="SchemaDesign.png" alt="Schema">

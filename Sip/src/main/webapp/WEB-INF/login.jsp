@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="main.css">
 </head>
 <body>
-	<section class="h-100 gradient-form" style="background-color: #786877;">
+	<section class="h-100 gradient-form" >
 		<div class="container py-5 h-100">
 			<div
 				class="row d-flex justify-content-center align-items-center h-100">
@@ -58,7 +58,7 @@
 											<button
 												class="btn btn-primary btn-block fa-lg mb-3" id = "gradient"
 												type="submit">Log in</button>
-											<a class="text-muted" href="#!">Forgot password?</a>
+											
 										</div>
 
 										<div
@@ -72,7 +72,7 @@
 
 								</div>
 							</div>
-							<div class="col-lg-6 d-flex align-items-center" id = "gradient">
+							<div class="col-lg-6 d-flex align-items-center gradient-custom-2">
 								<div class="
 								text-black px-3 py-4 p-md-5 mx-md-4 bio" id="bio">
 									<h4 class="mb-4">What you sippin' on?</h4>

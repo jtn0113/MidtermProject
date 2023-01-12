@@ -14,7 +14,7 @@ Team Members:
 <strong><em>What is Sip.?</strong></em>
 
 Sip., is a web based application that allows a user to create journal entries based upon different alcoholic beverages they've tried. The purpose of the journal entry is to save and store the information about a specific drink for the user. For example, if you were a wine connoisseur you could add unique journal entries detailing all of the different wines you've tasted. Perhaps you had a fantastic wine while dining with friends down the street or a lovely pinot noir while traveling abroad in Italy, you can create and save those memories in the Sip. application.
-
+![Schema Design](https://files.slack.com/files-pri/T052X7BAZ-F04JR2M7D9A/schemadesign.png?raw=true "home")
 ### <strong><em>How It Works:</strong></em>
 
 <strong><em>When a user accesses the welcome page they can:</strong></em>

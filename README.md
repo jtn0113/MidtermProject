@@ -113,7 +113,9 @@ Sip., is a web based application that allows a user to create journal entries ba
 
 ### <strong>Lessons Learned:</strong>
 
-ADD LESSONS LEARNED SECTION
+This was a great project to build upon our paired programming experience and skill. Coming together as a group of four to create a thought out and organized Trello board and ERD Diagram put us on a good path from the start. The amount of communication and decision making that went into the completion of each individual user story was something we hadn't experienced before. We quickly adapted to each other and our styles and because of that we worked at an extremely efficient pace.
+
+
 ### <strong>Stretch Goals Implemented:</strong>
 <ul>
 <li> Give user ability to follow, add, and remove friends</li>

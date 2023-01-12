@@ -62,12 +62,16 @@
 														<h5>${friend.firstName } ${friend.lastName}</h5>
 													</div>
 												</div>
+												<br>
+												<br>
+												<br>
 												<form action="deleteFriend.do">
-													<input type="hidden" name="friendId" value="${friend.id }">
-													<button type="submit" class="btn btn-danger">Remove Friend</button>
-												</form>
 												<div class="p-4 text-black"
 													style="background-color: #f8f9fa;">
+													<input type="hidden" name="friendId" value="${friend.id }">
+													<button type="submit" class="btn btn-danger">Remove Friend</button>
+												</div>
+												</form>
 													<%-- <div class="d-flex justify-content-end text-center py-1">
 													<div>
 														<p class="mb-1 h5">${beerTasting.size() }SIZE</p>
@@ -82,7 +86,6 @@
 														<p class="small text-muted mb-0">Following</p>
 													</div>
 												</div> --%>
-												</div>
 												<div class="card-body p-4 text-black">
 													<div class="mb-5">
 														

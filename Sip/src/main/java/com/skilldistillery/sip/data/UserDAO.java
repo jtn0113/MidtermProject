@@ -18,6 +18,9 @@ public interface UserDAO {
 	boolean activateAccount(int userId);
 	List<User> findActiveAccounts();
 	List<User> findDeactivatedAccounts();
-
+	User findFriendByUsername(String username);
+	List<User> findAllUsers();
+	boolean addFriendToUser(String usernameOfFriend, User user);
+	boolean removeFriendFromUser(int friendId, User user);
 }
  

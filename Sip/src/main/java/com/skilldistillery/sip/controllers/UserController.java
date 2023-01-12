@@ -192,5 +192,29 @@ public class UserController {
 		
 	}
 
-
+	@RequestMapping("addFriend.do")
+	public String addFriend(@RequestParam String searchFriend, HttpSession session, Model model) {
+		User user = (User) session.getAttribute("loggedInUser");
+		if(userDao.addFriendToUser(searchFriend, user) == false) {
+			String errorMessage = "You are already following " + searchFriend;
+			model.addAttribute("errorMessage", errorMessage);
+		} else if(userDao.findFriendByUsername(searchFriend) == null) {
+			String errorMessage = searchFriend + " does not exist";
+			model.addAttribute("errorMessage", errorMessage);
+		}
+		model.addAttribute("friends", userDao.findFriendsForUser(user.getId()));
+		return "friends";
+	}
+	
+	@RequestMapping("deleteFriend.do")
+	public String deleteFriend(@RequestParam int friendId, HttpSession session, Model model) {
+		User user = (User) session.getAttribute("loggedInUser");
+		User friend = userDao.findById(friendId);
+		userDao.removeFriendFromUser(friendId, user);
+		String errorMessage = friend.getUsername() + " deleted from friends";
+		model.addAttribute("friends", userDao.findFriendsForUser(user.getId()));
+		model.addAttribute("errorMessage", errorMessage);
+		return "friends";
+	}
+	
 }

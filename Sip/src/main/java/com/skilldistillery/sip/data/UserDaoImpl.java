@@ -123,5 +123,47 @@ public class UserDaoImpl implements UserDAO {
 		
 		return activeUsers;
 	}
+	
+	@Override
+	public User findFriendByUsername(String usernameOfFriend) {
+		String jpql = "SELECT u FROM User u WHERE u.username = :usernameOfFriend";
+		try {
+			User friend = em.createQuery(jpql, User.class).setParameter("usernameOfFriend", usernameOfFriend).getSingleResult();
+			return friend;
+		} catch (Exception e) {
+			return null;
+		}
+	}
+	
+	@Override
+	public List<User> findAllUsers() {
+		String jpql = "SELECT u FROM User u";
+		List<User> allUsers = em.createQuery(jpql, User.class).getResultList();
+		
+		return allUsers;
+	}
+
+	@Override
+	public boolean addFriendToUser(String usernameOfFriend, User user) {
+		User friend = findFriendByUsername(usernameOfFriend);
+		user = findFriendByUsername(user.getUsername());
+		if( ! user.getFollowing().contains(friend)) {
+			user.addFriend(friend);
+		} else {
+			return false;
+		}
+
+		return user.getFollowing().contains(friend);
+	}
+	
+	@Override
+	public boolean removeFriendFromUser(int friendId, User user) {
+		User friend = findById(friendId);
+		user = findFriendByUsername(user.getUsername());
+		user.removeFriend(friend);
+		
+		return true;
+	}
+
 
 }

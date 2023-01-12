@@ -177,6 +177,16 @@ public class User {
 	public boolean isOverTwentyOne() {
 		return overTwentyOne;
 	}
+	
+	public User addFriend(User friend) {
+		following.add(friend);
+		return friend;
+	}
+	
+	public User removeFriend(User friend) {
+		following.remove(friend);
+		return friend;
+	}
 
 	@Override
 	public String toString() {

@@ -9,6 +9,14 @@
 </head>
 <body>
 
+	<form action="addFriend.do">
+		<c:if test="${errorMessage != null}">
+			<div class="alert alert-danger" role="alert">${errorMessage}</div>
+		</c:if>
+		<input type="text" name="searchFriend" placeholder="Add Friend by Username">
+		<button type="submit" class="btn btn-success">Add Friend</button>
+	</form>
+
 	<h2>Friends List</h2>
 
 	<form action="friends.do" method="POST">
@@ -54,6 +62,10 @@
 														<h5>${friend.firstName } ${friend.lastName}</h5>
 													</div>
 												</div>
+												<form action="deleteFriend.do">
+													<input type="hidden" name="friendId" value="${friend.id }">
+													<button type="submit" class="btn btn-danger">Remove Friend</button>
+												</form>
 												<div class="p-4 text-black"
 													style="background-color: #f8f9fa;">
 													<%-- <div class="d-flex justify-content-end text-center py-1">
@@ -73,6 +85,7 @@
 												</div>
 												<div class="card-body p-4 text-black">
 													<div class="mb-5">
+														
 														<p class="lead fw-normal mb-1">About</p>
 														<div class="p-4" style="background-color: #f8f9fa;">
 															<p>${friend.aboutMe}</p>

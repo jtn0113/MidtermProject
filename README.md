@@ -76,7 +76,16 @@ Sip., is a web based application that allows a user to create journal entries ba
   <img src="AccountInfo.png" alt="Account Info">
   <br>
   <br>
-   <img src="home.png" alt="Home Page">
+  <img src="tasting.png" alt="New Tasting">
+   <br>
+   <br>
+  <img src="friendsList.png" alt="Friends">
+    <br>
+     <br>
+  <img src="FriendsProfile.png" alt="Friends Profile">
+      <br>
+      <br>
+   <img src="AdminPrivs.png" alt="Admin Page">
 
 
 <img src="SchemaDesign.png" alt="Schema">

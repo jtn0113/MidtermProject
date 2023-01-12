@@ -49,7 +49,7 @@ Sip., is a web based application that allows a user to create journal entries ba
  <li> User can search for existing journal entry by drink name</li>
  <li> User can view previous journal entries</li>
  <li> User can search for friends by username</li>
- <ul>
+ </ul>
 
 <strong><em> Update:</strong></em>
  <ul>
@@ -57,6 +57,7 @@ Sip., is a web based application that allows a user to create journal entries ba
  <li> User can update previous journal entries</li>
  <li> User can add or remove friends from friends list</li>
  <li> User can delete previous journal entries</li>
+ </ul>
  <br>
  <br>
 
@@ -66,6 +67,7 @@ Sip., is a web based application that allows a user to create journal entries ba
 <img src="SchemaDesign.png" alt="Schema">
 
 ### <strong>Technologies Used:</strong>
+
 <ul>
 <li>Java</li>
 <li>MySQL</li>

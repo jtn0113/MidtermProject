@@ -33,7 +33,7 @@ Sip., is a web based application that allows a user to create journal entries ba
 <li> Create a new tasting (beer, wine, spirit)</li>
 <li> View friends list where the user can search and add a new friend or remove friends from current list</li>
 <li> Logout</li>
-<li> If the user has admin priveledges they will also be able to "Manage Users" from the navigation bar where they can activate and deactivate users</li>
+<li> If the user has admin privileges they will also be able to "Manage Users" from the navigation bar where they can activate and deactivate users</li>
  </ul>
 
 <strong><em> How CRUD was implemented:</strong></em>
@@ -57,11 +57,13 @@ Sip., is a web based application that allows a user to create journal entries ba
  <li> User can update previous journal entries</li>
  <li> User can add or remove friends from friends list</li>
  <li> User can delete previous journal entries</li>
+ <br>
+ <br>
 
 
 <img src="SchemaDesign.png" alt="Schema">
 
-### <strong>Technologies Used:</strong>
+###<strong>Technologies Used:</strong>
 <ul>
 <li>Java</li>
 <li>MySQL</li>
@@ -84,17 +86,17 @@ Sip., is a web based application that allows a user to create journal entries ba
 <li>Trello</li>
 </ul>
 
-### <strong>Lessons Learned:</strong>
+###<strong>Lessons Learned:</strong>
 
 ADD LESSONS LEARNED SECTION
-### <strong>Stretch Goals Implemented:</strong>
+###<strong>Stretch Goals Implemented:</strong>
 <ul>
 <li> Give user ability to follow, add, and remove friends</li>
 <li> Give user ability to view friends profile page</li>
 <li> Give admin ability to activate/deactivate other user accounts</li>
 </ul>
 
-### <strong>How To Run:</strong>
+###<strong>How To Run:</strong>
 
 Go to: http://52.5.120.254:8080/Sip/
 <ul>

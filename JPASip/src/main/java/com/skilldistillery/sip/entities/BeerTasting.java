@@ -16,16 +16,16 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 @Entity
-@Table(name="beer_tasting")
+@Table(name = "beer_tasting")
 public class BeerTasting {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@ManyToOne
-	@JoinColumn(name="user_id")
+	@JoinColumn(name = "user_id")
 	private User user;
-	
+
 	private String notes;
 	private double price;
 	private Integer rating;
@@ -33,31 +33,30 @@ public class BeerTasting {
 
 	@Column(name = "date_sampled")
 	private LocalDate dateSampled;
-	
+
 	@ManyToOne
-	@JoinColumn(name="beer_id")
+	@JoinColumn(name = "beer_id")
 	private Beer beer;
-	
 
 	public String getFormattedPrice() {
 		NumberFormat formatter = NumberFormat.getCurrencyInstance();
 		return formatter.format(price);
 	}
-	
+
+	@Transient
+	public String getFormattedDate() {
+		if (dateSampled == null) {
+			return null;
+		}
+		return DateTimeFormatter.ofPattern("MMM d, yyyy").format(dateSampled);
+	}
+
 	public LocalDate getDateSampled() {
 		return dateSampled;
 	}
 
 	public void setDateSampled(LocalDate dateSampled) {
 		this.dateSampled = dateSampled;
-	}
-
-	@Transient
-	public String getFormattedDate() {
-		if(dateSampled == null) {
-			return null;
-		}
-		return DateTimeFormatter.ofPattern("MMM d, yyyy").format(dateSampled);
 	}
 
 	public BeerTasting() {
@@ -87,7 +86,6 @@ public class BeerTasting {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	
 
 	public Integer getRating() {
 		return rating;
@@ -105,7 +103,6 @@ public class BeerTasting {
 		this.photo = photo;
 	}
 
-
 	public User getUser() {
 		return user;
 	}
@@ -121,7 +118,6 @@ public class BeerTasting {
 	public void setBeer(Beer beer) {
 		this.beer = beer;
 	}
-
 
 	@Override
 	public String toString() {

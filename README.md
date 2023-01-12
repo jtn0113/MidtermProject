@@ -15,10 +15,7 @@ Team Members:
 
 Sip., is a web based application that allows a user to create journal entries based upon different alcoholic beverages they've tried. The purpose of the journal entry is to save and store the information about a specific drink for the user. For example, if you were a wine connoisseur you could add unique journal entries detailing all of the different wines you've tasted. Perhaps you had a fantastic wine while dining with friends down the street or a lovely pinot noir while traveling abroad in Italy, you can create and save those memories in the Sip. application.
 
-
-<img src="SchemaDesign.png" alt="Schema">
-
-### <strong><em>How It Works:</strong></em>
+### <strong>How It Works:</strong>
 
 <strong><em>When a user accesses the welcome page they can:</strong></em>
 <ul>
@@ -62,9 +59,9 @@ Sip., is a web based application that allows a user to create journal entries ba
  <li> User can delete previous journal entries</li>
 
 
+<img src="SchemaDesign.png" alt="Schema">
 
-
-### <strong><em>Technologies Used:</strong></em>
+### <strong>Technologies Used:</strong>
 <ul>
 <li>Java</li>
 <li>MySQL</li>
@@ -87,18 +84,17 @@ Sip., is a web based application that allows a user to create journal entries ba
 <li>Trello</li>
 </ul>
 
-### <strong><em>Lessons Learned:</strong></em>
+### <strong>Lessons Learned:</strong>
 
-
-### <strong><em>Stretch Goals Implemented:</strong></em>
+ADD LESSONS LEARNED SECTION
+### <strong>Stretch Goals Implemented:</strong>
 <ul>
 <li> Give user ability to follow, add, and remove friends</li>
 <li> Give user ability to view friends profile page</li>
 <li> Give admin ability to activate/deactivate other user accounts</li>
 </ul>
 
-
-### <strong><em>How To Run:</strong></em>
+### <strong>How To Run:</strong>
 
 Go to: http://52.5.120.254:8080/Sip/
 <ul>

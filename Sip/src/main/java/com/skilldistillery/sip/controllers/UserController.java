@@ -53,7 +53,7 @@ public class UserController {
 
 //	@RequestMapping(path = {"createUser.do"}, method = RequestMethod.POST)
 	@RequestMapping("createUser.do")
-	public String createUser(@RequestParam boolean overTwentyOne, @RequestParam String username, User user, Address address, Model model) {
+	public String createUser(@RequestParam boolean overTwentyOne, @RequestParam String username, User user, Address address, Model model, HttpSession session) {
 		//get all usernames - then check if the username they put is unique
 		
 		if(userDao.checkUsername().contains(username)) {
@@ -71,6 +71,8 @@ public class UserController {
 		userDao.create(user);
 		model.addAttribute("user", user);
 		model.addAttribute("addr", address);
+		session.setAttribute("loggedInUser", user);
+		System.out.println(user.getId());
 		return "home";
 		}
 	}
@@ -163,6 +165,7 @@ public class UserController {
 	@RequestMapping("friends.do")
 	public String friendsList(Model model, HttpSession session) {
 		User user = (User) session.getAttribute("loggedInUser");
+		System.out.println("***********"+user);
 		model.addAttribute("friends", userDao.findFriendsForUser(user.getId()));
 		return "friends";
 	}

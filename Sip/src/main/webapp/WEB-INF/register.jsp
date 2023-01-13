@@ -83,16 +83,16 @@
                 <div class="col-md-6 mb-4 pb-2">
 
                   <div class="form-outline">
-                    <input type="text" name="username" class="form-control form-control-lg" />
                     <label class="form-label" for="username">Username</label>
+                    <input type="text" name="username" required class="form-control form-control-lg" />
                   </div>
 
                 </div>
                 <div class="col-md-6 mb-4 pb-2">
 
                   <div class="form-outline">
-                    <input type="password" name="password" class="form-control form-control-lg" />
                     <label class="form-label" for="password">Password</label>
+                    <input type="password" name="password" required class="form-control form-control-lg" />
                   </div>
 		
                 </div>

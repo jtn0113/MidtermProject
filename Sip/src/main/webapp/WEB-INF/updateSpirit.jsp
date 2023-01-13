@@ -16,7 +16,7 @@
 						style="border-radius: 15px;">
 						<div class="card-body p-4 p-md-5">
 
-							<h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Account Information</h3>
+							<h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Update Spirit</h3>
 
 							<form action="editSpirit.do" method="POST">
 								<input type="hidden" name="spiritId" value="${spiritTasting.id}">
@@ -71,7 +71,7 @@
 								<div class="row">
 									<div class="col-md-6 mb-4 pb-2">
 
-										<div class="form-outline">
+										<div class="form-outline"><label for="photo">Image:</label><br>
 									<textarea cols="50" rows="6" name="photo"
 												> ${spiritTasting.photo} </textarea>
 										</div>

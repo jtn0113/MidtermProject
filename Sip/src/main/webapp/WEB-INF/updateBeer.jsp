@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>updateBeer</title>
+<title>Update Beer</title>
 <%@ include file="nav.jsp"%>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
@@ -23,7 +23,7 @@
 						style="border-radius: 15px;">
 						<div class="card-body p-4 p-md-5">
 
-							<h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Account Information</h3>
+							<h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Update Beer</h3>
 
 							<form action="editBeer.do" method="POST">
 								<input type="hidden" name="beerId" value="${beerTasting.id}">
@@ -78,7 +78,7 @@
 								<div class="row">
 									<div class="col-md-6 mb-4 pb-2">
 
-										<div class="form-outline">
+										<div class="form-outline"><label for="photo">Image:</label><br>
 												<textarea cols="50" rows="6" name="photo"
 												> ${beerTasting.photo} </textarea>
 										</div>

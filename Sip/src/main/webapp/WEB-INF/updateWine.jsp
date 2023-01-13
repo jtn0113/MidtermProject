@@ -16,7 +16,7 @@
 						style="border-radius: 15px;">
 						<div class="card-body p-4 p-md-5">
 
-							<h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Account Information</h3>
+							<h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Update Wine Entry</h3>
 
 							<form action="editWine.do" method="POST">
 								<input type="hidden" name="wineId" value="${wineTasting.id}">

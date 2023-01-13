@@ -87,7 +87,7 @@
 							<strong>Price Per Glass:</strong> ${beerTasting.formattedPrice }<br>
 						</c:if>
 						<c:if test="${not empty beerTasting.photo }">
-							<img class="drinkImage" src="${beerTasting.photo }">
+							<img class="drinkImage" src="${beerTasting.photo }"><br>
 						</c:if>
 						<br> <a href="updateBeer.do?id=${beerTasting.id}"><button
 								type="button" class="btn btn-success">Update</button></a> <a
@@ -168,7 +168,7 @@
 							<strong>Price Per Glass:</strong> ${wineTasting.formattedPrice }<br>
 						</c:if>
 						<c:if test="${not empty wineTasting.photo }">
-							<img class="drinkImage" src="${wineTasting.photo }">
+							<img class="drinkImage" src="${wineTasting.photo }"><br>
 						</c:if>
 						<br> <a href="updateWine.do?id=${wineTasting.id}"><button
 								type="button" class="btn btn-success">Update</button></a> <a
@@ -253,7 +253,7 @@
 							<strong>Price Per Glass:</strong> ${spiritTasting.formattedPrice }<br>
 						</c:if>
 						<c:if test="${not empty spiritTasting.photo }">
-							<img class="drinkImage" src="${spiritTasting.photo }">
+							<img class="drinkImage" src="${spiritTasting.photo }"><br>
 						</c:if>
 						<br> <a href="updateSpirit.do?id=${spiritTasting.id}"><button
 								type="button" class="btn btn-success">Update</button></a> <a

@@ -25,8 +25,8 @@
 									<div class="col-md-6 mb-4 pb-2">
 
 										<div class="form-outline">
-											<label for="notes>">Notes:</label><br> <input
-												type="text" name="notes" value="${wineTasting.notes }">
+											<label for="notes>">Notes:</label><br> <textarea cols="50" rows="6" name="notes"
+												> ${wineTasting.notes} </textarea>
 										</div>
 
 									</div>

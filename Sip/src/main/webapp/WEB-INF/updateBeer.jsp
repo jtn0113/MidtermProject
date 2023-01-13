@@ -32,9 +32,9 @@
 									<div class="col-md-6 mb-4 pb-2">
 
 										<div class="form-outline">
-											<label for="notes>">Notes:</label><br> <input
-												type="text" name="notes"
-												value="${beerTasting.notes }">
+											<label for="notes>">Notes:</label><br> 												
+												<textarea cols="50" rows="6" name="notes"
+												> ${beerTasting.notes} </textarea>
 										</div>
 
 									</div>

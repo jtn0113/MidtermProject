@@ -53,8 +53,8 @@
 									<div class="row">
 									<div class="col-md-6 mb-4 pb-2">
 										<div class="form-outline">
-											<label for="photo">Photo:</label> <br><input
-												type="text" name="photo">
+											<label for="photo">Photo:</label> <br>
+											<textarea cols="50" rows="6" name="photo"></textarea>
 										</div>
 
 									</div>

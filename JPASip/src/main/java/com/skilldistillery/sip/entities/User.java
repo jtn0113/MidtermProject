@@ -177,6 +177,9 @@ public class User {
 	public boolean isOverTwentyOne() {
 		return overTwentyOne;
 	}
+	public void setOverTwentyOne(boolean overTwentyOne) {
+		this.overTwentyOne = overTwentyOne;
+	}
 	
 	public User addFriend(User friend) {
 		following.add(friend);
@@ -195,9 +198,6 @@ public class User {
 				+ ", image=" + image + ", aboutMe=" + aboutMe + ", overTwentyOne=" + overTwentyOne + "]";
 	}
 
-	public void setOverTwentyOne(boolean overTwentyOne) {
-		this.overTwentyOne = overTwentyOne;
-	}
 
 	@Override
 	public int hashCode() {

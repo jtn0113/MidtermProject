@@ -22,5 +22,6 @@ public interface UserDAO {
 	List<User> findAllUsers();
 	boolean addFriendToUser(String usernameOfFriend, User user);
 	boolean removeFriendFromUser(int friendId, User user);
+	List<String> checkUsername();
 }
  

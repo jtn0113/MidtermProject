@@ -45,7 +45,7 @@
 										<div class="form-outline">
 											<label for="price">Price:</label><br> <input
 												type="number" name="price" step="0.01"
-												value="${beerTasting.price }">
+												value="${beerTasting.price }" required>
 
 
 										</div>
@@ -57,7 +57,7 @@
 										<div class="form-outline">
 											<label for="rating">Rating:</label><br> <input
 												type="number" name="rating" min = 0  max = 10
-												value="${beerTasting.rating }" required>
+												value="${beerTasting.rating }">
 										</div>
 
 									</div>
@@ -79,8 +79,8 @@
 									<div class="col-md-6 mb-4 pb-2">
 
 										<div class="form-outline">
-											<label for="photo">Image:</label><br> <input
-												type="text" name="photo">
+												<textarea cols="50" rows="6" name="photo"
+												> ${beerTasting.photo} </textarea>
 										</div>
 
 									</div>

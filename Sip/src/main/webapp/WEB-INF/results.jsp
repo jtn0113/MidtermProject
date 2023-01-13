@@ -167,7 +167,7 @@
 							<strong>Wine Description:</strong> ${wineTasting.wine.description }<br>
 						</c:if>
 						<c:if test="${not empty wineTasting.price }">
-							<strong>Price Per Glass:</strong> ${wineTasting.price }
+							<strong>Price Per Glass:</strong> ${wineTasting.formattedPrice }
 							</c:if>
 						<c:if test="${not empty wineTasting.photo }">
 							<img src="${wineTasting.photo }">

@@ -23,8 +23,8 @@
 					<div class="row">
 									<div class="col-md-6 mb-4 pb-2">
 										<div class="form-outline">
-								<label for ="notes"> Notes: </label> <br>		<label for ="notes"> Notes </label><br> <textarea cols="50"
-											rows="6" name="notes" placeholder="Magic moments?">
+								<label for ="notes"> Notes: </label><br> <textarea cols="50"
+											rows="6" name="notes" placeholder="Add your experience here">
 											</textarea>
 										</div>
                                        </div>

@@ -53,11 +53,26 @@ public class UserController {
 
 //	@RequestMapping(path = {"createUser.do"}, method = RequestMethod.POST)
 	@RequestMapping("createUser.do")
-	public String createUser(User user, Address address, Model model) {
+	public String createUser(@RequestParam boolean overTwentyOne, @RequestParam String username, User user, Address address, Model model) {
+		//get all usernames - then check if the username they put is unique
+		
+		if(userDao.checkUsername().contains(username)) {
+			String errorMessage = "Error: That username is already taken.";
+			model.addAttribute("errorMessage", errorMessage);
+			return "login";
+		}
+		
+		else if(overTwentyOne == false) {
+			String errorMessage = "Error: Must be over 21 to use this app.";
+			model.addAttribute("errorMessage", errorMessage);
+			return "login";			
+		}
+		else {			
 		userDao.create(user);
 		model.addAttribute("user", user);
 		model.addAttribute("addr", address);
 		return "home";
+		}
 	}
 
 //	GET login.do displays the login view.

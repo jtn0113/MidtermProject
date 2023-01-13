@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,8 +26,7 @@
 
 										<div class="form-outline">
 											<label for="notes>">Notes:</label><br> <input
-												type="text" name="notes"
-												value="${wineTasting.notes }">
+												type="text" name="notes" value="${wineTasting.notes }">
 										</div>
 
 									</div>
@@ -49,14 +48,14 @@
 
 										<div class="form-outline">
 											<label for="rating">Rating:</label><br> <input
-												type="number" name="rating" min = 0  max = 10
+												type="number" name="rating" min=0 max=10
 												value="${wineTasting.rating }" required>
 										</div>
 
 									</div>
 								</div>
 
-					 			<div class="row">
+								<div class="row">
 									<div class="col-md-6 mb-4 pb-2">
 
 										<div class="form-outline">
@@ -67,13 +66,13 @@
 
 									</div>
 								</div>
-				
+
 								<div class="row">
 									<div class="col-md-6 mb-4 pb-2">
 
 										<div class="form-outline">
-											<label for="photo">Image:</label><br> <input
-												type="text" name="photo">
+											<label for="photo">Image:</label><br>
+											<textarea cols="50" rows="6" name="photo"> ${wineTasting.photo} </textarea>
 										</div>
 
 									</div>

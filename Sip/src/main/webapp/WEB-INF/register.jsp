@@ -94,10 +94,10 @@
                     <input type="password" name="password" class="form-control form-control-lg" />
                     <label class="form-label" for="password">Password</label>
                   </div>
-
+		
                 </div>
               </div>
-
+                              <input type="hidden" name="enabled" value="true">				
               <div class="mt-4 pt-2">
                 <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
               </div>

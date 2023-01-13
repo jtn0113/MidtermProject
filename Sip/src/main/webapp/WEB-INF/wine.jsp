@@ -118,7 +118,7 @@
 												<div class="form-outline">
 													<label for="description">Description:</label><br>
 													<textarea cols="50" rows="6" name="description"
-														placeholder="Add your taste description here"></textarea>
+														placeholder="Add taste description here"></textarea>
 													<!--add more creative lingo  -->
 												</div>
 

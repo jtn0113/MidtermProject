@@ -37,7 +37,7 @@
 										<div class="form-outline">
 											<label for="price">Price:</label><br> <input
 												type="number" name="price" step="0.01"
-												value="${wineTasting.price }">
+												value="${wineTasting.price }" required>
 
 
 										</div>

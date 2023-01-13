@@ -91,7 +91,7 @@
 									<div class="col-md-6 mb-4 pb-2">
 										<div class="form-outline">
 											<label for="originCountry">Origin Country:</label> <br><input
-												type="text" name="originCountry">
+												type="text" name="originCountry" required>
 										</div>
 
 									</div>
@@ -101,7 +101,7 @@
 									<div class="col-md-6 mb-4 pb-2">
 										<div class="form-outline">
 											<label for="originStateProvince">Origin State or Province:</label><br> <input
-												type="text" name="originStateProvince" required>
+												type="text" name="originStateProvince">
 
 										</div>
 </div>

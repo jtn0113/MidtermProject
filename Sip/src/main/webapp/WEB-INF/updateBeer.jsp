@@ -57,7 +57,7 @@
 										<div class="form-outline">
 											<label for="rating">Rating:</label><br> <input
 												type="number" name="rating" min = 0  max = 10
-												value="${beerTasting.rating }">
+												value="${beerTasting.rating }" required>
 										</div>
 
 									</div>

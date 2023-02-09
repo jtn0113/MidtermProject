@@ -53,7 +53,8 @@
                 <div class="col-md-6 mb-4 d-flex align-items-center">
 
                   <div class="form-outline datepicker w-100">
-                    <input type="text" class="form-control form-control-lg" name="zipCode" />
+                    <input type="text" class="form-control form-control-lg" name="zipCode" placeholder="Not required"/>
+                    
                     <label for="zipCode" class="form-label">Zip Code</label>
                   </div>
 
@@ -64,7 +65,7 @@
                 <div class="col-md-6 mb-4 pb-2">
 
                   <div class="form-outline">
-                    <input type="text" name="city" class="form-control form-control-lg" />
+                    <input type="text" name="city" class="form-control form-control-lg" placeholder="Not required"/>
                     <label class="form-label" for="city">City</label>
                   </div>
 
@@ -72,7 +73,7 @@
                 <div class="col-md-6 mb-4 pb-2">
 
                   <div class="form-outline">
-                    <input type="text" name="state" class="form-control form-control-lg" />
+                    <input type="text" name="state" class="form-control form-control-lg" placeholder="Not required" />
                     <label class="form-label" for="state">State</label>
                   </div>
 

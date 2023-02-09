@@ -13,7 +13,8 @@
 	<c:forEach var="activeUser" items="${activeUsers}">
 		<form action="deactivate.do">
 		<input type="hidden" name="id" value="${activeUser.id}">
-			${activeUser.firstName} ${activeUser.lastName}
+			<mark>Name: ${activeUser.firstName} ${activeUser.lastName}</mark> <br>
+				<mark>Username: ${activeUser.username }</mark>
 			 <br>
 		
 		

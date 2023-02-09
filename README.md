@@ -130,3 +130,4 @@ Go to: http://52.5.120.254:8080/Sip/
 <li> Register a new account</li>
 <li> Start adding journal entries! </li>
 </ul>
+# MidtermProjectPersonal
